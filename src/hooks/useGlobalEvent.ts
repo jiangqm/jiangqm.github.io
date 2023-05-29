@@ -20,6 +20,7 @@ export default function (){
         })
     }
     onMounted(()=>{
+        watchResize()
         window.addEventListener('resize',watchResize)   
     })
     onUnmounted(()=>{

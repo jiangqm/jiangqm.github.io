@@ -1,3 +1,8 @@
+<!--
+ * @Author: jiangqm
+ * @Date: 2023-05-29 16:31:35
+ * @Description: 
+-->
 <template>
   <section class="container headerContent">
     <div class="mainContent">
@@ -20,12 +25,18 @@
         </div>
       </el-menu>
     </div>
+    <div>
+      <el-icon><Operation /></el-icon>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import { useConstantStore } from '@/stores/constant'
 import { ref } from 'vue'
+import useWinSize from '@/hooks/useWinSize';
+
+const {isMobile}=useWinSize()
 const store = useConstantStore()
 const menuData = store.menuData
 const activeIndex = ref('')

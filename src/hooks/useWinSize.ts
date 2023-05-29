@@ -5,17 +5,18 @@
  */
 
 import { useWinsizeStore } from '@/stores/winSize'
-import { reactive } from 'vue';
+import {toRefs,computed } from 'vue';
 
 
 export default  ()=>{
     const store = useWinsizeStore();
-    const isMobile = store.isMobile
-    return reactive({
-        winSize:{
-            width:store.globalWidth,
-            height:store.globalHeight
-        },
+    const isMobile =computed(()=>store.isMobile) 
+    const winSize =computed(()=>({
+        width:store.globalWidth,
+        height:store.globalHeight
+    })) 
+    return toRefs({
+        winSize,
         isMobile
     })
 }

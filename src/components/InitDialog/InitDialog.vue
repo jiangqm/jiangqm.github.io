@@ -8,9 +8,9 @@
     :show-close="false"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
-    :title="store.isMobile?'mobile端':'PC端'"
-    :width="store.isMobile?'90%':'450px'"
-    :top="'20%'"
+    :title="isMobile?'mobile端':'PC端'"
+    :width="isMobile?'90%':'450px'"
+    :top="'100px'"
 
     class="dialogContent"
     v-model="dialogVisible"
@@ -36,10 +36,6 @@
 import { onMounted ,computed} from 'vue'
 import { ref } from 'vue'
 import useWinSize from '@/hooks/useWinSize'
-
-import { useWinsizeStore } from '@/stores/winSize'
-
-const store = useWinsizeStore();
 
 const {isMobile}=useWinSize()
 
