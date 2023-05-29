@@ -4,16 +4,21 @@
  * @Description: 
 -->
 <template>
-  <section>
-    <el-drawer v-model="drawer" title="I am the title" :with-header="false">
+  <section class="mobileHeader">
+    <img class="logo" :src="store.logoSrc" alt="logo" >
+    <el-icon class="moreIcon"><Operation /></el-icon>
+ 
+  </section>
+  <el-drawer v-model="drawer" title="I am the title" :with-header="false">
       <span>Hi there!</span>
     </el-drawer>
-  </section>
 </template>
 
 <script setup lang="ts">
-import { log } from 'console';
 import { ref } from 'vue'
+import {useConstantStore} from '@/stores/constant'
+
+const store = useConstantStore()
 
 const props = defineProps({
     menuData:[]
@@ -32,4 +37,20 @@ defineExpose({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.mobileHeader{
+  width: 100%;
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo{
+    height: 30px;
+  }
+  .moreIcon{
+    color: #fff;
+    font-size: 26px;
+  }
+}
+</style>

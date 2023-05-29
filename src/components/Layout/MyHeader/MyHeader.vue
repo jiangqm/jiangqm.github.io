@@ -5,7 +5,8 @@
 -->
 <template>
   <section class="container headerContent">
-    <div class="mainContent">
+    <div v-if="!isMobile" class="mainContent">
+      <img class="logo" :src="store.logoSrc" alt="logo" >
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
         <div v-for="menuItem in menuData" :key="menuItem.url">
           <template v-if="!menuItem.children">
@@ -25,8 +26,9 @@
         </div>
       </el-menu>
     </div>
+    <MobileHeader v-else />
     <div>
-      <el-icon><Operation /></el-icon>
+    
     </div>
   </section>
 </template>
@@ -35,6 +37,7 @@
 import { useConstantStore } from '@/stores/constant'
 import { ref } from 'vue'
 import useWinSize from '@/hooks/useWinSize';
+import MobileHeader from './MobileHeader.vue';
 
 const {isMobile}=useWinSize()
 const store = useConstantStore()
@@ -50,8 +53,17 @@ const activeIndex = ref('')
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.9);
+  .logo{
+    height:  50px;
+    width: auto;
+  }
+  .mainContent{
+    display: flex;
+  }
   ::v-deep {
     .el-menu {
+      margin-left: 20px;
+      flex: 1;
       background-color: transparent;
       color: #fff;
       .el-sub-menu__title,
@@ -83,5 +95,12 @@ const activeIndex = ref('')
       background-color: transparent;
     }
   }
+}
+
+@media screen and (max-width:768px) {
+  .headerContent{
+    height: 50px;
+  }
+  
 }
 </style>

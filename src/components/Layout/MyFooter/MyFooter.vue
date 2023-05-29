@@ -83,6 +83,9 @@ $color: #c4c4c4;
     .itemContent {
       max-width: 30%;
       margin: 0 20px;
+      &:first-child{
+        margin-left: 0;
+      }
     }
   }
   .itemTitle {

@@ -79,5 +79,7 @@ export const useConstantStore = defineStore('constant', () => {
     }
   }
 
-  return { menuData, footerData }
+  const logoSrc = 'https://file.fomille.site/1462689759759904769/1465973286769258497.webp'
+
+  return { menuData, footerData,logoSrc }
 })
