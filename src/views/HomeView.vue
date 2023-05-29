@@ -41,4 +41,12 @@ import ItemSwipe from '@/components/ItemSwipe/ItemSwipe.vue'
   background-color: #fff;
   margin: 0 auto;
 }
+
+@media screen and (max-width:768px) {
+  .titleContent{
+    .title{
+      font-size: 24px;
+    }
+  }
+}
 </style>
