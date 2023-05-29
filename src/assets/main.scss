@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#app{
+  background-color: #333;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container{
+  width: 100%;
+  .mainContent {
+    width: 100%;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.routerLink{
+ &:hover{
+  color: rgba(250, 194, 7, 1);
+ }
+}
+
+
+@media (min-width: 576px) {
+  .mainContent {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .mainContent {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .mainContent {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .mainContent {
+    max-width: 1140px;
+  }
+}
