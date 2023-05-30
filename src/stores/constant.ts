@@ -42,7 +42,7 @@ export const useConstantStore = defineStore('constant', () => {
     },
     {
       name: 'CONTACT US',
-      url: '/contact'
+      url: '/contactUs'
     }
   ])
 

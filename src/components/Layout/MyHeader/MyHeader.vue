@@ -6,11 +6,12 @@
 <template>
   <section class="container headerContent">
     <div v-if="!isMobile" class="mainContent">
-      <img class="logo" :src="store.logoSrc" alt="logo" >
+      <RouterLink to="/"> <img class="logo" :src="store.logoSrc" alt="logo" ></RouterLink>
+     
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
         <div v-for="menuItem in menuData" :key="menuItem.url">
           <template v-if="!menuItem.children">
-            <el-menu-item :index="menuItem.url">{{ menuItem.name }}</el-menu-item>
+            <el-menu-item @click="onMenuClick(menuItem.url)" :index="menuItem.url">{{ menuItem.name }}</el-menu-item>
           </template>
           <template v-else>
             <el-sub-menu :index="menuItem.url">
@@ -19,6 +20,7 @@
                 v-for="menuSubItem in menuItem.children"
                 :index="menuSubItem.url"
                 :key="menuSubItem.name"
+                @click="onMenuClick(menuSubItem.url)"
                 >{{ menuSubItem.name }}</el-menu-item
               >
             </el-sub-menu>
@@ -38,6 +40,12 @@ import { useConstantStore } from '@/stores/constant'
 import { ref } from 'vue'
 import useWinSize from '@/hooks/useWinSize';
 import MobileHeader from './MobileHeader.vue';
+import { RouterLink, useRouter } from 'vue-router';
+const router = useRouter()
+
+const onMenuClick = (url:string)=>{
+  router.push(url)
+}
 
 const {isMobile}=useWinSize()
 const store = useConstantStore()

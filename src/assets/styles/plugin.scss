@@ -1,0 +1,9 @@
+.el-drawer__body {
+  padding: 0 !important;
+}
+
+@media screen and (max-width:768px) {
+    .swiper-button-next:after, .swiper-button-prev:after{
+        font-size: 16px !important; 
+    }
+}
