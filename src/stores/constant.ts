@@ -52,8 +52,8 @@ export const useConstantStore = defineStore('constant', () => {
       data: [
         { name: 'Home', url: '/' },
         { name: 'Product', url: '/' },
-        { name: 'About us', url: '/' },
-        { name: 'Contact us', url: '/' }
+        { name: 'About us', url: '/about' },
+        { name: 'Contact us', url: '/contactUs' }
       ]
     },
     product: {
