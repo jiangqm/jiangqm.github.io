@@ -55,7 +55,7 @@ const menuData = store.menuData
 
 const extendArray = ref<any>({})
 
-const drawer = ref(true)
+const drawer = ref(false)
 
 const openDrawer = () => {
   drawer.value = true

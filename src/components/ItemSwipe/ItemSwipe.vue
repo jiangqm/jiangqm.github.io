@@ -10,7 +10,7 @@
       :pagination="{
         clickable: true
       }"
-      :slides-per-view="isMobile?2:4"
+      :slides-per-view="isMobile ? 1 : 4"
       :navigation="true"
       :modules="modules"
       class="mySwiper"
@@ -18,7 +18,17 @@
       <swiper-slide v-for="itemData in productList" :key="itemData.id">
         <div class="itemContent">
           <img class="itemImg" :src="itemData.imageUrl" :alt="itemData.title" />
-
+       
+          <div class="parametersList">
+            <div class="itemTitle">{{ itemData.title }}</div>
+            <section v-if="!isMobile">
+              <div class="itemSubTitle mt20">Product Details</div>
+            <div class="parametersItem" v-for="parametersItem in parameters" :key="parametersItem.field">
+             <span> {{ parametersItem.label }}:</span> <span>{{ itemData[parametersItem.field] }}</span>
+            </div>
+            </section>
+          
+          </div>
         </div>
       </swiper-slide>
     </swiper>
@@ -35,13 +45,20 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref, onMounted } from 'vue'
 import { useProductStore } from '@/stores/product'
 import useWinSize from '@/hooks/useWinSize'
+import { is } from '@babel/types'
 
 const store = useProductStore()
 
-const productList = store.productList;
-const {isMobile}=useWinSize()
+const productList = store.productList
+const { isMobile } = useWinSize()
 const modules = ref([Navigation, Pagination, Scrollbar, A11y])
-
+const parameters = [
+  { label: 'E-liquid Capacity', field: 'volume' },
+  { label: 'Battery Capacity', field: 'battery' },
+  { label: 'Resistance', field: 'resistance' },
+  { label: 'Charging Port', field: 'chargingPort:' },
+  { label: 'weight', field: 'weight' }
+]
 onMounted(() => {})
 </script>
 
@@ -55,18 +72,38 @@ onMounted(() => {})
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #fff;
+    text-align: left;
+.itemTitle{
+  font-weight: 600;
+  font-size: 16px;
+}
+    .itemImg {
+      width: auto;
+      height: 250px;
+      height: width;
+    }
+  }
+  .itemSubTitle{
+  font-weight: 600;
+  font-size: 14px;
+}
+  .parametersList{
+    width: 100%;
+    padding: 5px 20px;
     
-    .itemImg{
-        width: 90%;
-        height: auto;
-        
+    .parametersItem{
+      text-align: left;
+      font-size: 14px;
+      line-height: 20px;
+      color: #f0f0f0;
     }
   }
 }
 
-@media screen and (max-width:768px) {
-    .mySwipeContainer{
-        height: 350px;
-    }
+@media screen and (max-width: 768px) {
+  .mySwipeContainer {
+    height: 350px;
+  }
 }
 </style>

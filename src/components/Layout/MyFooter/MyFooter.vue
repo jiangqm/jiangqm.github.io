@@ -130,6 +130,8 @@ $color: #c4c4c4;
 @media screen and (max-width:600px) {
   .footerContent{
     display: block;
+    padding:    0;
+    background-color: #0d0d0e;
     .mainContent{
     display: block;
     .itemContent{

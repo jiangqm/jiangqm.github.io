@@ -12,8 +12,11 @@
     />
     <section class="container content">
       <div class="mainContent">
-        <el-row gutter="30">
-          <el-col :xs="24" :sm="12">
+        <el-row  gutter="30">
+          <el-col v-if="isMobile"  :xs="24" :sm="12">
+            <ContactBox />
+          </el-col>
+          <el-col :class="isMobile?'mt20':''" :xs="24" :sm="12">
             <el-form :model="formData" ref="formRef">
               <el-row gutter="20">
                 <el-col :xs="24" :sm="12"
@@ -89,7 +92,7 @@
               >Submit</el-button
             >
           </el-col>
-          <el-col :xs="24" :sm="12">
+          <el-col v-if="!isMobile"  :xs="24" :sm="12">
             <ContactBox />
           </el-col>
         </el-row>
@@ -105,6 +108,7 @@ import { ref } from 'vue';
 import {sendEmail} from '@/service/contact'
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
+import useWinSize from '@/hooks/useWinSize';
 
 
 type FormDataType = {
@@ -120,6 +124,8 @@ const formData = ref<FormDataType>({
   name: '',
   email: ''
 })
+
+const {isMobile}=useWinSize()
 
 const loading = ref(false)
 const onSubmit = () => {
@@ -148,5 +154,11 @@ const onSubmit = () => {
   display: flex;
   justify-content: center;
   padding: 40px 10px;
+}
+
+@media screen and (max-width:768px) {
+  .content{
+    padding: 20px 10px;
+  }
 }
 </style>

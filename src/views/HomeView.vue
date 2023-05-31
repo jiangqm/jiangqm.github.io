@@ -1,3 +1,8 @@
+<!--
+ * @Authon: kermit
+ * @Date: 2023-05-29 21:29:21
+ * @Description: 
+-->
 <script setup lang="ts">
 import MySwipe from '@/components/MySwipe/MySwipe.vue'
 import HomeProduct from '@/components/Home/HomeProduct.vue'
@@ -14,13 +19,13 @@ import ItemSwipe from '@/components/ItemSwipe/ItemSwipe.vue'
       </div>
       <HomeProduct />
     </div>
-    <div class="mt60">
+    <div class="itemSwipe">
       <div class="titleContent">
-        <h3 class="title">Vape Products</h3>
+        <h3 class="title">Vape Products List</h3>
         <div class="line"></div>
       </div>
 
-      <div class="mt20"><ItemSwipe /></div>
+      <div class="mt20 "><ItemSwipe /></div>
     </div>
   </main>
 </template>
@@ -41,12 +46,20 @@ import ItemSwipe from '@/components/ItemSwipe/ItemSwipe.vue'
   background-color: #fff;
   margin: 0 auto;
 }
+.itemSwipe{
+  margin-top: 60px;
+}
 
 @media screen and (max-width:768px) {
-  .titleContent{
+  .titleContent{  
+
     .title{
       font-size: 24px;
+      padding: 10px 0;
     }
+  }
+  .itemSwipe{
+    margin-top: 20px;
   }
 }
 </style>

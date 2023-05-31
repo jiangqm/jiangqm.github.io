@@ -7,10 +7,12 @@
   <section class="vapeContent">
 
     <section class="itemContent">
-      <el-row :gutter="20">
+      <el-row class="w100 " :gutter="20">
         <el-col
           :lg="8"
-          :xs="12"
+          :xs="24"
+          :sm="12"
+          class='itemCol'
           v-for="(itemData, index) in productList"
           :key="itemData.id"
           v-show="index < 3"
@@ -41,8 +43,12 @@ const productList = store.productList
 
   .itemContent {
     display: flex;
-    .item {
+    width: 100%;
+    .itemCol{
       margin-top: 20px;
+    }
+    .item {
+     
       width: 100%;
       height: 100%;
       position: relative;
@@ -64,6 +70,10 @@ const productList = store.productList
         text-align: center;
         background-color: rgba(0, 0, 0, 0.28);
         color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
 
       }
       &:hover{
@@ -79,6 +89,26 @@ const productList = store.productList
     .title{
         font-size: 22px;
         padding: 15px;
+    }
+    .itemContent{
+      ::v-deep(.el-row){
+        margin: 0 !important;
+      }
+      .itemCol{
+        margin-top: 0;
+        padding: 0 !important;
+      }
+      .item{
+        width: auto;
+        height: auto;
+        
+        &:hover{
+        transform: translateY(0);
+      }
+      }
+    }
+    .itemTitle{
+      position: relative !important;
     }
 }
     
