@@ -23,7 +23,7 @@
               class="itemImg"
               alt=""
             />
-            <div class="itemTitle">{{itemData.title}}</div>
+            <div class="itemTitle">{{`Pod Vape ${index}`}}</div>
           </div>
         </el-col>
       </el-row>

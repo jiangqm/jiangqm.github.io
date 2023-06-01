@@ -10,7 +10,7 @@
 -->
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView, useRouter,useRoute } from 'vue-router'
 import MyHeader from './components/Layout/MyHeader/MyHeader.vue'
 import MyFooter from './components/Layout/MyFooter/MyFooter.vue'
 import InitDialog from './components/InitDialog/InitDialog.vue'
@@ -20,6 +20,11 @@ useGlobalEvent()
 onMounted(() => {
   console.log('app onmounted')
 })
+const router = useRouter();
+const route = useRoute()
+const toContact =()=>{
+  router.push('/contactUs')
+}
 </script>
 
 <template>
@@ -28,8 +33,51 @@ onMounted(() => {
     <InitDialog />
     <RouterView />
     <MyFooter />
+    <div v-if="route.name!=='contactUs'" class="edit shake" @click="toContact">
+      <el-icon class="fz18"><Comment /></el-icon>
+    </div>
+    <el-backtop class="backtop" :right="20" :bottom="20" />
   </section>
 </template>
 
 <style scoped>
+.fz18{
+  font-size: 18px;
+}
+.backtop {
+  width: 45px;
+  height: 45px;
+  font-size: 16px;
+  box-shadow: 0 2px 16px #00000019;
+}
+.edit {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 45px;
+  height: 45px;
+  background-color: #fabd07;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(239, 243, 8, 0.098);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 999;
+  font-size: 14px;
+}
+
+@keyframes move-up-and-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+.shake {
+    animation: move-up-and-down 2s linear   infinite;
+}
+
 </style>

@@ -92,5 +92,13 @@ export const useProductStore = defineStore('product', () => {
     }
   ]
 
-  return { productList }
+  const parameters = [
+    { label: 'E-liquid Capacity', field: 'volume' },
+    { label: 'Battery Capacity', field: 'battery' },
+    { label: 'Resistance', field: 'resistance' },
+    { label: 'Charging Port', field: 'chargingPort' },
+    { label: 'weight', field: 'weight' }
+  ]
+
+  return { productList,parameters }
 })

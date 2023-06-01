@@ -7,26 +7,31 @@
 import MySwipe from '@/components/MySwipe/MySwipe.vue'
 import HomeProduct from '@/components/Home/HomeProduct.vue'
 import ItemSwipe from '@/components/ItemSwipe/ItemSwipe.vue'
+import ItemRecord from '@/components/Home/ItemRecord.vue'
+import HomeTitle from '@/components/Home/HomeTitle.vue'
 </script>
 
 <template>
   <main>
     <MySwipe />
-    <div class="mt20">
-      <div class="titleContent">
-        <h3 class="title">Vape Products</h3>
-        <div class="line"></div>
-      </div>
+    <section class="mt20">
+      <HomeTitle title="Vape Products " />
       <HomeProduct />
-    </div>
-    <div class="itemSwipe">
-      <div class="titleContent">
-        <h3 class="title">Vape Products List</h3>
-        <div class="line"></div>
-      </div>
+    </section>
 
-      <div class="mt20 "><ItemSwipe /></div>
-    </div>
+    <section class="itemSwipe">
+      <HomeTitle title="Vape Products List" />
+      <div class="mt20"><ItemSwipe /></div>
+    </section>
+
+    <section class="mt20 mb20">
+      <HomeTitle title="Vape Products List" />
+      <div class="mt20 pl20 pr20">
+        <el-row gutter="20">
+          <el-col class="mt20" :lg="12" :xs="24" :sm="12" v-for="i in 5" :key="i"> <ItemRecord /></el-col>
+        </el-row>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -46,19 +51,18 @@ import ItemSwipe from '@/components/ItemSwipe/ItemSwipe.vue'
   background-color: #fff;
   margin: 0 auto;
 }
-.itemSwipe{
+.itemSwipe {
   margin-top: 60px;
 }
 
-@media screen and (max-width:768px) {
-  .titleContent{  
-
-    .title{
+@media screen and (max-width: 768px) {
+  .titleContent {
+    .title {
       font-size: 24px;
       padding: 10px 0;
     }
   }
-  .itemSwipe{
+  .itemSwipe {
     margin-top: 20px;
   }
 }
