@@ -16,6 +16,10 @@ import MyFooter from './components/Layout/MyFooter/MyFooter.vue'
 import InitDialog from './components/InitDialog/InitDialog.vue'
 import useGlobalEvent from '@/hooks/useGlobalEvent'
 import { onMounted } from 'vue'
+import { useConstantStore } from '@/stores/constant'
+
+const store = useConstantStore()
+const whatappLinkUrl = store.whatappLinkUrl
 useGlobalEvent()
 onMounted(() => {
   console.log('app onmounted')
@@ -23,8 +27,10 @@ onMounted(() => {
 const router = useRouter();
 const route = useRoute()
 const toContact =()=>{
-  router.push('/contactUs')
+  window.open(whatappLinkUrl)
+  // router.push('/contactUs')
 }
+
 </script>
 
 <template>
@@ -33,7 +39,7 @@ const toContact =()=>{
     <InitDialog />
     <RouterView />
     <MyFooter />
-    <div v-if="route.name!=='contactUs'" class="edit shake" @click="toContact">
+    <div  class="edit shake" title="Contact me" @click="toContact">
       <el-icon class="fz18"><Comment /></el-icon>
     </div>
     <el-backtop class="backtop" :right="20" :bottom="20" />
@@ -66,6 +72,7 @@ const toContact =()=>{
   color: #fff;
   z-index: 999;
   font-size: 14px;
+  cursor: pointer;
 }
 
 @keyframes move-up-and-down {

@@ -4,6 +4,7 @@
  * @Description: 
 -->
 <template>
+  <section>
   <section class="container footerContent">
     <div class="mainContent">
       <!-- MENU -->
@@ -65,10 +66,14 @@
         </div>
       </section>
     </div>
+    
   </section>
+  <MediaBox />
+</section>
 </template>
 
 <script setup lang="ts">
+import MediaBox from './MediaBox.vue';
 import { RouterLink } from 'vue-router'
 import { useConstantStore } from '@/stores/constant'
 
