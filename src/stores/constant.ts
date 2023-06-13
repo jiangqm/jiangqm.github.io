@@ -62,7 +62,7 @@ export const useConstantStore = defineStore('constant', () => {
       data: [
         { name: 'Pod Vape', url: '/' },
         { name: 'CBD Vape Pen', url: '/' },
-        { name: 'Disposable Vape', url: '/' }
+        { name: 'Disposable Vape', url: '/test' }
       ]
     },
     contact: {
