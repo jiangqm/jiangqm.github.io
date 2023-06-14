@@ -61,17 +61,16 @@ export const useConstantStore = defineStore('constant', () => {
       name: 'PRODUCT',
       data: [
         { name: 'Pod Vape', url: '/' },
-        { name: 'CBD Vape Pen', url: '/' },
         { name: 'Disposable Vape', url: '/test' }
       ]
     },
     contact: {
       name: 'CONTACT',
       data: {
-        phone: '86-0755-29271296',
-        email: 'support@aldgroup.com',
+        phone: '13005436140',
+        email: '3283275593@qq.com',
         address:
-          'Factory B, No. 2, Industrial Third Road, Shixin Community, Shiyan Street, Shenzhen, Guangdong, China'
+          `No. 3037, Jintian Road, Fu'an Community, Futian Street, Futian District, Shenzhen, Shiyan Street, Shenzhen, Guangdong, China`
       }
     },
     warning: {
@@ -81,7 +80,7 @@ export const useConstantStore = defineStore('constant', () => {
   }
 
   const logoSrc = 'https://file.fomille.site/1462689759759904769/1465973286769258497.webp'
-  const whatappLinkUrl = 'https://wa.me/177460758'
+  const whatappLinkUrl = 'https://wa.me/13005436140'
   const linkList = [
     { name: 'facebook',image:FacebookImage, url: 'https://www.facebook.com/aldvaporofficial/' },
     { name: 'instagram',image:InstagramImage, url: 'https://www.instagram.com/ald_group_limited/' },

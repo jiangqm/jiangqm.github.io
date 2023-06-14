@@ -9,6 +9,10 @@ import HomeProduct from '@/components/Home/HomeProduct.vue'
 import ItemSwipe from '@/components/ItemSwipe/ItemSwipe.vue'
 import ItemRecord from '@/components/Home/ItemRecord.vue'
 import HomeTitle from '@/components/Home/HomeTitle.vue'
+
+import { useProductStore } from '@/stores/product'
+const store = useProductStore()
+const productList = store.productList
 </script>
 
 <template>
@@ -28,7 +32,7 @@ import HomeTitle from '@/components/Home/HomeTitle.vue'
       <HomeTitle title="Vape Products List" />
       <div class="mt20 pl20 pr20">
         <el-row gutter="20">
-          <el-col class="mt20" :lg="12" :xs="24" :sm="12" v-for="i in 5" :key="i"> <ItemRecord /></el-col>
+          <el-col class="mt20" :lg="12" :xs="24" :sm="12" v-for="data in productList" :key="data.id"> <ItemRecord :data="data" /></el-col>
         </el-row>
       </div>
     </section>
