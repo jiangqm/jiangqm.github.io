@@ -1,12 +1,17 @@
 /*
  * @Authon: kermit
+ * @Date: 2023-05-29 21:29:21
+ * @Description: 
+ */
+/*
+ * @Authon: kermit
  * @Date: 2023-05-19 15:28:04
  * @Description:常量
  */
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import {FacebookImage,InstagramImage,YoutubeImage,WhatappImage} from '@/assets/image/media'
-
+import LogoImageWrite from '@/assets/image/logoWrite.png'
 type MenuItemType = {
   name: string
   url: string
@@ -21,21 +26,21 @@ export const useConstantStore = defineStore('constant', () => {
     },
     {
       name: 'PRODUCTS',
-      url: '/',
-      children: [
-        {
-          name: 'POD VAPE',
-          url: '/product/podvape'
-        },
-        {
-          name: 'POD VAPE2',
-          url: '/product/podvape'
-        },
-        {
-          name: 'POD VAPE3',
-          url: '/product/podvape'
-        }
-      ]
+      url: '/product/podvape',
+      // children: [
+        // {
+        //   name: 'POD VAPE',
+        //   url: '/product/podvape'
+        // },
+        // {
+        //   name: 'POD VAPE2',
+        //   url: '/product/podvape'
+        // },
+        // {
+        //   name: 'POD VAPE3',
+        //   url: '/product/podvape'
+        // }
+      // ]
     },
     {
       name: 'ABOUT US',
@@ -79,7 +84,7 @@ export const useConstantStore = defineStore('constant', () => {
     }
   }
 
-  const logoSrc = 'https://file.fomille.site/1462689759759904769/1465973286769258497.webp'
+  const logoSrc = LogoImageWrite
   const whatappLinkUrl = 'https://wa.me/13005436140'
   const linkList = [
     { name: 'facebook',image:FacebookImage, url: 'https://www.facebook.com/aldvaporofficial/' },

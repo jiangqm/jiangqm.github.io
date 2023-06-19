@@ -23,10 +23,10 @@ const productList = store.productList
       <HomeProduct />
     </section> -->
 
-    <section class="itemSwipe">
+    <!-- <section class="itemSwipe">
       <HomeTitle title="Vape Products List" />
       <div class="mt20"><ItemSwipe /></div>
-    </section>
+    </section> -->
 
     <section class="mt20 mb20">
       <HomeTitle title="Vape Products List" />
