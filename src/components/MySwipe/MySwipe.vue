@@ -10,6 +10,8 @@
       :pagination="{
         clickable: true
       }"
+      loop
+      :autoplay="{delay: 5000}"
       :navigation="true"
       :modules="modules"
       class="mySwiper"
@@ -26,13 +28,13 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+import { Navigation, Pagination, Scrollbar, A11y,Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ref, onMounted, computed } from 'vue'
 import useWinSize from '@/hooks/useWinSize'
 import {PC_BANNER,MOBILE_BANNER} from '@/assets/image/banner/index'
 
-const modules = ref([Navigation, Pagination, Scrollbar, A11y])
+const modules = ref([Navigation, Pagination, Scrollbar, A11y,Autoplay])
 const pcSrc = 'https://file.fomille.site/1462689759759904769/1641372490676748290.webp'
 const mobileSrc = 'https://file.fomille.site/1462689759759904769/1641372560826482689.webp'
 const { isMobile } = useWinSize()
