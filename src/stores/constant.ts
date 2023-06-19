@@ -10,7 +10,7 @@
  */
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import {FacebookImage,InstagramImage,YoutubeImage,WhatappImage} from '@/assets/image/media'
+import {FacebookImage,InstagramImage,TelegramImage,WhatappImage} from '@/assets/image/media'
 import LogoImageWrite from '@/assets/image/logoWrite.png'
 type MenuItemType = {
   name: string
@@ -87,10 +87,12 @@ export const useConstantStore = defineStore('constant', () => {
   const logoSrc = LogoImageWrite
   const whatappLinkUrl = 'https://wa.me/13005436140'
   const linkList = [
-    { name: 'facebook',image:FacebookImage, url: 'https://www.facebook.com/aldvaporofficial/' },
-    { name: 'instagram',image:InstagramImage, url: 'https://www.instagram.com/ald_group_limited/' },
-    { name: 'youtobe',image:YoutubeImage, url: 'https://www.youtube.com/channel/UCwhyCvKE4TkreD_A5ey3Gfw' },
+    { name: 'facebook',image:FacebookImage, url: 'https://www.facebook.com/profile.php?id=100092434208629' },
+    { name: 'instagram',image:InstagramImage, url: 'https://www.instagram.com/ak_vape_hhc' },
+    // { name: 'youtobe',image:YoutubeImage, url: 'https://www.youtube.com/channel/UCwhyCvKE4TkreD_A5ey3Gfw' },
+    
     { name: 'whatapp',image:WhatappImage, url: whatappLinkUrl },
+    { name: 'telegram',image:TelegramImage, url: 'https://t.me/+8613005436140' },
   ]
   return { menuData, footerData, logoSrc,linkList,whatappLinkUrl }
 })
