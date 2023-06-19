@@ -105,5 +105,8 @@ const parameters = store.parameters
   // .mySwipeContainer {
   //   height: 350px;
   // }
+  .mySwipeContainer{
+    padding: 10px;
+  }
 }
 </style>

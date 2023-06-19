@@ -18,10 +18,10 @@ const productList = store.productList
 <template>
   <main>
     <MySwipe />
-    <section class="mt20">
+    <!-- <section class="mt20">
       <HomeTitle title="Vape Products " />
       <HomeProduct />
-    </section>
+    </section> -->
 
     <section class="itemSwipe">
       <HomeTitle title="Vape Products List" />

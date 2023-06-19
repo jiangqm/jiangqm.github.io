@@ -14,7 +14,7 @@
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide v-for="(v,i) in bannerSrcList" :key="i">
+      <swiper-slide v-for="(v,i) in isMobile?MOBILE_BANNER:PC_BANNER " :key="i">
         <img :src="v" alt="banner" />
       </swiper-slide>
     </swiper>
