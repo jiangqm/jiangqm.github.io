@@ -14,8 +14,8 @@
       :modules="modules"
       class="mySwiper"
     >
-      <swiper-slide v-for="i in 7" :key="i">
-        <img :src="isMobile ? mobileSrc : pcSrc" alt="banner" />
+      <swiper-slide v-for="(v,i) in bannerSrcList" :key="i">
+        <img :src="v" alt="banner" />
       </swiper-slide>
     </swiper>
   </section>
@@ -28,12 +28,18 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import useWinSize from '@/hooks/useWinSize'
+import {PC_BANNER,MOBILE_BANNER} from '@/assets/image/banner/index'
+
 const modules = ref([Navigation, Pagination, Scrollbar, A11y])
 const pcSrc = 'https://file.fomille.site/1462689759759904769/1641372490676748290.webp'
 const mobileSrc = 'https://file.fomille.site/1462689759759904769/1641372560826482689.webp'
 const { isMobile } = useWinSize()
+
+const bannerSrcList = computed(()=>{
+ return isMobile? MOBILE_BANNER:PC_BANNER
+})
 onMounted(() => {})
 </script>
 
