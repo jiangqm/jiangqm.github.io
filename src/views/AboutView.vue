@@ -18,19 +18,19 @@
       <div class="box">
         With the increasing demand for healthy alternatives to smoking, electronic cigarettes have
         become a popular choice for smokers worldwide. As one of the leading manufacturers of
-        electronic cigarette products, the Xpuff brand is committed to providing high-quality,
+        electronic cigarette products, the Evatar.AKvape brand is committed to providing high-quality,
         innovative, and safe vaping solutions to smokers.
       </div>
       <div class="subBox mt60">
         <h2 class="boxTitle">Company Overview</h2>
         <div class="subBoxContent">
           <div class="text">
-            Founded in 2012, Xpuff is a global company headquartered in Shenzhen, China, with
+            Founded in 2012, Evatar.AKvape is a global company headquartered in Shenzhen, China, with
             operations in over 50 countries worldwide. The company has a team of over 500 employees,
             including engineers, designers, and sales professionals, working together to develop
             cutting-edge electronic cigarette products.
         <div class="mt20">
-          Xpuff has a dedicated research and development team that works tirelessly to introduce new and innovative electronic cigarette products to the market. The team is constantly exploring new technologies, materials, and design concepts to improve the user experience and provide better vaping solutions to smokers
+          Evatar.AKvape has a dedicated research and development team that works tirelessly to introduce new and innovative electronic cigarette products to the market. The team is constantly exploring new technologies, materials, and design concepts to improve the user experience and provide better vaping solutions to smokers
       
         </div>
           </div>
@@ -42,7 +42,7 @@
         <h2 class="boxTitle">Factory</h2>
         <div class="mt20">
       
-          Xpuff's factory is located in Dongguan, China, covering an area of over 20,000 square meters. The facility is equipped with state-of-the-art production equipment and advanced technologies that enable the production of high-quality electronic cigarette products. The factory employs strict quality control measures to ensure that all products meet or exceed industry standards.
+          Evatar.AKvape's factory is located in Dongguan, China, covering an area of over 20,000 square meters. The facility is equipped with state-of-the-art production equipment and advanced technologies that enable the production of high-quality electronic cigarette products. The factory employs strict quality control measures to ensure that all products meet or exceed industry standards.
 
         </div>
        <div class="rowImageContent ">
@@ -55,12 +55,12 @@
        <div class="box mt30">
 
         <div>
-          Xpuff is dedicated to providing exceptional customer support to its customers. The company has a team of highly trained professionals who are available 24/7 to answer any questions or concerns that customers may have. Additionally, Xpuff offers a comprehensive warranty program on all products, ensuring that customers can enjoy peace of mind when using their electronic cigarette products.
+          Evatar.AKvape is dedicated to providing exceptional customer support to its customers. The company has a team of highly trained professionals who are available 24/7 to answer any questions or concerns that customers may have. Additionally, Evatar.AKvape offers a comprehensive warranty program on all products, ensuring that customers can enjoy peace of mind when using their electronic cigarette products.
         </div>
        <div class="mt30">
         With the increasing demand for healthy alternatives to smoking, electronic cigarettes have
         become a popular choice for smokers worldwide. As one of the leading manufacturers of
-        electronic cigarette products, the Xpuff brand is committed to providing high-quality,
+        electronic cigarette products, the Evatar.AKvape brand is committed to providing high-quality,
         innovative, and safe vaping solutions to smokers.
        </div>
       </div>
