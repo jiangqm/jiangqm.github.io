@@ -8,7 +8,7 @@
  * @Date: 2023-05-19 15:28:04
  * @Description:常量
  */
-import { ref, computed } from 'vue'
+import { ref,  } from 'vue'
 import { defineStore } from 'pinia'
 import {FacebookImage,InstagramImage,TelegramImage,WhatappImage} from '@/assets/image/media'
 import LogoImageWrite from '@/assets/image/logoWrite.png'

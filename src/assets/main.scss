@@ -28,6 +28,12 @@
  }
 }
 
+.flex{
+	display: flex;
+}
+.flex1{
+	flex: 1;
+}
 
 @media (min-width: 576px) {
   .mainContent {
