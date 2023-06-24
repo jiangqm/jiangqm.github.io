@@ -8,7 +8,7 @@
     :show-close="false"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
-    :title="isMobile?'mobile端':'PC端'"
+    :title="null"
     :width="isMobile?'90%':'450px'"
     :top="'100px'"
 
