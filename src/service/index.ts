@@ -11,7 +11,7 @@ type ConfigType = {
 }
 
 export const useFatch = (url: string, config: ConfigType) => {
-  const baseUrl = 'https://4diz7qftgv.hk.aircode.run'
+  const baseUrl = 'https://dfb1a6ps6j.us.aircode.run'
   const requestUrl = `${baseUrl}${url}`
   return fetch(requestUrl, {
     method:config.methods,
