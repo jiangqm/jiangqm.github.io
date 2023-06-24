@@ -21,7 +21,7 @@ type MenuItemType = {
 export const useConstantStore = defineStore('constant', () => {
   const menuData = ref<MenuItemType[]>([
     {
-      name: 'Home',
+      name: 'HOME',
       url: '/'
     },
     {
@@ -75,7 +75,7 @@ export const useConstantStore = defineStore('constant', () => {
         phone: '13005436140',
         email: '3283275593@qq.com',
         address:
-          `No. 3037, Jintian Road, Fu'an Community, Futian Street, Futian District, Shenzhen, Shiyan Street, Shenzhen, Guangdong, China`
+          `No. 3037, Jintian Road, Fu'an Community, Futian Street, Futian District, Shenzhen`
       }
     },
     warning: {

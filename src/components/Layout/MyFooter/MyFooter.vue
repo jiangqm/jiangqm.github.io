@@ -94,6 +94,7 @@ $color: #c4c4c4;
     .itemContent {
       max-width: 30%;
       margin: 0 20px;
+      line-height: 1.3;
       &:first-child {
         margin-left: 0;
       }
@@ -125,6 +126,7 @@ $color: #c4c4c4;
   vertical-align: middle;
   display: flex;
   align-items: center;
+  line-height: 1.3;
   &:first-child {
     margin-top: 0;
   }

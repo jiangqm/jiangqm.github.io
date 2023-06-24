@@ -20,7 +20,7 @@
       <div class="title">AGE VERIFICATION</div>
  
       <div class="tips">
-        To use the ALD official website you must be aged 21 years or over. Please verify your age
+        To use the Evatar.AKvape website you must be aged 21 years or over. Please verify your age
         before entering the site.
       </div>
 
@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted ,computed} from 'vue'
+import { onMounted ,} from 'vue'
 import { ref } from 'vue'
 import useWinSize from '@/hooks/useWinSize'
 

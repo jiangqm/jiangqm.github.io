@@ -28,17 +28,7 @@ import { computed } from 'vue';
 const store = useProductStore()
 const parameters = store.parameters
 
-// const data: any = {
-//   id: 1,
-//   title:
-//     'Click B5000, A revolutionary new product by ALD, 5000 puffs disposable vape consists of a reusable device and a replaceable pod.',
-//   imageUrl: redImg,
-//   volume: '2ml',
-//   battery: '350mAh',
-//   resistance: '1.2Ω',
-//   chargingPort: 'Type-C',
-//   weight: '25g'
-// }
+
 const props = defineProps({
     data:Object
 })

@@ -1,3 +1,8 @@
+<!--
+ * @Authon: kermit
+ * @Date: 2023-06-03 18:50:37
+ * @Description: 
+-->
 <template>
   <section class="mediaContainer">
     <div class="mediaList">
@@ -13,7 +18,7 @@
       </a>
     </div>
     <div class="footerText">
-        Copyright © ALD Group Limited All rights reserved.
+        Copyright © Evatar.AKvape Limited All rights reserved.
     </div>
   </section>
 </template>

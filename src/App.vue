@@ -10,13 +10,14 @@
 -->
 
 <script setup lang="ts">
-import { RouterView, useRouter,useRoute } from 'vue-router'
+import { RouterView, useRouter,useRoute, onBeforeRouteUpdate } from 'vue-router'
 import MyHeader from './components/Layout/MyHeader/MyHeader.vue'
 import MyFooter from './components/Layout/MyFooter/MyFooter.vue'
 import InitDialog from './components/InitDialog/InitDialog.vue'
 import useGlobalEvent from '@/hooks/useGlobalEvent'
 import { onMounted } from 'vue'
 import { useConstantStore } from '@/stores/constant'
+import { watch } from 'vue'
 
 const store = useConstantStore()
 const whatappLinkUrl = store.whatappLinkUrl
@@ -30,6 +31,10 @@ const toContact =()=>{
   window.open(whatappLinkUrl)
   // router.push('/contactUs')
 }
+
+watch(route,()=>{
+  window.scrollTo({top:0,behavior:'smooth'})
+},{immediate:true})
 
 </script>
 
