@@ -47,7 +47,7 @@
             products meet or exceed industry standards.
             </el-col>
             <el-col :xs="24" :sm="12">
-            <video autoplay controls class="factoryVideo" :src="FactoryVideo"></video>
+            <video autoplay muted loop  controls class="factoryVideo" :src="FactoryVideo"></video>
           </el-col>
           </el-row>
         </div>

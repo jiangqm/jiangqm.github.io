@@ -5,8 +5,6 @@
  */
 
 import { defineStore } from 'pinia'
-// import greenImg from '@/assets/image/product/green.png'
-// import redImg from '@/assets/image/product/red.png'
 import {AK1403FImage,
   AK1Image,
   AK2Image,
@@ -22,17 +20,25 @@ import {AK1403FImage,
   FoaioT3Image,} from '@/assets/image/product'
 
 export const useProductStore = defineStore('product', () => {
+  // 商品列表
   const productList = [
-
     {
-      id: 2,
+      id: 2, // id
+      /**商品名称 */
       title: '3ml atomizer - press version',
+      /**图片地址 */
       imageUrl: AK1403FImage,
+      /**容量 */
       volume: '2ml',
+      /**型号 */
       model:"1430-F",
+      /**电池容量 */
       battery: '',
+      /**电压 */
       resistance: '1.2Ω',
+      /**充电口类型 */
       chargingPort: '',
+      /**重量 */
       weight: '25g'
     },
     {
