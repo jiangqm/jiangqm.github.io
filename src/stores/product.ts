@@ -1,6 +1,11 @@
 /*
  * @Authon: kermit
  * @Date: 2023-05-29 21:29:21
+ * @Description: 
+ */
+/*
+ * @Authon: kermit
+ * @Date: 2023-05-29 21:29:21
  * @Description: 存放商品数据
  */
 
@@ -17,7 +22,11 @@ import {AK1403FImage,
   AK9Image,
   C3Image,
   FoaioM2Image,
-  FoaioT3Image,} from '@/assets/image/product'
+  FoaioT3Image,
+Atomizer,
+Disposable,
+AK17Image
+} from '@/assets/image/product'
 
 export const useProductStore = defineStore('product', () => {
   // 商品列表
@@ -25,7 +34,7 @@ export const useProductStore = defineStore('product', () => {
     {
       id: 2, // id
       /**商品名称 */
-      title: '3ml atomizer - press version',
+      title: 'AK-D1',
       /**图片地址 */
       imageUrl: AK1403FImage,
       /**容量 */
@@ -43,7 +52,7 @@ export const useProductStore = defineStore('product', () => {
     },
     {
       id: 3,
-      title: 'New button version 2ml',
+      title: 'AK-M2',
       model:"Foaio-M2",
       imageUrl: FoaioM2Image,
       volume: '2ml',
@@ -54,22 +63,22 @@ export const useProductStore = defineStore('product', () => {
     },
     {
       id: 4,
-      title: 'New button version 2ml',
+      title: 'AK-T3',
       model:"Foaio-T3",
       imageUrl: FoaioT3Image,
-      volume: '3ml',
-      battery: '400mAh',
+      volume: '2ml',
+      battery: '280mAh',
       resistance: '1.2Ω', 
       chargingPort: 'Type-C',
       weight: '25g'
     },
     {
       id: 5,
-      title: 'itemi',
+      title: 'AK-C3',
       model:"C3",
       imageUrl: C3Image,
       volume: '3ml',
-      battery: '400mAh',
+      battery: '280mAh',
       resistance: '1.2Ω',
       chargingPort: 'Type-C',
       weight: '25g'
@@ -173,17 +182,49 @@ export const useProductStore = defineStore('product', () => {
       chargingPort: 'USB',
       weight: '25g'
     },
-    // {
-    //   id:9,
-    //   title: 'AK-4',
-    //   model:"AK-4",
-    //   imageUrl: greenImg,
-    //   volume: '2ml',
-    //   battery: '280mAh',
-    //   resistance: '1.2Ω',
-    //   chargingPort: 'USB',
-    //   weight: '25g'
-    // },
+
+    {
+      id:15,
+      title: 'AK-D2',
+      model:"Disposable",
+      imageUrl: Disposable,
+      volume: '3ml*1=3ml',
+      battery: '280mAh',
+      resistance: '1.2Ω',
+      chargingPort: 'Type-C',
+      weight: '25g'
+    },
+    {
+      id:16,
+      title: 'AK-11',
+      model:"Atomizer",
+      imageUrl: Atomizer,
+      volume: '1ml',
+      battery: '',
+      resistance: '',
+      atomizer: '501 thread',
+      weight: '25g'
+    },
+    {
+      id:16,
+      title: 'AK-17',
+      model:"al-17",
+      imageUrl: AK17Image,
+      volume: '2ml*1=2ml',
+      battery: '280mAh',
+      chargingPort: 'Type-C',
+      weight: '25g'
+    },
+    {
+      id:17,
+      title: 'AK-17B',
+      model:"al-17B",
+      imageUrl: AK17Image,
+      volume: '2ml*2=4ml',
+      battery: '280mAh',
+      chargingPort: 'Type-C',
+      weight: '25g'
+    },
   ]
 
   const parameters = [
@@ -191,7 +232,8 @@ export const useProductStore = defineStore('product', () => {
     { label: 'Battery Capacity', field: 'battery' },
     { label: 'Resistance', field: 'resistance' },
     { label: 'Charging Port', field: 'chargingPort' },
-    { label: 'weight', field: 'weight' }
+    { label: 'weight', field: 'weight' },
+    { label: 'atomizer', field: 'atomizer' },
   ]
 
   return { productList,parameters }

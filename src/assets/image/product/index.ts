@@ -12,8 +12,11 @@ import AK9Image from './ak-9.png'
 import C3Image from './c3.png'
 import FoaioM2Image from './foaio-m2.png'
 import FoaioT3Image from './foaio-t3.png'
-// export 
 
+import Atomizer from './atomizer.png'
+import Disposable from './disposable.png'
+// export 
+import AK17Image from './ak-17.png'
 export {
     AK1403FImage,
     AK1Image,
@@ -28,4 +31,7 @@ export {
     C3Image,
     FoaioM2Image,
     FoaioT3Image,
+    Atomizer,
+    Disposable,
+    AK17Image
 }

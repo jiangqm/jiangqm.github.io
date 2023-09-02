@@ -11,10 +11,13 @@
         {{ data.title }}
       </div>
       <div class="textInfo">
-        <div class="textItem" v-for="fieldItem in parameters" :key="fieldItem.field">
+        <template v-for="fieldItem in parameters">
+          <div class="textItem"  v-if="data[fieldItem.field]" :key="fieldItem.field">
           <div class="textLabel">{{ fieldItem.label }}:</div>
           <div class="textValue">{{ data[fieldItem.field] }}</div>
         </div>
+        </template>
+    
       </div>
     </div>
   </section>
@@ -49,6 +52,8 @@ const data =computed(()=>props.data)
   .itemImg {
     width: 180px;
     height: 180px;
+    
+    margin-right: 5px;
   }
   &:hover {
     transform: translateY(-4px);
