@@ -25,7 +25,8 @@ import {AK1403FImage,
   FoaioT3Image,
 Atomizer,
 Disposable,
-AK17Image
+AK17Image,
+AK18Image
 } from '@/assets/image/product'
 
 export const useProductStore = defineStore('product', () => {
@@ -222,6 +223,16 @@ export const useProductStore = defineStore('product', () => {
       imageUrl: AK17Image,
       volume: '2ml*2=4ml',
       battery: '280mAh',
+      chargingPort: 'Type-C',
+      weight: '25g'
+    },
+      {
+      id:18,
+      title: 'AK-18',
+      model:"al-18",
+      imageUrl: AK18Image,
+      volume: '1ml-2ml',
+      battery: '300mAh',
       chargingPort: 'Type-C',
       weight: '25g'
     },

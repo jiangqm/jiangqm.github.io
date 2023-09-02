@@ -1,3 +1,8 @@
+/*
+ * @Authon: kermit
+ * @Date: 2023-06-19 22:03:04
+ * @Description: 
+ */
 import AK1403FImage from './ak1430-f.png'
 
 import AK1Image from './ak-1.png'
@@ -17,6 +22,7 @@ import Atomizer from './atomizer.png'
 import Disposable from './disposable.png'
 // export 
 import AK17Image from './ak-17.png'
+import AK18Image from './ak-18.png'
 export {
     AK1403FImage,
     AK1Image,
@@ -33,5 +39,7 @@ export {
     FoaioT3Image,
     Atomizer,
     Disposable,
-    AK17Image
+    AK17Image,
+    
+    AK18Image
 }
