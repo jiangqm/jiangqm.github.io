@@ -1,0 +1,870 @@
+<!DOCTYPE html><html lang="zh-CN" class="dark bg-background"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/_next/static/chunks/024i-ufi~va-t.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/0-k~xe~eh-vq5.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/0dogqm3wct8r0.js"/><script src="/_next/static/chunks/0pqt~8bl3ukh4.js" async=""></script><script src="/_next/static/chunks/0fmbw4~~97zxm.js" async=""></script><script src="/_next/static/chunks/0ngil2786cktb.js" async=""></script><script src="/_next/static/chunks/turbopack-00~r94ij_gfy0.js" async=""></script><script src="/_next/static/chunks/0u4~2urk8vz72.js" async=""></script><script src="/_next/static/chunks/0t2xr05rlu96l.js" async=""></script><script src="/_next/static/chunks/0j6wpee~y8w_e.js" async=""></script><script src="/_next/static/chunks/0~q9z__bmj2cx.js" async=""></script><script src="/_next/static/chunks/08~fq5w8zrgnt.js" async=""></script><script src="/_next/static/chunks/11feawoee2hgr.js" async=""></script><meta name="next-size-adjust" content=""/><meta name="theme-color" content="#0f172a"/><title>从协议概念到 Athena MCP 实践 | 博客</title><meta name="description" content="系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"/><meta name="application-name" content="Personal Space"/><link rel="manifest" href="/manifest.json"/><meta name="generator" content="v0.app"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Personal Space"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta property="og:title" content="从协议概念到 Athena MCP 实践"/><meta property="og:description" content="系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"/><meta property="og:type" content="article"/><meta property="article:published_time" content="2026-07-18"/><meta property="article:tag" content="MCP"/><meta property="article:tag" content="AI"/><meta property="article:tag" content="Athena"/><meta property="article:tag" content="工具协议"/><meta property="article:tag" content="Agent"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="从协议概念到 Athena MCP 实践"/><meta name="twitter:description" content="系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"/><link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" type="image/png"/><link rel="icon" href="/icons/icon-512x512.png" sizes="512x512" type="image/png"/><link rel="apple-touch-icon" href="/apple-touch-icons/apple-touch-icon-180x180.png"/><script src="/_next/static/chunks/03~yq9q893hmn.js" noModule=""></script></head><body class="manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","theme","dark",null,["light","dark"],null,false,true)</script><header class="fixed top-0 left-0 right-0 z-50 will-change-transform bg-transparent"><nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16 md:h-20"><a class="text-xl font-semibold font-display text-foreground tracking-wide" href="/">个人空间</a><div class="hidden md:flex items-center gap-6"><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/">首页</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/blog/">博客</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/tools/">工具</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/demos/">Demo</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/offline/">离线</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/about/">关于</a><button class="flex items-center justify-center w-10 h-10 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" aria-label="切换主题"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button type="button" aria-label="打开命令面板" class="hidden md:inline-flex items-center gap-2 text-muted-foreground hover:text-foreground border border-border rounded-md px-2.5 h-9 text-sm transition-colors bg-background/60 hover:bg-muted/60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-4 h-4" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><span class="opacity-80">搜索</span><kbd class="ml-2 text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground border border-border">⌘K</kbd></button><a class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity duration-200" href="/about/">联系我</a></div><div class="flex items-center gap-1 md:hidden"><button class="flex items-center justify-center w-10 h-10 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" aria-label="切换主题"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button class="p-2 text-foreground" aria-label="搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-5 h-5" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button><button class="p-2 text-foreground" aria-label="打开菜单"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></nav></header><div class="fixed inset-0 z-50 md:hidden transition-opacity duration-300 opacity-0 pointer-events-none"><div class="absolute inset-0 bg-background/80 backdrop-blur-sm"></div><div class="absolute top-0 right-0 h-full w-72 bg-card border-l border-border transition-transform duration-300 ease-out translate-x-full"><div class="flex items-center justify-between p-4 border-b border-border"><span class="text-lg font-semibold text-foreground">菜单</span><button class="p-2 text-muted-foreground hover:text-foreground transition-colors" aria-label="关闭菜单"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><div class="p-4 flex flex-col gap-4"><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/">首页</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/blog/">博客</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/tools/">工具</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/demos/">Demo</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/offline/">离线</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/about/">关于</a><a class="mt-4 px-4 py-3 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition-opacity duration-200" href="/about/">联系我</a></div></div></div><div data-slot="dialog-header" class="flex flex-col gap-2 text-center sm:text-left sr-only"><h2 id="radix-_R_1lbsnpfdbH1_" data-slot="dialog-title" class="text-lg leading-none font-semibold">快速跳转</h2><p id="radix-_R_1lbsnpfdbH2_" data-slot="dialog-description" class="text-muted-foreground text-sm">搜索并跳转到任意工具、Demo 或页面。</p></div><main class="min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8"><div class="max-w-6xl mx-auto"><header class="mb-10"><div class="flex items-center gap-3 mb-4"><span class="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">AI</span><span class="text-sm text-muted-foreground">2026-07-18</span><span class="text-sm text-muted-foreground">·</span><span class="text-sm text-muted-foreground">10 分钟</span></div><h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight">从协议概念到 Athena MCP 实践</h1><p class="text-lg text-muted-foreground leading-relaxed">系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。</p><div class="flex flex-wrap gap-2 mt-4"><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->MCP</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->AI</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->Athena</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->工具协议</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->Agent</span></div></header><div class="fixed top-0 left-0 right-0 z-50 h-1 bg-secondary/50"><div class="h-full bg-primary transition-all duration-150 ease-out" style="width:0%"></div></div><button class="lg:hidden fixed bottom-6 right-6 z-40 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg flex items-center justify-center hover:opacity-90 transition-opacity"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list w-5 h-5" aria-hidden="true"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg></button><div class="flex gap-8"><aside class="hidden lg:block w-56 flex-shrink-0"><div class="sticky top-28"><nav class="space-y-1"><h3 class="text-sm font-semibold text-foreground mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list w-4 h-4" aria-hidden="true"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg>目录</h3><a href="#1-mcp-是什么" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">1. MCP 是什么？</a><a href="#2-mcp-解决了什么问题" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">2. MCP 解决了什么问题？</a><a href="#3-mcp-可以理解成工具集吗" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">3. MCP 可以理解成工具集吗？</a><a href="#4-mcp-mcp-server-tool-的关系" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">4. MCP、MCP Server、Tool 的关系</a><a href="#5-mcp-和-function-calling-的区别" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">5. MCP 和 Function Calling 的区别</a><a href="#5-1-function-calling" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">5.1 Function Calling</a><a href="#5-2-mcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">5.2 MCP</a><a href="#5-3-核心区别" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">5.3 核心区别</a><a href="#6-mcp-的核心能力" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">6. MCP 的核心能力</a><a href="#6-1-tools" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">6.1 Tools</a><a href="#6-2-resources" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">6.2 Resources</a><a href="#6-3-prompts" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">6.3 Prompts</a><a href="#7-一个-mcp-server-长什么样" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">7. 一个 MCP Server 长什么样？</a><a href="#8-本地-mcp-和远程-mcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">8. 本地 MCP 和远程 MCP</a><a href="#8-1-本地-mcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">8.1 本地 MCP</a><a href="#8-2-远程-mcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">8.2 远程 MCP</a><a href="#9-构建一个-mcp-server-需要什么" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">9. 构建一个 MCP Server 需要什么？</a><a href="#9-1-工具定义" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">9.1 工具定义</a><a href="#9-2-工具实现" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">9.2 工具实现</a><a href="#9-3-mcp-协议层" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">9.3 MCP 协议层</a><a href="#9-4-运行方式" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">9.4 运行方式</a><a href="#9-5-权限与安全" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">9.5 权限与安全</a><a href="#10-athena-mcp-的推荐设计" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">10. Athena MCP 的推荐设计</a><a href="#10-1-athenalistdatabases" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">10.1 athenalistdatabases</a><a href="#10-2-athenalisttables" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">10.2 athenalisttables</a><a href="#10-3-athenadescribetable" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">10.3 athenadescribetable</a><a href="#10-4-athenarunsql" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">10.4 athenarunsql</a><a href="#11-athena-mcp-的目录结构示例" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">11. Athena MCP 的目录结构示例</a><a href="#12-athena-mcp-的配置项" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">12. Athena MCP 的配置项</a><a href="#13-本地-mcp-客户端配置思路" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">13. 本地 MCP 客户端配置思路</a><a href="#14-给-ai-生成-athena-mcp-的提示词" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">14. 给 AI 生成 Athena MCP 的提示词</a><a href="#15-业务版-athena-mcp-提示词" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">15. 业务版 Athena MCP 提示词</a><a href="#16-athena-mcp-最小-iam-权限" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">16. Athena MCP 最小 IAM 权限</a><a href="#17-mcp-安全设计建议" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">17. MCP 安全设计建议</a><a href="#17-1-athena-类工具" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">17.1 Athena 类工具</a><a href="#17-2-cloudflare-类工具" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">17.2 Cloudflare 类工具</a><a href="#17-3-生产环境建议" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">17.3 生产环境建议</a><a href="#18-适合你当前场景的-mcp-规划" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">18. 适合你当前场景的 MCP 规划</a><a href="#19-推荐学习顺序" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">19. 推荐学习顺序</a><a href="#20-最小实践路径" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">20. 最小实践路径</a><a href="#21-最终要记住的核心概念" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">21. 最终要记住的核心概念</a><a href="#22-用一句话总结-mcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">22. 用一句话总结 MCP</a></nav></div></aside><article class="blog-content flex-1 min-w-0 max-w-none"><h2 id="1-mcp-是什么">1. MCP 是什么？</h2>
+<p>MCP 全称是：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">Model Context Protocol
+</pre></div>
+<p>中文可以理解为：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">模型上下文协议
+</pre></div>
+<p>简单说：</p>
+<p>MCP 是一种标准协议，用来让 AI 模型发现、调用和使用外部工具。</p>
+<p>如果用一句话理解：</p>
+<p>MCP 就像 AI 世界的 USB-C 接口，让不同工具、系统、数据库、API 可以用统一方式接入 AI。</p>
+<hr/>
+<h2 id="2-mcp-解决了什么问题">2. MCP 解决了什么问题？</h2>
+<p>在没有 MCP 之前，如果想让 AI 调用外部系统，通常需要自己写很多 Function Calling。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">AI
+ ↓
+Function Calling
+ ↓
+你的代码
+ ↓
+GitHub API / Athena API / Cloudflare API / GA4 API
+</pre></div>
+<p>每接入一个系统，都要单独写工具定义、参数 schema、调用逻辑。</p>
+<p>比如你想让 AI 操作：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">Athena
+Cloudflare
+GitHub
+Jira
+GA4
+PayPal
+</pre></div>
+<p>可能需要写很多工具：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">run_sql()
+list_tables()
+purge_cache()
+list_dns_records()
+create_issue()
+query_ga4()
+get_paypal_order()
+</pre></div>
+<p>问题是：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">工具越来越多
+维护成本越来越高
+不同 AI 客户端接入方式不统一
+工具复用困难
+</pre></div>
+<p>MCP 的作用就是：</p>
+<p>把这些工具按照统一协议包装起来，让 AI 可以自动发现和调用。</p>
+<hr/>
+<h2 id="3-mcp-可以理解成工具集吗">3. MCP 可以理解成工具集吗？</h2>
+<p>可以，但不完全准确。</p>
+<p>日常理解可以说：</p>
+<p>MCP 看起来像一个工具集。</p>
+<p>但技术上更准确的说法是：</p>
+<p>MCP 是一个标准化工具协议，MCP Server 才是承载工具集的服务。</p>
+<p>三者关系如下：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">MCP
+  = 协议标准
+
+MCP Server
+  = 按 MCP 协议提供工具的服务
+
+Tool
+  = MCP Server 里面具体能执行的能力
+</pre></div>
+<p>例如一个 Athena MCP Server 里可能包含这些工具：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">athena_run_sql
+athena_list_databases
+athena_list_tables
+athena_describe_table
+athena_get_query_results
+</pre></div>
+<p>所以：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">MCP 本身不是工具
+MCP Server 看起来像一个工具集
+Tool 才是真正执行任务的函数
+</pre></div>
+<hr/>
+<h2 id="4-mcp-mcp-server-tool-的关系">4. MCP、MCP Server、Tool 的关系</h2>
+<p>可以用下面这个结构理解：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">用户
+ ↓
+AI 模型
+ ↓
+MCP Client
+ ↓
+MCP Server
+ ↓
+Tools
+ ↓
+真实系统 / API / 数据库
+</pre></div>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">用户问题：
+“帮我查昨天 /product 页面 INP &gt; 0.4 的数据”
+
+AI
+ ↓
+Athena MCP Server
+ ↓
+query_web_vitals 工具
+ ↓
+AWS Athena
+ ↓
+返回查询结果
+</pre></div>
+<hr/>
+<h2 id="5-mcp-和-function-calling-的区别">5. MCP 和 Function Calling 的区别</h2>
+<h3 id="5-1-function-calling">5.1 Function Calling</h3>
+<p>Function Calling 更像是：</p>
+<p>你自己给模型注册工具。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">AI
+ ↓
+调用 get_weather()
+ ↓
+你的代码
+ ↓
+天气 API
+</pre></div>
+<p>你需要自己定义：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">工具名
+工具描述
+参数 schema
+调用逻辑
+返回格式
+</pre></div>
+<p>适合少量、定制化工具。</p>
+<hr/>
+<h3 id="5-2-mcp">5.2 MCP</h3>
+<p>MCP 更像是：</p>
+<p>一个工具服务主动告诉 AI：我这里有哪些工具可以用。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">AI
+ ↓
+连接 Athena MCP Server
+ ↓
+MCP Server 返回工具列表
+ ↓
+AI 选择 athena_run_sql
+ ↓
+MCP Server 执行查询
+</pre></div>
+<p>MCP Server 可以统一管理很多工具。</p>
+<hr/>
+<h3 id="5-3-核心区别">5.3 核心区别</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">Function Calling：
+工具通常写在你的应用代码里
+
+MCP：
+工具独立运行在 MCP Server 里
+</pre></div>
+<p>对比：</p>
+<table><thead><tr><th>对比项</th><th>Function Calling</th><th>MCP</th></tr></thead><tbody><tr><td>工具定义位置</td><td>应用代码里</td><td>MCP Server 里</td></tr><tr><td>工具发现</td><td>开发者手动注册</td><td>AI 客户端自动发现</td></tr><tr><td>复用性</td><td>较低</td><td>较高</td></tr><tr><td>适合场景</td><td>少量自定义工具</td><td>多工具、多系统集成</td></tr><tr><td>部署方式</td><td>跟应用绑定</td><td>可以独立部署</td></tr><tr><td>典型用途</td><td>单个业务函数</td><td>GitHub、Athena、Cloudflare、数据库等工具服务</td></tr></tbody></table>
+<hr/>
+<h2 id="6-mcp-的核心能力">6. MCP 的核心能力</h2>
+<p>MCP 主要有几类能力。</p>
+<h3 id="6-1-tools">6.1 Tools</h3>
+<p>Tools 是最常见的能力。</p>
+<p>它表示 AI 可以调用的具体函数。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">athena_run_sql
+cloudflare_purge_cache
+github_create_issue
+ga4_query_report
+</pre></div>
+<p>每个 Tool 一般包含：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">工具名
+工具描述
+输入参数
+输出结果
+</pre></div>
+<hr/>
+<h3 id="6-2-resources">6.2 Resources</h3>
+<p>Resources 可以理解为：</p>
+<p>MCP Server 暴露出来的资源内容。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">文件
+文档
+数据库表结构
+配置说明
+项目上下文
+</pre></div>
+<p>AI 可以读取这些资源，作为回答或调用工具的上下文。</p>
+<hr/>
+<h3 id="6-3-prompts">6.3 Prompts</h3>
+<p>Prompts 是 MCP Server 提供的预设提示词模板。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">分析 Web Vitals 异常
+生成 SQL 查询
+排查 Cloudflare 缓存问题
+生成事故复盘
+</pre></div>
+<p>AI 客户端可以直接使用这些模板。</p>
+<h2 id="7-一个-mcp-server-长什么样">7. 一个 MCP Server 长什么样？</h2>
+<p>以 Athena MCP 为例，一个 MCP Server 可以包含：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">Athena MCP Server
+├── athena_list_databases
+├── athena_list_tables
+├── athena_describe_table
+├── athena_run_sql
+├── athena_get_query_status
+└── athena_get_query_results
+</pre></div>
+<p>如果是业务增强版，可以继续加：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">A-Premium Athena MCP Server
+├── 通用工具
+│   ├── athena_run_sql
+│   ├── athena_list_tables
+│   └── athena_describe_table
+│
+└── 业务工具
+    ├── query_web_vitals
+    ├── query_gtm_events
+    ├── query_purchase_events
+    └── query_cloudflare_logs
+</pre></div>
+<p>业务工具的价值更大，因为它可以把复杂 SQL 封装起来，让 AI 不需要每次都猜表结构。</p>
+<hr/>
+<h2 id="8-本地-mcp-和远程-mcp">8. 本地 MCP 和远程 MCP</h2>
+<p>MCP Server 可以分为两种常见运行方式。</p>
+<hr/>
+<h3 id="8-1-本地-mcp">8.1 本地 MCP</h3>
+<p>本地 MCP 通常通过 <code>stdio</code> 方式运行。</p>
+<p>结构：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">AI 客户端
+ ↓ stdio
+本地 MCP Server
+ ↓
+本机 AWS Credential / 本地文件 / 本地命令
+</pre></div>
+<p>适合：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">个人使用
+本地开发
+Cursor
+Claude Desktop
+本地 Athena 查询
+内部调试
+</pre></div>
+<p>优点：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">部署简单
+不用公网暴露服务
+可以直接读取本机配置
+开发成本低
+</pre></div>
+<p>缺点：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">不适合多人共享
+权限主要依赖本机环境
+不方便统一审计
+</pre></div>
+<hr/>
+<h3 id="8-2-远程-mcp">8.2 远程 MCP</h3>
+<p>远程 MCP 通过 HTTP / SSE 等方式提供服务。</p>
+<p>结构：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">AI / OpenAI Responses API
+ ↓ HTTP/SSE
+Remote MCP Server
+ ↓
+AWS / Cloudflare / GA4 / 内部系统
+</pre></div>
+<p>适合：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">团队共享
+生产级工具
+统一权限控制
+统一审计日志
+接入 OpenAI Responses API
+</pre></div>
+<p>优点：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">团队可复用
+方便集中管理权限
+方便做日志和审计
+适合生产环境
+</pre></div>
+<p>缺点：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">需要部署服务
+需要鉴权
+需要考虑网络安全
+</pre></div>
+<h2 id="9-构建一个-mcp-server-需要什么">9. 构建一个 MCP Server 需要什么？</h2>
+<p>构建 MCP Server 通常需要 5 个部分：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">1. 工具定义
+2. 工具实现
+3. MCP 协议层
+4. 运行方式
+5. 权限与安全控制
+</pre></div>
+<hr/>
+<h3 id="9-1-工具定义">9.1 工具定义</h3>
+<p>要告诉 AI：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">这个工具叫什么
+这个工具能做什么
+需要哪些参数
+返回什么结果
+</pre></div>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">工具名：
+athena_run_sql
+
+描述：
+执行只读 Athena SQL 查询，只允许 SELECT / WITH 查询。
+
+输入：
+{
+  &quot;sql&quot;: &quot;string&quot;,
+  &quot;database&quot;: &quot;string&quot;,
+  &quot;limit&quot;: &quot;number&quot;
+}
+
+输出：
+{
+  &quot;queryExecutionId&quot;: &quot;string&quot;,
+  &quot;rows&quot;: []
+}
+</pre></div>
+<hr/>
+<h3 id="9-2-工具实现">9.2 工具实现</h3>
+<p>工具实现就是真正执行业务逻辑。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">athena_run_sql
+ ↓
+校验 SQL 是否安全
+ ↓
+调用 AWS Athena SDK
+ ↓
+等待查询完成
+ ↓
+读取查询结果
+ ↓
+返回给 AI
+</pre></div>
+<hr/>
+<h3 id="9-3-mcp-协议层">9.3 MCP 协议层</h3>
+<p>这一层一般不需要自己从零实现，可以使用官方 MCP SDK。</p>
+<p>常见语言：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">TypeScript / Node.js
+Python
+</pre></div>
+<p>对于本地 MCP，Node.js 和 Python 都比较合适。</p>
+<hr/>
+<h3 id="9-4-运行方式">9.4 运行方式</h3>
+<p>本地运行：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">node dist/index.js
+</pre></div>
+<p>或者：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">python server.py
+</pre></div>
+<p>AI 客户端通过配置启动这个 MCP Server。</p>
+<hr/>
+<h3 id="9-5-权限与安全">9.5 权限与安全</h3>
+<p>这是 MCP 最重要的部分。</p>
+<p>尤其是接 Athena、Cloudflare、AWS、数据库时，必须控制好权限。</p>
+<p>建议：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">只读优先
+只允许 SELECT
+限制 database 白名单
+限制 table 白名单
+限制返回行数
+限制查询时间范围
+记录调用日志
+禁止打印密钥
+危险操作需要人工确认
+</pre></div>
+<hr/>
+<h2 id="10-athena-mcp-的推荐设计">10. Athena MCP 的推荐设计</h2>
+<p>如果要做一个本地 Athena MCP，建议从这些工具开始：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">athena_list_databases
+athena_list_tables
+athena_describe_table
+athena_run_sql
+athena_get_query_status
+athena_get_query_results
+</pre></div>
+<hr/>
+<h3 id="10-1-athena_list_databases">10.1 athena_list_databases</h3>
+<p>作用：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">列出可访问的 Athena / Glue databases
+</pre></div>
+<p>输入：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+</pre></div>
+<p>输出：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;databases&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;dataworks&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;default&quot;</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<hr/>
+<h3 id="10-2-athena_list_tables">10.2 athena_list_tables</h3>
+<p>作用：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">列出指定 database 下的表
+</pre></div>
+<p>输入：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;database&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dataworks&quot;</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>输出：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;tables&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;ods_mixp_track_event_dip&quot;</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<hr/>
+<h3 id="10-3-athena_describe_table">10.3 athena_describe_table</h3>
+<p>作用：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">查看表结构
+</pre></div>
+<p>输入：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;database&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dataworks&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;table&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ods_mixp_track_event_dip&quot;</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>输出：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;columns&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dt&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;event&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;data&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<hr/>
+<h3 id="10-4-athena_run_sql">10.4 athena_run_sql</h3>
+<p>作用：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">执行只读 SQL 查询
+</pre></div>
+<p>输入：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;database&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dataworks&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;sql&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SELECT * FROM dataworks.ods_mixp_track_event_dip LIMIT 10&quot;</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>输出：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;queryExecutionId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;xxx&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;rows&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>安全要求：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">只允许 SELECT / WITH
+禁止 DROP / DELETE / UPDATE / INSERT / ALTER / CREATE / TRUNCATE
+默认 LIMIT 100
+限制最大扫描范围
+限制 database 白名单
+</pre></div>
+<hr/>
+<h2 id="11-athena-mcp-的目录结构示例">11. Athena MCP 的目录结构示例</h2>
+<p>推荐结构：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">a-premium-athena-mcp/
+├── src/
+│   ├── index.ts
+│   ├── server.ts
+│   ├── config.ts
+│   ├── tools/
+│   │   ├── listDatabases.ts
+│   │   ├── listTables.ts
+│   │   ├── describeTable.ts
+│   │   ├── runSql.ts
+│   │   ├── getQueryStatus.ts
+│   │   └── getQueryResults.ts
+│   ├── aws/
+│   │   └── athenaClient.ts
+│   └── security/
+│       └── sqlGuard.ts
+├── package.json
+├── tsconfig.json
+├── .env.example
+└── README.md
+</pre></div>
+<hr/>
+<h2 id="12-athena-mcp-的配置项">12. Athena MCP 的配置项</h2>
+<p>本地 Athena MCP 一般需要这些环境变量：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">env</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-env" node="[object Object]">AWS_REGION=us-east-2
+AWS_PROFILE=default
+
+ATHENA_WORKGROUP=primary
+ATHENA_DATABASE=dataworks
+ATHENA_OUTPUT_LOCATION=s3://your-athena-query-results-bucket/path/
+
+ALLOWED_DATABASES=dataworks,default
+DEFAULT_QUERY_LIMIT=100
+MAX_QUERY_LIMIT=1000
+</pre></div>
+<p>说明：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">AWS_REGION：
+Athena 所在区域
+
+AWS_PROFILE：
+使用本机 ~/.aws/credentials 中的哪个 profile
+
+ATHENA_WORKGROUP：
+Athena 查询使用的 workgroup
+
+ATHENA_DATABASE：
+默认 database
+
+ATHENA_OUTPUT_LOCATION：
+Athena 查询结果输出到哪个 S3 路径
+
+ALLOWED_DATABASES：
+允许查询的数据库白名单
+
+DEFAULT_QUERY_LIMIT：
+默认返回条数
+
+MAX_QUERY_LIMIT：
+最大返回条数
+</pre></div>
+<hr/>
+<h2 id="13-本地-mcp-客户端配置思路">13. 本地 MCP 客户端配置思路</h2>
+<p>以 Claude Desktop / Cursor 这类本地 MCP 客户端为例，配置思路是：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;mcpServers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;athena&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;node&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;/path/to/a-premium-athena-mcp/dist/index.js&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;AWS_PROFILE&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;default&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;AWS_REGION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;us-east-2&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ATHENA_DATABASE&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dataworks&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ATHENA_WORKGROUP&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;primary&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ATHENA_OUTPUT_LOCATION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;s3://your-athena-query-results-bucket/path/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ALLOWED_DATABASES&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dataworks&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>如果是 Python 版本，可能是：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;mcpServers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;athena&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;python&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;/path/to/athena-mcp/server.py&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;AWS_PROFILE&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;default&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;AWS_REGION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;us-east-2&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<hr/>
+<h2 id="14-给-ai-生成-athena-mcp-的提示词">14. 给 AI 生成 Athena MCP 的提示词</h2>
+<p>如果要让 AI 帮你生成一个本地 Athena MCP，可以直接使用下面这段提示词。</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">你是一个 MCP Server 开发助手。请帮我构建一个本地运行的 Athena MCP Server，用于让 AI 客户端通过 MCP 协议查询 AWS Athena。
+
+目标：
+1. 使用本地 MCP，优先支持 stdio 模式。
+2. 用 TypeScript / Node.js 实现。
+3. 使用官方 MCP SDK。
+4. 通过 AWS SDK 调用 Athena。
+5. 支持读取本机 AWS Credential，包括环境变量、~/.aws/credentials、AWS Profile。
+6. 默认只允许只读查询，禁止 DROP、DELETE、UPDATE、INSERT、ALTER、CREATE、TRUNCATE 等危险 SQL。
+7. 查询结果默认限制返回 100 行。
+8. 支持配置 Athena workgroup、region、database、outputLocation。
+9. 代码结构清晰，方便后续增加业务工具。
+
+请先实现这些 MCP tools：
+
+- athena_list_databases：列出 Glue/Athena database
+- athena_list_tables：列出指定 database 下的 tables
+- athena_describe_table：查看表结构
+- athena_run_sql：执行只读 SELECT 查询
+- athena_get_query_status：查看查询状态
+- athena_get_query_results：获取查询结果
+
+请输出：
+1. 项目目录结构
+2. package.json
+3. TypeScript 源码
+4. .env.example
+5. README.md
+6. Claude Desktop / Cursor 的本地 MCP 配置示例
+7. 本地调试命令
+8. AWS IAM 最小权限策略示例
+
+安全要求：
+- athena_run_sql 必须校验 SQL，只允许 SELECT / WITH 开头。
+- 自动追加或校验 LIMIT，避免大结果集。
+- 禁止访问未配置白名单之外的 database。
+- 所有查询都需要打印日志，包括调用时间、SQL、database、queryExecutionId。
+- 不要在日志中打印 AWS Secret。
+</pre></div>
+<hr/>
+<h2 id="15-业务版-athena-mcp-提示词">15. 业务版 Athena MCP 提示词</h2>
+<p>如果你要结合 Web Vitals、GTM、性能分析，可以继续追加：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">请额外增加一个业务工具 query_web_vitals，用于查询我们 Athena 中的 Web Vitals 埋点数据。
+
+表名：
+dataworks.ods_mixp_track_event_dip
+
+常用字段：
+- dt：日期分区，格式 YYYY-MM-DD
+- ts：事件时间
+- shop_id
+- platform：Mobile / Desktop
+- event：事件名
+- data：JSON 字符串
+- page_url
+- route_path_name
+- user_agent
+- sid
+- client_id
+
+Web Vitals 事件：
+- preformance_inp
+- preformance_lcp
+- preformance_cls
+
+value 获取方式：
+json_extract_scalar(data,&#x27;$.value&#x27;)
+
+query_web_vitals 入参：
+- metric: INP | LCP | CLS
+- start_date: string
+- end_date: string
+- platform?: Mobile | Desktop
+- path_pattern?: string，例如 /product/%
+- min_value?: number
+- limit?: number
+
+生成 SQL 示例：
+SELECT
+  dt,
+  ts,
+  shop_id,
+  platform,
+  event,
+  CAST(json_extract_scalar(data,&#x27;$.value&#x27;) AS DOUBLE) AS value,
+  json_extract_scalar(data,&#x27;$.element&#x27;) AS element,
+  page_url,
+  route_path_name,
+  sid,
+  client_id,
+  user_agent
+FROM dataworks.ods_mixp_track_event_dip
+WHERE dt BETWEEN :start_date AND :end_date
+  AND event = :event
+  AND platform = :platform
+  AND url_extract_path(page_url) LIKE :path_pattern
+  AND CAST(json_extract_scalar(data,&#x27;$.value&#x27;) AS DOUBLE) &gt; :min_value
+LIMIT :limit;
+
+注意：
+- event 映射规则：INP -&gt; preformance_inp，LCP -&gt; preformance_lcp，CLS -&gt; preformance_cls。
+- 所有参数必须做安全拼接，不能直接字符串裸拼接用户输入。
+</pre></div>
+<hr/>
+<h2 id="16-athena-mcp-最小-iam-权限">16. Athena MCP 最小 IAM 权限</h2>
+<p>本地 Athena MCP 使用的 AWS 用户或 Role 建议只给最小权限。</p>
+<p>大致需要：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;Version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2012-10-17&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;Statement&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;Effect&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Allow&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;Action&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;athena:StartQueryExecution&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;athena:GetQueryExecution&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;athena:GetQueryResults&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;athena:StopQueryExecution&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;athena:ListQueryExecutions&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;athena:ListWorkGroups&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;athena:GetWorkGroup&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;Resource&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;Effect&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Allow&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;Action&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;glue:GetDatabase&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;glue:GetDatabases&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;glue:GetTable&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;glue:GetTables&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;glue:GetPartitions&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;Resource&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;Effect&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Allow&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;Action&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;s3:GetBucketLocation&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;s3:GetObject&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;s3:ListBucket&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;s3:PutObject&quot;</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;Resource&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;arn:aws:s3:::your-athena-query-results-bucket&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;arn:aws:s3:::your-athena-query-results-bucket/*&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>注意：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">S3 权限只给 Athena 查询结果桶
+不要给所有 S3 桶
+如果只查询固定库表，Glue 也可以进一步收窄 Resource
+</pre></div>
+<hr/>
+<h2 id="17-mcp-安全设计建议">17. MCP 安全设计建议</h2>
+<p>MCP 一旦接入真实系统，就相当于让 AI 获得了某些系统操作能力。</p>
+<p>所以安全非常重要。</p>
+<h3 id="17-1-athena-类工具">17.1 Athena 类工具</h3>
+<p>建议：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">只允许 SELECT / WITH
+禁止写操作
+限制 database
+限制 table
+限制 LIMIT
+限制日期范围
+限制扫描数据量
+记录 SQL 日志
+</pre></div>
+<p>不建议一开始开放：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">CREATE TABLE
+DROP TABLE
+INSERT INTO
+DELETE
+UPDATE
+ALTER
+MSCK REPAIR TABLE
+</pre></div>
+<hr/>
+<h3 id="17-2-cloudflare-类工具">17.2 Cloudflare 类工具</h3>
+<p>建议先开放只读工具：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">list_dns_records
+get_cache_analytics
+get_firewall_events
+get_audit_logs
+</pre></div>
+<p>谨慎开放写操作：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">purge_cache
+update_dns_record
+delete_dns_record
+create_waf_rule
+</pre></div>
+<p>如果要开放写操作，建议增加：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">人工确认
+操作白名单
+环境隔离
+审计日志
+回滚方案
+</pre></div>
+<hr/>
+<h3 id="17-3-生产环境建议">17.3 生产环境建议</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">开发环境和生产环境分开
+只读 MCP 和写入 MCP 分开
+高危工具单独授权
+所有调用记录日志
+敏感参数脱敏
+定期 review 工具权限
+</pre></div>
+<hr/>
+<h2 id="18-适合你当前场景的-mcp-规划">18. 适合你当前场景的 MCP 规划</h2>
+<p>结合当前工作内容，可以设计成：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">A-Premium MCP
+├── Athena MCP
+│   ├── query_web_vitals
+│   ├── query_gtm_events
+│   ├── query_purchase_events
+│   └── run_sql
+│
+├── Cloudflare MCP
+│   ├── get_cache_hit_rate
+│   ├── get_firewall_events
+│   ├── list_dns_records
+│   └── purge_cache
+│
+├── GA4 MCP
+│   ├── query_events
+│   ├── query_purchase
+│   └── query_realtime
+│
+├── GitHub MCP
+│   ├── search_issue
+│   ├── create_issue
+│   └── get_deployment
+│
+└── PayPal MCP
+    ├── get_order
+    └── get_payment_status
+</pre></div>
+<p>短期建议先做：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">本地 Athena MCP
+</pre></div>
+<p>原因：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">你现在经常需要查 Athena SQL
+只读风险较低
+可以快速验证 MCP 价值
+能直接提升性能分析、埋点分析效率
+</pre></div>
+<hr/>
+<h2 id="19-推荐学习顺序">19. 推荐学习顺序</h2>
+<p>建议按这个顺序学：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">1. Function Calling
+2. MCP 基本概念
+3. 本地 MCP stdio
+4. MCP Server 工具定义
+5. MCP Server 工具实现
+6. Athena MCP
+7. 业务工具封装
+8. 远程 MCP
+9. 权限、鉴权、审计
+10. 多工具 Agent 工作流
+</pre></div>
+<hr/>
+<h2 id="20-最小实践路径">20. 最小实践路径</h2>
+<p>可以按这个路线做：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">第一步：
+跑通一个本地 MCP demo
+
+第二步：
+增加 athena_run_sql 工具
+
+第三步：
+增加 SQL 安全校验
+
+第四步：
+增加 list_tables / describe_table
+
+第五步：
+增加 query_web_vitals 业务工具
+
+第六步：
+接入 Cursor 或 Claude Desktop
+
+第七步：
+沉淀团队内部 README
+
+第八步：
+考虑远程 MCP 和团队共享
+</pre></div>
+<hr/>
+<h2 id="21-最终要记住的核心概念">21. 最终要记住的核心概念</h2>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">MCP 是协议，不是工具本身。
+
+MCP Server 是工具服务，看起来像一个工具集。
+
+Tool 是具体能力，例如 run_sql、purge_cache。
+
+本地 MCP 适合个人开发和本机环境。
+
+远程 MCP 适合团队共享和生产级服务。
+
+业务工具比通用工具更有价值。
+
+安全控制是 MCP 落地的核心。
+</pre></div>
+<hr/>
+<h2 id="22-用一句话总结-mcp">22. 用一句话总结 MCP</h2>
+<p>MCP 是一套让 AI 标准化连接外部工具的协议；通过 MCP Server，AI 可以自动发现并调用各种工具，比如 Athena 查询、Cloudflare 分析、GitHub Issue、GA4 报表等。</p>
+<p>对于你的工作场景，MCP 最直接的价值是：</p>
+<p>把日常需要手动写 SQL、查 Cloudflare、看 GA4、排查性能数据的操作，封装成 AI 可以直接调用的工具，让 AI 从“回答问题”升级成“帮你执行分析流程”。</p></article></div><nav class="mt-12 pt-8 border-t border-border"><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><a href="/blog/performance-optimization-practice" class="group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"><span class="text-xs text-muted-foreground">← 上一篇</span><p class="text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors">Core Web Vitals 性能优化实践</p></a><a href="/blog/cnn-rnn-attention-bert-gpt" class="group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors text-right sm:col-start-2"><span class="text-xs text-muted-foreground">下一篇 →</span><p class="text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors">从 CNN 到 GPT：深度学习核心模型入门指南</p></a></div></nav></div></main><footer id="contact" class="relative py-20 px-4 sm:px-6 lg:px-8 border-t border-border overflow-hidden"><div class="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div><div class="max-w-6xl mx-auto relative"><div data-footer-top="true" class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="transition-all duration-500" style="transition-delay:100ms"><h3 class="text-2xl font-bold font-display text-foreground mb-4 gradient-text">个人空间</h3><p class="text-muted-foreground text-sm leading-relaxed mb-6">记录产品与技术的细节打磨，分享可复用的工具与思考。</p><div class="flex items-center gap-3"><a data-social-icon="true" href="https://github.com/jiangqm" class="group relative w-11 h-11 flex items-center justify-center bg-secondary rounded-xl text-muted-foreground overflow-hidden hover:text-primary transition-all duration-300 hover:scale-110" aria-label="GitHub"><div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a><a data-social-icon="true" href="#" class="group relative w-11 h-11 flex items-center justify-center bg-secondary rounded-xl text-muted-foreground overflow-hidden hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Twitter"><div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a><a data-social-icon="true" href="mailto:hello@example.com" class="group relative w-11 h-11 flex items-center justify-center bg-secondary rounded-xl text-muted-foreground overflow-hidden hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Email"><div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg></a></div></div><div class="transition-all duration-500" style="transition-delay:100ms"><h4 class="text-sm font-semibold text-foreground uppercase tracking-wider mb-5">导航</h4><ul class="space-y-3"><li><a href="/" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>首页</a></li><li><a href="/blog" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>博客</a></li><li><a href="/tools" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>工具</a></li><li><a href="/about" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>关于</a></li></ul></div><div class="transition-all duration-500" style="transition-delay:200ms"><h4 class="text-sm font-semibold text-foreground uppercase tracking-wider mb-5">资源</h4><ul class="space-y-3"><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>开源项目</a></li><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>代码片段</a></li><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>设计资源</a></li><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>推荐书单</a></li></ul></div></div><div data-footer-bottom="true" class="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4"><p class="flex items-center gap-2 text-sm text-muted-foreground"><span>Crafted with</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-4 h-4 text-red-500 animate-pulse" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg><span>© 2026 个人空间</span></p><div class="flex items-center gap-6 text-sm text-muted-foreground"><a href="#" class="hover:text-foreground transition-colors duration-300 hover:underline underline-offset-4">隐私政策</a><a href="#" class="hover:text-foreground transition-colors duration-300 hover:underline underline-offset-4">使用条款</a></div></div></div><button class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground rounded-xl flex items-center justify-center shadow-lg shadow-primary/20
+          hover:scale-110 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 z-50
+          opacity-0 translate-y-4 pointer-events-none" aria-label="返回顶部"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up w-5 h-5" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></footer><!--$--><!--/$--><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$--><script src="/_next/static/chunks/0dogqm3wct8r0.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[89554,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"ThemeProvider\"]\n3:I[39756,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"default\"]\n4:I[37457,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"default\"]\n5:I[36768,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/0j6wpee~y8w_e.js\"],\"default\"]\n6:I[33334,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"PWARegister\"]\n7:I[2355,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"Analytics\"]\n9:I[97367,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"OutletBoundary\"]\na:\"$Sreact.suspense\"\nd:I[97367,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"ViewportBoundary\"]\nf:I[97367,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"MetadataBoundary\"]\n11:I[68027,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"default\",1]\n:HL[\"/_next/static/chunks/024i-ufi~va-t.css\",\"style\"]\n:HL[\"/_next/static/chunks/0-k~xe~eh-vq5.css\",\"style\"]\n:HL[\"/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"c\":[\"\",\"blog\",\"mcp-learning-guide\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"mcp-learning-guide\",\"d\",null],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",16],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/024i-ufi~va-t.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/0-k~xe~eh-vq5.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/0u4~2urk8vz72.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/0t2xr05rlu96l.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"className\":\"dark bg-background\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"dark\",\"enableSystem\":false,\"disableTransitionOnChange\":true,\"children\":[[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L5\",null,{}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"$L6\",null,{}],[\"$\",\"$L7\",null,{}]]}]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$L8\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/0~q9z__bmj2cx.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/11feawoee2hgr.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L9\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@b\"}]}]]}],{},null,false,null]},null,false,\"$@c\"]},null,false,\"$@c\"]},null,false,null],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$Ld\",null,{\"children\":\"$Le\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lf\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L10\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/024i-ufi~va-t.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/0-k~xe~eh-vq5.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]]],\"S\":true,\"h\":null,\"s\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"Ge3WFl5K-jC_DPBZH61iD\"}\n"])</script><script>self.__next_f.push([1,"12:[]\nc:\"$W12\"\n"])</script><script>self.__next_f.push([1,"13:I[63780,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/0~q9z__bmj2cx.js\",\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"/_next/static/chunks/11feawoee2hgr.js\"],\"Navbar\"]\n14:I[2019,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/0~q9z__bmj2cx.js\",\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"/_next/static/chunks/11feawoee2hgr.js\"],\"BlogPostClient\"]\n15:T4e48,"])</script><script>self.__next_f.push([1,"\n## 1. MCP 是什么？\n\nMCP 全称是：\n\n```text\nModel Context Protocol\n```\n\n中文可以理解为：\n\n```text\n模型上下文协议\n```\n\n简单说：\n\nMCP 是一种标准协议，用来让 AI 模型发现、调用和使用外部工具。\n\n如果用一句话理解：\n\nMCP 就像 AI 世界的 USB-C 接口，让不同工具、系统、数据库、API 可以用统一方式接入 AI。\n\n------\n\n## 2. MCP 解决了什么问题？\n\n在没有 MCP 之前，如果想让 AI 调用外部系统，通常需要自己写很多 Function Calling。\n\n例如：\n\n```text\nAI\n ↓\nFunction Calling\n ↓\n你的代码\n ↓\nGitHub API / Athena API / Cloudflare API / GA4 API\n```\n\n每接入一个系统，都要单独写工具定义、参数 schema、调用逻辑。\n\n比如你想让 AI 操作：\n\n```text\nAthena\nCloudflare\nGitHub\nJira\nGA4\nPayPal\n```\n\n可能需要写很多工具：\n\n```text\nrun_sql()\nlist_tables()\npurge_cache()\nlist_dns_records()\ncreate_issue()\nquery_ga4()\nget_paypal_order()\n```\n\n问题是：\n\n```text\n工具越来越多\n维护成本越来越高\n不同 AI 客户端接入方式不统一\n工具复用困难\n```\n\nMCP 的作用就是：\n\n把这些工具按照统一协议包装起来，让 AI 可以自动发现和调用。\n\n------\n\n## 3. MCP 可以理解成工具集吗？\n\n可以，但不完全准确。\n\n日常理解可以说：\n\nMCP 看起来像一个工具集。\n\n但技术上更准确的说法是：\n\nMCP 是一个标准化工具协议，MCP Server 才是承载工具集的服务。\n\n三者关系如下：\n\n```text\nMCP\n  = 协议标准\n\nMCP Server\n  = 按 MCP 协议提供工具的服务\n\nTool\n  = MCP Server 里面具体能执行的能力\n```\n\n例如一个 Athena MCP Server 里可能包含这些工具：\n\n```text\nathena_run_sql\nathena_list_databases\nathena_list_tables\nathena_describe_table\nathena_get_query_results\n```\n\n所以：\n\n```text\nMCP 本身不是工具\nMCP Server 看起来像一个工具集\nTool 才是真正执行任务的函数\n```\n\n------\n\n## 4. MCP、MCP Server、Tool 的关系\n\n可以用下面这个结构理解：\n\n```text\n用户\n ↓\nAI 模型\n ↓\nMCP Client\n ↓\nMCP Server\n ↓\nTools\n ↓\n真实系统 / API / 数据库\n```\n\n例如：\n\n```text\n用户问题：\n“帮我查昨天 /product 页面 INP \u003e 0.4 的数据”\n\nAI\n ↓\nAthena MCP Server\n ↓\nquery_web_vitals 工具\n ↓\nAWS Athena\n ↓\n返回查询结果\n```\n\n------\n\n## 5. MCP 和 Function Calling 的区别\n\n### 5.1 Function Calling\n\nFunction Calling 更像是：\n\n你自己给模型注册工具。\n\n例如：\n\n```text\nAI\n ↓\n调用 get_weather()\n ↓\n你的代码\n ↓\n天气 API\n```\n\n你需要自己定义：\n\n```text\n工具名\n工具描述\n参数 schema\n调用逻辑\n返回格式\n```\n\n适合少量、定制化工具。\n\n------\n\n### 5.2 MCP\n\nMCP 更像是：\n\n一个工具服务主动告诉 AI：我这里有哪些工具可以用。\n\n例如：\n\n```text\nAI\n ↓\n连接 Athena MCP Server\n ↓\nMCP Server 返回工具列表\n ↓\nAI 选择 athena_run_sql\n ↓\nMCP Server 执行查询\n```\n\nMCP Server 可以统一管理很多工具。\n\n------\n\n### 5.3 核心区别\n\n```text\nFunction Calling：\n工具通常写在你的应用代码里\n\nMCP：\n工具独立运行在 MCP Server 里\n```\n\n对比：\n\n| 对比项 | Function Calling | MCP |\n| --- | --- | --- |\n| 工具定义位置 | 应用代码里 | MCP Server 里 |\n| 工具发现 | 开发者手动注册 | AI 客户端自动发现 |\n| 复用性 | 较低 | 较高 |\n| 适合场景 | 少量自定义工具 | 多工具、多系统集成 |\n| 部署方式 | 跟应用绑定 | 可以独立部署 |\n| 典型用途 | 单个业务函数 | GitHub、Athena、Cloudflare、数据库等工具服务 |\n\n------\n\n## 6. MCP 的核心能力\n\nMCP 主要有几类能力。\n\n### 6.1 Tools\n\nTools 是最常见的能力。\n\n它表示 AI 可以调用的具体函数。\n\n例如：\n\n```text\nathena_run_sql\ncloudflare_purge_cache\ngithub_create_issue\nga4_query_report\n```\n\n每个 Tool 一般包含：\n\n```text\n工具名\n工具描述\n输入参数\n输出结果\n```\n\n------\n\n### 6.2 Resources\n\nResources 可以理解为：\n\nMCP Server 暴露出来的资源内容。\n\n例如：\n\n```text\n文件\n文档\n数据库表结构\n配置说明\n项目上下文\n```\n\nAI 可以读取这些资源，作为回答或调用工具的上下文。\n\n------\n\n### 6.3 Prompts\n\nPrompts 是 MCP Server 提供的预设提示词模板。\n\n例如：\n\n```text\n分析 Web Vitals 异常\n生成 SQL 查询\n排查 Cloudflare 缓存问题\n生成事故复盘\n```\n\nAI 客户端可以直接使用这些模板。\n\n## 7. 一个 MCP Server 长什么样？\n\n以 Athena MCP 为例，一个 MCP Server 可以包含：\n\n```text\nAthena MCP Server\n├── athena_list_databases\n├── athena_list_tables\n├── athena_describe_table\n├── athena_run_sql\n├── athena_get_query_status\n└── athena_get_query_results\n```\n\n如果是业务增强版，可以继续加：\n\n```text\nA-Premium Athena MCP Server\n├── 通用工具\n│   ├── athena_run_sql\n│   ├── athena_list_tables\n│   └── athena_describe_table\n│\n└── 业务工具\n    ├── query_web_vitals\n    ├── query_gtm_events\n    ├── query_purchase_events\n    └── query_cloudflare_logs\n```\n\n业务工具的价值更大，因为它可以把复杂 SQL 封装起来，让 AI 不需要每次都猜表结构。\n\n------\n\n## 8. 本地 MCP 和远程 MCP\n\nMCP Server 可以分为两种常见运行方式。\n\n------\n\n### 8.1 本地 MCP\n\n本地 MCP 通常通过 `stdio` 方式运行。\n\n结构：\n\n```text\nAI 客户端\n ↓ stdio\n本地 MCP Server\n ↓\n本机 AWS Credential / 本地文件 / 本地命令\n```\n\n适合：\n\n```text\n个人使用\n本地开发\nCursor\nClaude Desktop\n本地 Athena 查询\n内部调试\n```\n\n优点：\n\n```text\n部署简单\n不用公网暴露服务\n可以直接读取本机配置\n开发成本低\n```\n\n缺点：\n\n```text\n不适合多人共享\n权限主要依赖本机环境\n不方便统一审计\n```\n\n------\n\n### 8.2 远程 MCP\n\n远程 MCP 通过 HTTP / SSE 等方式提供服务。\n\n结构：\n\n```text\nAI / OpenAI Responses API\n ↓ HTTP/SSE\nRemote MCP Server\n ↓\nAWS / Cloudflare / GA4 / 内部系统\n```\n\n适合：\n\n```text\n团队共享\n生产级工具\n统一权限控制\n统一审计日志\n接入 OpenAI Responses API\n```\n\n优点：\n\n```text\n团队可复用\n方便集中管理权限\n方便做日志和审计\n适合生产环境\n```\n\n缺点：\n\n```text\n需要部署服务\n需要鉴权\n需要考虑网络安全\n```\n\n## 9. 构建一个 MCP Server 需要什么？\n\n构建 MCP Server 通常需要 5 个部分：\n\n```text\n1. 工具定义\n2. 工具实现\n3. MCP 协议层\n4. 运行方式\n5. 权限与安全控制\n```\n\n------\n\n### 9.1 工具定义\n\n要告诉 AI：\n\n```text\n这个工具叫什么\n这个工具能做什么\n需要哪些参数\n返回什么结果\n```\n\n例如：\n\n```text\n工具名：\nathena_run_sql\n\n描述：\n执行只读 Athena SQL 查询，只允许 SELECT / WITH 查询。\n\n输入：\n{\n  \"sql\": \"string\",\n  \"database\": \"string\",\n  \"limit\": \"number\"\n}\n\n输出：\n{\n  \"queryExecutionId\": \"string\",\n  \"rows\": []\n}\n```\n\n------\n\n### 9.2 工具实现\n\n工具实现就是真正执行业务逻辑。\n\n例如：\n\n```text\nathena_run_sql\n ↓\n校验 SQL 是否安全\n ↓\n调用 AWS Athena SDK\n ↓\n等待查询完成\n ↓\n读取查询结果\n ↓\n返回给 AI\n```\n\n------\n\n### 9.3 MCP 协议层\n\n这一层一般不需要自己从零实现，可以使用官方 MCP SDK。\n\n常见语言：\n\n```text\nTypeScript / Node.js\nPython\n```\n\n对于本地 MCP，Node.js 和 Python 都比较合适。\n\n------\n\n### 9.4 运行方式\n\n本地运行：\n\n```text\nnode dist/index.js\n```\n\n或者：\n\n```text\npython server.py\n```\n\nAI 客户端通过配置启动这个 MCP Server。\n\n------\n\n### 9.5 权限与安全\n\n这是 MCP 最重要的部分。\n\n尤其是接 Athena、Cloudflare、AWS、数据库时，必须控制好权限。\n\n建议：\n\n```text\n只读优先\n只允许 SELECT\n限制 database 白名单\n限制 table 白名单\n限制返回行数\n限制查询时间范围\n记录调用日志\n禁止打印密钥\n危险操作需要人工确认\n```\n\n------\n\n## 10. Athena MCP 的推荐设计\n\n如果要做一个本地 Athena MCP，建议从这些工具开始：\n\n```text\nathena_list_databases\nathena_list_tables\nathena_describe_table\nathena_run_sql\nathena_get_query_status\nathena_get_query_results\n```\n\n------\n\n### 10.1 athena_list_databases\n\n作用：\n\n```text\n列出可访问的 Athena / Glue databases\n```\n\n输入：\n\n```json\n{}\n```\n\n输出：\n\n```json\n{\n  \"databases\": [\"dataworks\", \"default\"]\n}\n```\n\n------\n\n### 10.2 athena_list_tables\n\n作用：\n\n```text\n列出指定 database 下的表\n```\n\n输入：\n\n```json\n{\n  \"database\": \"dataworks\"\n}\n```\n\n输出：\n\n```json\n{\n  \"tables\": [\"ods_mixp_track_event_dip\"]\n}\n```\n\n------\n\n### 10.3 athena_describe_table\n\n作用：\n\n```text\n查看表结构\n```\n\n输入：\n\n```json\n{\n  \"database\": \"dataworks\",\n  \"table\": \"ods_mixp_track_event_dip\"\n}\n```\n\n输出：\n\n```json\n{\n  \"columns\": [\n    {\n      \"name\": \"dt\",\n      \"type\": \"string\"\n    },\n    {\n      \"name\": \"event\",\n      \"type\": \"string\"\n    },\n    {\n      \"name\": \"data\",\n      \"type\": \"string\"\n    }\n  ]\n}\n```\n\n------\n\n### 10.4 athena_run_sql\n\n作用：\n\n```text\n执行只读 SQL 查询\n```\n\n输入：\n\n```json\n{\n  \"database\": \"dataworks\",\n  \"sql\": \"SELECT * FROM dataworks.ods_mixp_track_event_dip LIMIT 10\"\n}\n```\n\n输出：\n\n```json\n{\n  \"queryExecutionId\": \"xxx\",\n  \"rows\": []\n}\n```\n\n安全要求：\n\n```text\n只允许 SELECT / WITH\n禁止 DROP / DELETE / UPDATE / INSERT / ALTER / CREATE / TRUNCATE\n默认 LIMIT 100\n限制最大扫描范围\n限制 database 白名单\n```\n\n------\n\n## 11. Athena MCP 的目录结构示例\n\n推荐结构：\n\n```text\na-premium-athena-mcp/\n├── src/\n│   ├── index.ts\n│   ├── server.ts\n│   ├── config.ts\n│   ├── tools/\n│   │   ├── listDatabases.ts\n│   │   ├── listTables.ts\n│   │   ├── describeTable.ts\n│   │   ├── runSql.ts\n│   │   ├── getQueryStatus.ts\n│   │   └── getQueryResults.ts\n│   ├── aws/\n│   │   └── athenaClient.ts\n│   └── security/\n│       └── sqlGuard.ts\n├── package.json\n├── tsconfig.json\n├── .env.example\n└── README.md\n```\n\n------\n\n## 12. Athena MCP 的配置项\n\n本地 Athena MCP 一般需要这些环境变量：\n\n```env\nAWS_REGION=us-east-2\nAWS_PROFILE=default\n\nATHENA_WORKGROUP=primary\nATHENA_DATABASE=dataworks\nATHENA_OUTPUT_LOCATION=s3://your-athena-query-results-bucket/path/\n\nALLOWED_DATABASES=dataworks,default\nDEFAULT_QUERY_LIMIT=100\nMAX_QUERY_LIMIT=1000\n```\n\n说明：\n\n```text\nAWS_REGION：\nAthena 所在区域\n\nAWS_PROFILE：\n使用本机 ~/.aws/credentials 中的哪个 profile\n\nATHENA_WORKGROUP：\nAthena 查询使用的 workgroup\n\nATHENA_DATABASE：\n默认 database\n\nATHENA_OUTPUT_LOCATION：\nAthena 查询结果输出到哪个 S3 路径\n\nALLOWED_DATABASES：\n允许查询的数据库白名单\n\nDEFAULT_QUERY_LIMIT：\n默认返回条数\n\nMAX_QUERY_LIMIT：\n最大返回条数\n```\n\n------\n\n## 13. 本地 MCP 客户端配置思路\n\n以 Claude Desktop / Cursor 这类本地 MCP 客户端为例，配置思路是：\n\n```json\n{\n  \"mcpServers\": {\n    \"athena\": {\n      \"command\": \"node\",\n      \"args\": [\n        \"/path/to/a-premium-athena-mcp/dist/index.js\"\n      ],\n      \"env\": {\n        \"AWS_PROFILE\": \"default\",\n        \"AWS_REGION\": \"us-east-2\",\n        \"ATHENA_DATABASE\": \"dataworks\",\n        \"ATHENA_WORKGROUP\": \"primary\",\n        \"ATHENA_OUTPUT_LOCATION\": \"s3://your-athena-query-results-bucket/path/\",\n        \"ALLOWED_DATABASES\": \"dataworks\"\n      }\n    }\n  }\n}\n```\n\n如果是 Python 版本，可能是：\n\n```json\n{\n  \"mcpServers\": {\n    \"athena\": {\n      \"command\": \"python\",\n      \"args\": [\n        \"/path/to/athena-mcp/server.py\"\n      ],\n      \"env\": {\n        \"AWS_PROFILE\": \"default\",\n        \"AWS_REGION\": \"us-east-2\"\n      }\n    }\n  }\n}\n```\n\n------\n\n## 14. 给 AI 生成 Athena MCP 的提示词\n\n如果要让 AI 帮你生成一个本地 Athena MCP，可以直接使用下面这段提示词。\n\n```text\n你是一个 MCP Server 开发助手。请帮我构建一个本地运行的 Athena MCP Server，用于让 AI 客户端通过 MCP 协议查询 AWS Athena。\n\n目标：\n1. 使用本地 MCP，优先支持 stdio 模式。\n2. 用 TypeScript / Node.js 实现。\n3. 使用官方 MCP SDK。\n4. 通过 AWS SDK 调用 Athena。\n5. 支持读取本机 AWS Credential，包括环境变量、~/.aws/credentials、AWS Profile。\n6. 默认只允许只读查询，禁止 DROP、DELETE、UPDATE、INSERT、ALTER、CREATE、TRUNCATE 等危险 SQL。\n7. 查询结果默认限制返回 100 行。\n8. 支持配置 Athena workgroup、region、database、outputLocation。\n9. 代码结构清晰，方便后续增加业务工具。\n\n请先实现这些 MCP tools：\n\n- athena_list_databases：列出 Glue/Athena database\n- athena_list_tables：列出指定 database 下的 tables\n- athena_describe_table：查看表结构\n- athena_run_sql：执行只读 SELECT 查询\n- athena_get_query_status：查看查询状态\n- athena_get_query_results：获取查询结果\n\n请输出：\n1. 项目目录结构\n2. package.json\n3. TypeScript 源码\n4. .env.example\n5. README.md\n6. Claude Desktop / Cursor 的本地 MCP 配置示例\n7. 本地调试命令\n8. AWS IAM 最小权限策略示例\n\n安全要求：\n- athena_run_sql 必须校验 SQL，只允许 SELECT / WITH 开头。\n- 自动追加或校验 LIMIT，避免大结果集。\n- 禁止访问未配置白名单之外的 database。\n- 所有查询都需要打印日志，包括调用时间、SQL、database、queryExecutionId。\n- 不要在日志中打印 AWS Secret。\n```\n\n------\n\n## 15. 业务版 Athena MCP 提示词\n\n如果你要结合 Web Vitals、GTM、性能分析，可以继续追加：\n\n```text\n请额外增加一个业务工具 query_web_vitals，用于查询我们 Athena 中的 Web Vitals 埋点数据。\n\n表名：\ndataworks.ods_mixp_track_event_dip\n\n常用字段：\n- dt：日期分区，格式 YYYY-MM-DD\n- ts：事件时间\n- shop_id\n- platform：Mobile / Desktop\n- event：事件名\n- data：JSON 字符串\n- page_url\n- route_path_name\n- user_agent\n- sid\n- client_id\n\nWeb Vitals 事件：\n- preformance_inp\n- preformance_lcp\n- preformance_cls\n\nvalue 获取方式：\njson_extract_scalar(data,'$.value')\n\nquery_web_vitals 入参：\n- metric: INP | LCP | CLS\n- start_date: string\n- end_date: string\n- platform?: Mobile | Desktop\n- path_pattern?: string，例如 /product/%\n- min_value?: number\n- limit?: number\n\n生成 SQL 示例：\nSELECT\n  dt,\n  ts,\n  shop_id,\n  platform,\n  event,\n  CAST(json_extract_scalar(data,'$.value') AS DOUBLE) AS value,\n  json_extract_scalar(data,'$.element') AS element,\n  page_url,\n  route_path_name,\n  sid,\n  client_id,\n  user_agent\nFROM dataworks.ods_mixp_track_event_dip\nWHERE dt BETWEEN :start_date AND :end_date\n  AND event = :event\n  AND platform = :platform\n  AND url_extract_path(page_url) LIKE :path_pattern\n  AND CAST(json_extract_scalar(data,'$.value') AS DOUBLE) \u003e :min_value\nLIMIT :limit;\n\n注意：\n- event 映射规则：INP -\u003e preformance_inp，LCP -\u003e preformance_lcp，CLS -\u003e preformance_cls。\n- 所有参数必须做安全拼接，不能直接字符串裸拼接用户输入。\n```\n\n------\n\n## 16. Athena MCP 最小 IAM 权限\n\n本地 Athena MCP 使用的 AWS 用户或 Role 建议只给最小权限。\n\n大致需要：\n\n```json\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"athena:StartQueryExecution\",\n        \"athena:GetQueryExecution\",\n        \"athena:GetQueryResults\",\n        \"athena:StopQueryExecution\",\n        \"athena:ListQueryExecutions\",\n        \"athena:ListWorkGroups\",\n        \"athena:GetWorkGroup\"\n      ],\n      \"Resource\": \"*\"\n    },\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"glue:GetDatabase\",\n        \"glue:GetDatabases\",\n        \"glue:GetTable\",\n        \"glue:GetTables\",\n        \"glue:GetPartitions\"\n      ],\n      \"Resource\": \"*\"\n    },\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"s3:GetBucketLocation\",\n        \"s3:GetObject\",\n        \"s3:ListBucket\",\n        \"s3:PutObject\"\n      ],\n      \"Resource\": [\n        \"arn:aws:s3:::your-athena-query-results-bucket\",\n        \"arn:aws:s3:::your-athena-query-results-bucket/*\"\n      ]\n    }\n  ]\n}\n```\n\n注意：\n\n```text\nS3 权限只给 Athena 查询结果桶\n不要给所有 S3 桶\n如果只查询固定库表，Glue 也可以进一步收窄 Resource\n```\n\n------\n\n## 17. MCP 安全设计建议\n\nMCP 一旦接入真实系统，就相当于让 AI 获得了某些系统操作能力。\n\n所以安全非常重要。\n\n### 17.1 Athena 类工具\n\n建议：\n\n```text\n只允许 SELECT / WITH\n禁止写操作\n限制 database\n限制 table\n限制 LIMIT\n限制日期范围\n限制扫描数据量\n记录 SQL 日志\n```\n\n不建议一开始开放：\n\n```text\nCREATE TABLE\nDROP TABLE\nINSERT INTO\nDELETE\nUPDATE\nALTER\nMSCK REPAIR TABLE\n```\n\n------\n\n### 17.2 Cloudflare 类工具\n\n建议先开放只读工具：\n\n```text\nlist_dns_records\nget_cache_analytics\nget_firewall_events\nget_audit_logs\n```\n\n谨慎开放写操作：\n\n```text\npurge_cache\nupdate_dns_record\ndelete_dns_record\ncreate_waf_rule\n```\n\n如果要开放写操作，建议增加：\n\n```text\n人工确认\n操作白名单\n环境隔离\n审计日志\n回滚方案\n```\n\n------\n\n### 17.3 生产环境建议\n\n```text\n开发环境和生产环境分开\n只读 MCP 和写入 MCP 分开\n高危工具单独授权\n所有调用记录日志\n敏感参数脱敏\n定期 review 工具权限\n```\n\n------\n\n## 18. 适合你当前场景的 MCP 规划\n\n结合当前工作内容，可以设计成：\n\n```text\nA-Premium MCP\n├── Athena MCP\n│   ├── query_web_vitals\n│   ├── query_gtm_events\n│   ├── query_purchase_events\n│   └── run_sql\n│\n├── Cloudflare MCP\n│   ├── get_cache_hit_rate\n│   ├── get_firewall_events\n│   ├── list_dns_records\n│   └── purge_cache\n│\n├── GA4 MCP\n│   ├── query_events\n│   ├── query_purchase\n│   └── query_realtime\n│\n├── GitHub MCP\n│   ├── search_issue\n│   ├── create_issue\n│   └── get_deployment\n│\n└── PayPal MCP\n    ├── get_order\n    └── get_payment_status\n```\n\n短期建议先做：\n\n```text\n本地 Athena MCP\n```\n\n原因：\n\n```text\n你现在经常需要查 Athena SQL\n只读风险较低\n可以快速验证 MCP 价值\n能直接提升性能分析、埋点分析效率\n```\n\n------\n\n## 19. 推荐学习顺序\n\n建议按这个顺序学：\n\n```text\n1. Function Calling\n2. MCP 基本概念\n3. 本地 MCP stdio\n4. MCP Server 工具定义\n5. MCP Server 工具实现\n6. Athena MCP\n7. 业务工具封装\n8. 远程 MCP\n9. 权限、鉴权、审计\n10. 多工具 Agent 工作流\n```\n\n------\n\n## 20. 最小实践路径\n\n可以按这个路线做：\n\n```text\n第一步：\n跑通一个本地 MCP demo\n\n第二步：\n增加 athena_run_sql 工具\n\n第三步：\n增加 SQL 安全校验\n\n第四步：\n增加 list_tables / describe_table\n\n第五步：\n增加 query_web_vitals 业务工具\n\n第六步：\n接入 Cursor 或 Claude Desktop\n\n第七步：\n沉淀团队内部 README\n\n第八步：\n考虑远程 MCP 和团队共享\n```\n\n------\n\n## 21. 最终要记住的核心概念\n\n```text\nMCP 是协议，不是工具本身。\n\nMCP Server 是工具服务，看起来像一个工具集。\n\nTool 是具体能力，例如 run_sql、purge_cache。\n\n本地 MCP 适合个人开发和本机环境。\n\n远程 MCP 适合团队共享和生产级服务。\n\n业务工具比通用工具更有价值。\n\n安全控制是 MCP 落地的核心。\n```\n\n------\n\n## 22. 用一句话总结 MCP\n\nMCP 是一套让 AI 标准化连接外部工具的协议；通过 MCP Server，AI 可以自动发现并调用各种工具，比如 Athena 查询、Cloudflare 分析、GitHub Issue、GA4 报表等。\n\n对于你的工作场景，MCP 最直接的价值是：\n\n把日常需要手动写 SQL、查 Cloudflare、看 GA4、排查性能数据的操作，封装成 AI 可以直接调用的工具，让 AI 从“回答问题”升级成“帮你执行分析流程”。\n"])</script><script>self.__next_f.push([1,"8:[[\"$\",\"$L13\",null,{}],[\"$\",\"main\",null,{\"className\":\"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-6xl mx-auto\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-10\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center gap-3 mb-4\",\"children\":[[\"$\",\"span\",null,{\"className\":\"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full\",\"children\":\"AI\"}],[\"$\",\"span\",null,{\"className\":\"text-sm text-muted-foreground\",\"children\":\"2026-07-18\"}],[\"$\",\"span\",null,{\"className\":\"text-sm text-muted-foreground\",\"children\":\"·\"}],[\"$\",\"span\",null,{\"className\":\"text-sm text-muted-foreground\",\"children\":\"10 分钟\"}]]}],[\"$\",\"h1\",null,{\"className\":\"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight\",\"children\":\"从协议概念到 Athena MCP 实践\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground leading-relaxed\",\"children\":\"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。\"}],[\"$\",\"div\",null,{\"className\":\"flex flex-wrap gap-2 mt-4\",\"children\":[[\"$\",\"span\",\"MCP\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"MCP\"]}],[\"$\",\"span\",\"AI\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"AI\"]}],[\"$\",\"span\",\"Athena\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"Athena\"]}],[\"$\",\"span\",\"工具协议\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"工具协议\"]}],[\"$\",\"span\",\"Agent\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"Agent\"]}]]}]]}],[\"$\",\"$L14\",null,{\"content\":\"$15\"}],\"$L16\"]}]}],\"$L17\"]\n"])</script><script>self.__next_f.push([1,"18:I[76841,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/0~q9z__bmj2cx.js\",\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"/_next/static/chunks/11feawoee2hgr.js\"],\"Footer\"]\n16:[\"$\",\"nav\",null,{\"className\":\"mt-12 pt-8 border-t border-border\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 sm:grid-cols-2 gap-4\",\"children\":[[\"$\",\"a\",null,{\"href\":\"/blog/performance-optimization-practice\",\"className\":\"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors\",\"children\":[[\"$\",\"span\",null,{\"className\":\"text-xs text-muted-foreground\",\"children\":\"← 上一篇\"}],[\"$\",\"p\",null,{\"className\":\"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors\",\"children\":\"Core Web Vitals 性能优化实践\"}]]}],[\"$\",\"a\",null,{\"href\":\"/blog/cnn-rnn-attention-bert-gpt\",\"className\":\"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors text-right sm:col-start-2\",\"children\":[[\"$\",\"span\",null,{\"className\":\"text-xs text-muted-foreground\",\"children\":\"下一篇 →\"}],[\"$\",\"p\",null,{\"className\":\"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors\",\"children\":\"从 CNN 到 GPT：深度学习核心模型入门指南\"}]]}]]}]}]\n17:[\"$\",\"$L18\",null,{}]\n"])</script><script>self.__next_f.push([1,"e:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"2\",{\"name\":\"theme-color\",\"content\":\"#0f172a\"}]]\n"])</script><script>self.__next_f.push([1,"19:I[27201,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"IconMark\"]\nb:null\n"])</script><script>self.__next_f.push([1,"10:[[\"$\",\"title\",\"0\",{\"children\":\"从协议概念到 Athena MCP 实践 | 博客\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。\"}],[\"$\",\"meta\",\"2\",{\"name\":\"application-name\",\"content\":\"Personal Space\"}],[\"$\",\"link\",\"3\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"$undefined\"}],[\"$\",\"meta\",\"4\",{\"name\":\"generator\",\"content\":\"v0.app\"}],[\"$\",\"meta\",\"5\",{\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",\"6\",{\"name\":\"apple-mobile-web-app-title\",\"content\":\"Personal Space\"}],[\"$\",\"meta\",\"7\",{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"default\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:title\",\"content\":\"从协议概念到 Athena MCP 实践\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:description\",\"content\":\"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"11\",{\"property\":\"article:published_time\",\"content\":\"2026-07-18\"}],[\"$\",\"meta\",\"12\",{\"property\":\"article:tag\",\"content\":\"MCP\"}],[\"$\",\"meta\",\"13\",{\"property\":\"article:tag\",\"content\":\"AI\"}],[\"$\",\"meta\",\"14\",{\"property\":\"article:tag\",\"content\":\"Athena\"}],[\"$\",\"meta\",\"15\",{\"property\":\"article:tag\",\"content\":\"工具协议\"}],[\"$\",\"meta\",\"16\",{\"property\":\"article:tag\",\"content\":\"Agent\"}],[\"$\",\"meta\",\"17\",{\"name\":\"twitter:card\",\"content\":\"summary\"}],[\"$\",\"meta\",\"18\",{\"name\":\"twitter:title\",\"content\":\"从协议概念到 Athena MCP 实践\"}],[\"$\",\"meta\",\"19\",{\"name\":\"twitter:description\",\"content\":\"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。\"}],[\"$\",\"link\",\"20\",{\"rel\":\"icon\",\"href\":\"/icons/icon-192x192.png\",\"sizes\":\"192x192\",\"type\":\"image/png\"}],[\"$\",\"link\",\"21\",{\"rel\":\"icon\",\"href\":\"/icons/icon-512x512.png\",\"sizes\":\"512x512\",\"type\":\"image/png\"}],[\"$\",\"link\",\"22\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icons/apple-touch-icon-180x180.png\"}],[\"$\",\"$L19\",\"23\",{}]]\n"])</script></body></html>

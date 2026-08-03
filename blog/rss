@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>个人空间博客</title>
+    <description>记录前端实践、产品思考与工具方法的技术博客</description>
+    <link>https://your-domain.com</link>
+    <atom:link href="https://your-domain.com/blog/rss" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 03 Aug 2026 00:41:20 GMT</lastBuildDate>
+    
+    <item>
+      <title>SVG 资源相似度判断：定义、评分与迁移边界</title>
+      <description> SVG 相似度的静态判断方法，拆解几何、结构、外观和画布比例评分，并说明安全迁移边界。</description>
+      <link>https://your-domain.com/blog/svg-assets-similarity-methodology</link>
+      <guid isPermaLink="true">https://your-domain.com/blog/svg-assets-similarity-methodology</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <category>工具</category>
+      <tag>SVG</tag>
+      <tag>静态分析</tag>
+      <tag>资源治理</tag>
+      <tag>工程效率</tag>
+      <tag>前端</tag>
+    </item>
+
+    <item>
+      <title>未使用代码与资源扫描的实现原理与入门</title>
+      <description>拆解 mark-unused-components、mark-unused-styles、mark-unused-static-assets 三个 Skills 的静态分析思路、运行方式、实现架构和边界。</description>
+      <link>https://your-domain.com/blog/unused-resource-cleanup-skills</link>
+      <guid isPermaLink="true">https://your-domain.com/blog/unused-resource-cleanup-skills</guid>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
+      <category>工具</category>
+      <tag>静态分析</tag>
+      <tag>代码清理</tag>
+      <tag>Skills</tag>
+      <tag>Node.js</tag>
+      <tag>工程效率</tag>
+    </item>
+
+    <item>
+      <title>从 CNN 到 GPT：深度学习核心模型入门指南</title>
+      <description>按技术演进脉络梳理 CNN、RNN、Attention、Transformer、BERT 与 GPT，帮助初学者理解核心结构、适用场景和模型差异。</description>
+      <link>https://your-domain.com/blog/cnn-rnn-attention-bert-gpt</link>
+      <guid isPermaLink="true">https://your-domain.com/blog/cnn-rnn-attention-bert-gpt</guid>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+      <category>AI</category>
+      <tag>深度学习</tag>
+      <tag>Transformer</tag>
+      <tag>BERT</tag>
+      <tag>GPT</tag>
+      <tag>Attention</tag>
+    </item>
+
+    <item>
+      <title>从协议概念到 Athena MCP 实践</title>
+      <description>系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。</description>
+      <link>https://your-domain.com/blog/mcp-learning-guide</link>
+      <guid isPermaLink="true">https://your-domain.com/blog/mcp-learning-guide</guid>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+      <category>AI</category>
+      <tag>MCP</tag>
+      <tag>AI</tag>
+      <tag>Athena</tag>
+      <tag>工具协议</tag>
+      <tag>Agent</tag>
+    </item>
+
+    <item>
+      <title>Core Web Vitals 性能优化实践</title>
+      <description>围绕 Core Web Vitals 的 LCP、CLS、INP 三大核心指标，结合真实业务场景拆解加载速度、视觉稳定性和交互响应的常见问题与优化策略。</description>
+      <link>https://your-domain.com/blog/performance-optimization-practice</link>
+      <guid isPermaLink="true">https://your-domain.com/blog/performance-optimization-practice</guid>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+      <category>性能</category>
+      <tag>性能优化</tag>
+      <tag>Core Web Vitals</tag>
+      <tag>LCP</tag>
+      <tag>CLS</tag>
+      <tag>INP</tag>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,298 @@
+1:"$Sreact.fragment"
+2:I[63780,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Navbar"]
+3:I[2019,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"BlogPostClient"]
+b:I[76841,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Footer"]
+c:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+4:T313a,
+## 1. 这组 Skills 解决什么问题
+
+这组 Skills 不是删除工具，而是把「未使用」判断拆成可解释的静态分析流程：
+
+1. 枚举目标目录或文件；
+2. 解析源码、样式和资源中的引用；
+3. 将引用统一成仓库相对路径或资源变体；
+4. 根据可达性或命中关系生成候选清单；
+5. 把静态分析无法确定的动态场景单独输出，交给人工确认。
+
+当前包含 3 个实现：
+
+| Skill | 实现目标 | 入口脚本 |
+| --- | --- | --- |
+| `mark-unused-components` | 计算组件文件在 import 图中的可达性 | `find-unused-components.mjs` |
+| `mark-unused-styles` | 计算样式文件中的本地 class 是否被源码使用 | `find-unused-styles.mjs` |
+| `mark-unused-static-assets` | 计算静态资源是否被源码、样式或配置文本命中 | `find-unused-static-assets.mjs` |
+
+## 2. 先用一句话理解
+
+这 3 个工具都只负责「找出疑似未使用项」，不会自动删除文件。它们的判断方式可以简单理解为：
+
+| 要检查的内容 | 脚本主要检查什么 | 报告代表什么 |
+| --- | --- | --- |
+| 组件 | 从目录外的入口沿 `import` 关系往下走，找不到的组件列为候选 | 静态引用图中不可达 |
+| 样式 | 找到谁导入样式文件，再检查 `styles.xxx` 是否出现 | 本地 class 没有静态使用记录 |
+| 静态资源 | 在源码、样式和配置文本中查找资源路径 | 没有命中已知路径 |
+
+报告里的「未使用」只是**静态扫描下的候选结果**。遇到动态路径、运行时配置或外部系统引用时，必须人工确认后才能删除。
+
+### 2.1 用 3 个小例子理解
+
+组件可以看成一张引用地图：
+
+```text
+页面 A → 组件 B → 组件 C
+组件 D（没有任何外部入口）
+```
+
+这时 A、B、C 是可达的，D 才是未使用候选。
+
+样式脚本能识别常见的静态访问：
+
+```tsx
+styles.title                 // 能识别
+styles['title']              // 能识别
+const { title } = styles     // 能识别
+styles[className]            // 无法确定，提示人工检查
+```
+
+静态资源脚本会查找类似下面的路径：
+
+```ts
+import icon from '@/static/icons/a.svg'
+```
+
+### 2.2 术语速查
+
+- **静态分析**：不运行应用，只读取文件内容和引用关系。
+- **CLI（命令行工具）**：在终端中执行的脚本。
+- **ESM**：Node.js 使用的模块格式，本项目脚本使用 `.mjs` 文件。
+- **AST（抽象语法树）**：把代码解析成结构化树形数据；本项目为了轻量运行，没有使用 AST 解析器。
+- **可达性**：从已知入口沿引用关系能否走到某个文件。
+- **别名**：例如 `@/` 代替 `src/` 的导入写法，通常配置在 `tsconfig.json` 中。
+
+## 3. 总体实现架构
+
+三个脚本都是独立的 Node.js 命令行工具（CLI），使用 ESM 模块格式，不依赖 AST 解析器或第三方包，采用「文件遍历 + 正则提取 + 路径解析」的轻量实现。
+
+```mermaid
+flowchart TD
+  A[解析 CLI 参数] --> B[递归遍历文件]
+  B --> C[过滤忽略目录与候选文件]
+  C --> D[解析相对路径与 tsconfig 别名]
+  D --> E{按资源类型分析}
+  E --> F[组件：构建 import 图并做可达性遍历]
+  E --> G[样式：提取 class 并统计源码访问]
+  E --> H[静态资源：提取字符串并匹配资源变体]
+  F --> I[Markdown / JSON 报告]
+  G --> I
+  H --> I
+```
+
+### 3.1 公共基础能力
+
+三个脚本各自实现了一套相同思路的基础函数：
+
+- **`walk(dir)`**：递归读取目录，跳过 `.git`、`.next`、`node_modules`、`dist`、`build`、`out` 等目录。
+- **`normalize(root, filePath)`**：将绝对路径转换为仓库相对路径，并统一使用 `/`，避免不同操作系统的路径分隔符影响比较。
+- **`loadAliases(root)`**：读取 `tsconfig.json` 的 `compilerOptions.baseUrl` 和 `paths`；如果没有配置 `@/*`，补充映射到 `src/`。
+- **路径解析**：支持 `./`、`../` 和配置别名；组件脚本还会尝试 `.ts`、`.tsx`、`.js`、`.jsx` 以及 `index.*`。
+- **输出模式**：默认输出人类可读的 Markdown；传入 `--json` 时输出结构化结果，便于 CI 或后续脚本消费。
+
+脚本使用正则而不是完整 JavaScript / CSS AST，优点是零依赖、启动快、容易在仓库内运行；代价是无法理解所有运行时语义，因此每个脚本都提供人工确认提示。
+
+## 4. `mark-unused-components`：基于 import 图的可达性分析
+
+实现文件：`.github/skills/mark-unused-components/scripts/find-unused-components.mjs`
+
+### 4.1 候选文件如何确定
+
+1. 将目标目录转换为绝对路径。
+2. 遍历仓库根目录，收集 `.ts`、`.tsx`、`.js`、`.jsx` 文件。
+3. 默认只把 `.tsx` 和 `.jsx` 放入待判断候选；传入 `--include-source` 后，`.ts` 和 `.js` 也会纳入候选。
+4. 目标目录内的所有源码文件都会进入图分析，即使它们不是最终输出候选。
+
+### 4.2 import 如何解析
+
+`extractImportSpecifiers()` 用一个正则提取以下形式的字符串：
+
+- `import ... from '...'`；
+- `export ... from '...'`；
+- `import('...')`；
+- `require('...')`。
+
+随后 `resolveImport()` 按以下顺序解析：
+
+1. `./` 和 `../`：相对于当前文件所在目录解析；
+2. 别名：匹配 `tsconfig.json` 中的 `paths`，再尝试默认的 `@/ -> src/`；
+3. 无扩展名路径：依次尝试源码扩展名和 `index.*`；
+4. 解析成功后转换为仓库相对路径。
+
+### 4.3 如何计算“未使用”
+
+脚本将目标目录内的源码看成有向图：文件 A import 文件 B，就建立 `A -> B` 的边。
+
+```text
+外部源码文件
+      │
+      ▼
+目标目录中的组件（外部入口，external root）
+      │
+      ▼
+目标目录内的后续 import
+```
+
+具体步骤：
+
+1. 扫描所有源码文件；
+2. 如果 import 命中目标目录文件，且 import 发起者在目标目录外，将目标文件记为 `externalRoots`；
+3. 如果发起者和被引用文件都在目标目录内，将边写入 `graph`；
+4. 从所有 `externalRoots` 出发，用栈执行深度优先搜索（DFS）；
+5. 未被 DFS 访问到的候选文件输出为 `unused`。
+
+因此，「未使用」不是简单的零引用判断：一个没有外部入口、但被已可达组件引用的子组件仍然会被判定为可达。
+
+脚本还维护 `incoming` 入边列表，用于区分两类原因：
+
+- `zero incoming imports`：没有任何入边；
+- `only reachable from unused target-dir files`：有入边，但只来自未进入外部可达图的目标目录文件。
+
+### 4.4 动态导入的处理
+
+脚本只对 `import('literal')` 这类静态字符串做解析。遇到下面的动态导入时，会把文件加入 `unresolvedDynamicHints`，但不会猜测运行时目标：
+
+```ts
+import(`./pages/${pageName}.tsx`)
+```
+
+## 5. `mark-unused-styles`：基于 CSS Modules 访问模式的 class 分析
+
+实现文件：`.github/skills/mark-unused-styles/scripts/find-unused-styles.mjs`
+
+### 5.1 样式 class 如何提取
+
+`extractLocalClasses()` 处理样式文本的顺序是：
+
+1. 用空格替换 `/* ... */` 和行注释，避免注释中的 `.class` 被误识别；
+2. 用空格替换 `:global(...)` 和 `:global { ... }`，避免把全局 class 当作 CSS Modules 本地 class；
+3. 用正则匹配符合命名规则的 `.class-name`；
+4. 第一次遇到 class 时记录名称和行号，并去重排序。
+
+### 5.2 如何找到样式的使用方
+
+脚本遍历仓库中的 `.ts`、`.tsx`、`.js`、`.jsx` 文件，通过 `findStyleImports()` 查找导入目标样式文件的源码。
+
+样式 import 会复用相对路径和 `tsconfig` 别名解析，但只尝试 `.css`、`.scss`、`.sass`、`.less` 扩展名。
+
+### 5.3 支持哪些 class 访问形式
+
+`collectUsages()` 针对每个样式 import 本地名，分别匹配：
+
+```tsx
+styles.button                 // 点号访问
+styles['button']              // 字符串下标访问
+const { button } = styles     // 解构赋值
+```
+
+所有命中的 class 汇总到 `used` 集合。样式文件中的本地 class 减去 `used` 后，就是 `unused`。
+
+同时，脚本会输出 `usedButMissing`：源码访问了某个 class，但样式文件中没有该 class。这是引用错误，不应被归类为「未使用」。
+
+### 5.4 动态访问为什么只能提示
+
+对于 `styles[name]` 或模板字符串下标，脚本无法从静态文本推导运行时值，因此只记录文件、行号和表达式到 `manualHints`。这类 class 不能直接删除。
+
+当前 `findStyleImports()` 主要匹配带本地变量的样式导入，例如 `import styles from './index.module.scss'`。对于 `import './global.scss'` 这类纯副作用导入，脚本无法据此判断 class 是否使用，需要人工确认。
+
+## 6. `mark-unused-static-assets`：基于字符串命中的资源分析
+
+实现文件：`.github/skills/mark-unused-static-assets/scripts/find-unused-static-assets.mjs`
+
+### 6.1 候选资源如何确定
+
+1. 递归遍历用户指定的资源目录；
+2. 默认跳过 `.DS_Store`、`Thumbs.db`；
+3. 默认只纳入常见资源扩展名，如 `.png`、`.svg`、`.webp`、`.woff2`、`.mp4` 等；
+4. `.ts`、`.tsx`、`.js`、`.css`、`.scss` 等源码 / 样式文件默认不作为候选；
+5. `--include-all` 会取消扩展名过滤，但系统文件仍会被跳过。
+
+### 6.2 引用源如何选择
+
+脚本不只扫描目标资源目录：
+
+- 目标目录内部：只把源码和样式文件作为引用源；
+- 仓库其他位置：扫描 `.js`、`.ts`、`.tsx`、`.css`、`.scss`、`.json`、`.md`、`.yml` 等文本文件；
+- 单个文件超过 2 MB，或包含 NUL 字节时，不作为文本解析。
+
+这样可以避免把资源目录中的源码入口误判为资源，同时保留它们对图片、字体的引用关系。
+
+### 6.3 引用字符串如何提取和匹配
+
+`extractStringSpecifiers()` 提取三类文本：
+
+1. `import`、`export ... from`、`import()`、`require()` 中的字符串；
+2. CSS `url(...)`；
+3. 包含 `src/static`、`/static/` 或 `@/static` 的字面量路径。
+
+对每个资源，`buildAssetVariants()` 生成多种可匹配形式：
+
+```text
+src/static/icon/a.svg
+/src/static/icon/a.svg
+static/icon/a.svg
+/static/icon/a.svg
+@/static/icon/a.svg
+```
+
+匹配时优先尝试相对路径 / 别名的精确解析；无法解析时，再检查字符串是否包含某个资源变体。命中后记录引用文件、原始匹配文本和匹配类型（`resolved` 或 `string`）。没有任何引用的资源才会进入 `unused`。
+
+### 6.4 动态路径如何处理
+
+脚本会检测资源路径前后的字符串拼接和 `${...}` 表达式，例如：
+
+```ts
+const icon = `@/static/icons/${name}.svg`
+```
+
+这类表达式会写入 `manualHints`，但不会展开成具体文件名，避免静态分析错误放大或缩小资源集合。
+
+## 7. 输出结构与扩展方式
+
+三个脚本都采用「先分析、后渲染」的结构：
+
+```text
+parseArgs() -> analyze() -> printMarkdown() / JSON.stringify()
+```
+
+如果要扩展功能，建议遵循以下边界：
+
+- 在 `analyze()` 中增加数据，不要把业务判断写进 Markdown 输出函数；
+- 新增引用形式时，先扩展提取器，再补充路径解析或匹配逻辑；
+- 新增动态场景时，输出人工确认提示，不要静默地把它判定为未使用；
+- 保持 JSON 字段稳定，避免下游自动化脚本因文案变化而失效；
+- 修改候选扩展名或忽略目录时，同时检查误报和漏报。
+
+## 8. 设计取舍与已知边界
+
+### 8.1 为什么使用正则而不是 AST
+
+这里的目标是提供一个仓库内可直接运行的轻量审计工具。正则方案不需要安装解析器，能覆盖常见 import、CSS Modules 访问和资源路径；但它不是编译器，无法还原完整的 JavaScript、TypeScript、CSS 或 Webpack 运行时语义。
+
+因此，报告中的 `unused` 表示「静态规则下没有命中」，而不是数学意义上的「运行时绝对不可达」。
+
+### 8.2 必须人工确认的场景
+
+- 模板字符串和字符串拼接形成的动态 import / 资源路径；
+- 运行时组件注册表、CMS / API 返回的名称；
+- `styles[variable]` 等动态 class 访问；
+- 注释或普通字符串中恰好出现类似 import 语法的文本；
+- `import './global.scss'` 这类没有样式变量名的副作用导入；
+- 资源聚合入口（例如 `index.tsx`）对图片、字体的间接导出；
+- 仅在部署配置、外部 HTML 或后端模板中出现的资源引用。
+0:{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"className":"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","span",null,{"className":"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full","children":"工具"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"2026-07-22"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"·"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"7 分钟"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight","children":"未使用代码与资源扫描的实现原理与入门"}],["$","p",null,{"className":"text-lg text-muted-foreground leading-relaxed","children":"拆解 mark-unused-components、mark-unused-styles、mark-unused-static-assets 三个 Skills 的静态分析思路、运行方式、实现架构和边界。"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-4","children":[["$","span","静态分析",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","静态分析"]}],["$","span","代码清理",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","代码清理"]}],["$","span","Skills",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Skills"]}],["$","span","Node.js",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Node.js"]}],["$","span","工程效率",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","工程效率"]}]]}]]}],["$","$L3",null,{"content":"$4"}],"$L5"]}]}],"$L6"],["$L7","$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Ge3WFl5K-jC_DPBZH61iD"}
+5:["$","nav",null,{"className":"mt-12 pt-8 border-t border-border","children":["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-2 gap-4","children":[["$","a",null,{"href":"/blog/cnn-rnn-attention-bert-gpt","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"← 上一篇"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"从 CNN 到 GPT：深度学习核心模型入门指南"}]]}],["$","a",null,{"href":"/blog/svg-assets-similarity-methodology","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors text-right sm:col-start-2","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"下一篇 →"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"SVG 资源相似度判断：定义、评分与迁移边界"}]]}]]}]}]
+6:["$","$Lb",null,{}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/0~q9z__bmj2cx.js","async":true}]
+8:["$","script","script-1",{"src":"/_next/static/chunks/08~fq5w8zrgnt.js","async":true}]
+9:["$","script","script-2",{"src":"/_next/static/chunks/11feawoee2hgr.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

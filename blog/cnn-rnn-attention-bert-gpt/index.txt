@@ -1,0 +1,1112 @@
+1:"$Sreact.fragment"
+2:I[89554,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ThemeProvider"]
+3:I[39756,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+4:I[37457,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+5:I[36768,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0j6wpee~y8w_e.js"],"default"]
+6:I[33334,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"PWARegister"]
+7:I[2355,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"Analytics"]
+9:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+d:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ViewportBoundary"]
+f:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"MetadataBoundary"]
+11:I[68027,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default",1]
+:HL["/_next/static/chunks/024i-ufi~va-t.css","style"]
+:HL["/_next/static/chunks/0-k~xe~eh-vq5.css","style"]
+:HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","blog","cnn-rnn-attention-bert-gpt",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","cnn-rnn-attention-bert-gpt","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/024i-ufi~va-t.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0-k~xe~eh-vq5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0u4~2urk8vz72.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0t2xr05rlu96l.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"dark bg-background","suppressHydrationWarning":true,"children":["$","body",null,{"className":"manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"dark","enableSystem":false,"disableTransitionOnChange":true,"children":[["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L6",null,{}],["$","$L7",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L8",[["$","script","script-0",{"src":"/_next/static/chunks/0~q9z__bmj2cx.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/08~fq5w8zrgnt.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/11feawoee2hgr.js","async":true,"nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],{},null,false,null]},null,false,"$@c"]},null,false,"$@c"]},null,false,null],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$a",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/024i-ufi~va-t.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0-k~xe~eh-vq5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Ge3WFl5K-jC_DPBZH61iD"}
+12:[]
+c:"$W12"
+13:I[63780,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Navbar"]
+14:I[2019,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"BlogPostClient"]
+15:T5944,
+## 1. 学习目标
+
+系统理解深度学习中几个重要模型和机制：
+
+- CNN：卷积神经网络，主要用于图像、局部特征提取。
+- RNN：循环神经网络，主要用于序列数据建模。
+- Attention：注意力机制，用于让模型动态关注重要信息。
+- BERT：基于 Transformer Encoder 的预训练语言模型。
+- GPT：基于 Transformer Decoder 的生成式语言模型。
+
+学习完成后，需要能回答以下问题：
+
+1. CNN 为什么适合处理图像？
+2. RNN 为什么适合处理序列？它有什么问题？
+3. 注意力机制解决了什么问题？
+4. BERT 和 GPT 都基于 Transformer，它们有什么区别？
+5. 为什么 GPT 更适合做生成式 AI 应用？
+
+## 2. CNN：卷积神经网络
+
+### 2.1 CNN 是什么
+
+CNN，全称 Convolutional Neural Network，中文叫卷积神经网络。
+
+它最早主要用于图像识别，例如：
+
+- 判断一张图片里是不是猫
+- 识别车牌号码
+- 识别人脸
+- 自动驾驶中的道路识别
+- 商品图片分类
+
+CNN 的核心思想是：
+
+> 不需要一次性理解整张图片，而是先从局部区域提取特征，再逐层组合成更高级的语义。
+
+例如识别一辆汽车：
+
+第一层可能识别边缘、线条、颜色块；
+第二层可能识别车灯、轮胎、车窗；
+第三层可能识别车头、车身；
+最后模型判断这是一辆汽车。
+
+### 2.2 CNN 的核心结构
+
+CNN 通常由以下几个部分组成：
+
+```text
+输入图片
+  ↓
+卷积层 Convolution
+  ↓
+激活函数 ReLU
+  ↓
+池化层 Pooling
+  ↓
+多层卷积 + 池化
+  ↓
+全连接层 Fully Connected
+  ↓
+输出分类结果
+```
+
+### 2.3 卷积层
+
+卷积层是 CNN 的核心。
+
+它通过一个小窗口，也叫卷积核，在图片上滑动，提取局部特征。
+
+例如一个 3x3 的卷积核，会每次查看图片中的 3x3 区域。
+
+```text
+图片局部区域：
+
+1  0  1
+0  1  0
+1  0  1
+
+卷积核：
+
+1  0 -1
+1  0 -1
+1  0 -1
+```
+
+卷积核会和图片局部区域做计算，得到一个新的特征值。
+
+不同的卷积核可以学习不同特征，例如：
+
+- 边缘
+- 纹理
+- 颜色变化
+- 形状轮廓
+- 局部结构
+
+### 2.4 池化层
+
+池化层的作用是压缩特征图，减少计算量，同时保留重要信息。
+
+常见池化方式：
+
+| 类型 | 说明 |
+| --- | --- |
+| Max Pooling | 取局部区域最大值 |
+| Average Pooling | 取局部区域平均值 |
+
+例如 Max Pooling：
+
+```text
+原始区域：
+
+1  3
+2  4
+
+Max Pooling 结果：
+
+4
+```
+
+池化可以让模型对位置变化更鲁棒。
+
+比如一只猫在图片左边或右边，CNN 仍然可以识别出来。
+
+### 2.5 CNN 的优点
+
+| 优点 | 说明 |
+| --- | --- |
+| 擅长局部特征提取 | 能识别边缘、纹理、形状 |
+| 参数共享 | 同一个卷积核在整张图上复用 |
+| 计算效率较高 | 相比全连接网络更适合图像 |
+| 具备空间结构理解能力 | 能理解局部区域之间的关系 |
+
+### 2.6 CNN 的缺点
+
+| 缺点 | 说明 |
+| --- | --- |
+| 不擅长长距离依赖 | 对远距离元素关系建模能力有限 |
+| 更适合二维数据 | 图像场景天然适配，文本则不是最优 |
+| 对全局语义理解有限 | 需要很多层才能组合出高级语义 |
+
+### 2.7 CNN 适用场景
+
+CNN 适合处理具有局部结构的数据，例如：
+
+- 图像分类
+- 目标检测
+- 人脸识别
+- OCR 文字识别
+- 医学影像分析
+- 商品图片特征提取
+
+## 3. RNN：循环神经网络
+
+### 3.1 RNN 是什么
+
+RNN，全称 Recurrent Neural Network，中文叫循环神经网络。
+
+它主要用于处理序列数据。
+
+序列数据的特点是：
+
+> 当前信息和前面的信息有关。
+
+例如：
+
+```text
+我今天很开心，因为天气很好。
+```
+
+要理解「开心」的原因，需要结合后面的「天气很好」。
+
+再比如：
+
+```text
+I love this movie, it is very ...
+```
+
+模型需要根据前文判断后面可能是：
+
+```text
+good / interesting / boring
+```
+
+### 3.2 RNN 的核心思想
+
+普通神经网络每次只处理一个输入，不记得之前发生了什么。
+
+RNN 的特点是：
+
+> 每一步都会接收当前输入，同时保留前一步的隐藏状态。
+
+简单理解：
+
+```text
+第1个词 → 产生记忆
+第2个词 + 上一步记忆 → 更新记忆
+第3个词 + 上一步记忆 → 更新记忆
+...
+最终输出结果
+```
+
+结构示意：
+
+```text
+x1 → RNN → h1
+x2 → RNN → h2
+x3 → RNN → h3
+x4 → RNN → h4
+```
+
+其中：
+
+- x 表示当前输入
+- h 表示隐藏状态，也可以理解为模型的记忆
+
+### 3.3 RNN 适合什么任务
+
+RNN 适合处理顺序很重要的任务，例如：
+
+- 文本分类
+- 情感分析
+- 机器翻译
+- 语音识别
+- 时间序列预测
+- 股票趋势预测
+- 用户行为序列分析
+
+### 3.4 RNN 的问题
+
+RNN 虽然能处理序列，但有明显缺点。
+
+#### 3.4.1 长距离依赖问题
+
+例如：
+
+```text
+我昨天在商场看到了一件非常喜欢的衣服，虽然价格很贵，但是我最后还是买了它。
+```
+
+这里的「它」指的是「衣服」。
+
+但是「衣服」和「它」之间隔了很多词，普通 RNN 很难记住这么远的信息。
+
+#### 3.4.2 梯度消失问题
+
+RNN 在训练长序列时，早期信息经过很多步传递后，影响会越来越弱。
+
+这会导致模型：
+
+- 记不住很久之前的信息
+- 训练困难
+- 长文本效果不好
+
+#### 3.4.3 无法并行计算
+
+RNN 必须按顺序处理：
+
+```text
+先处理第1个词
+再处理第2个词
+再处理第3个词
+```
+
+这导致训练速度较慢。
+
+### 3.5 LSTM 和 GRU
+
+为了解决普通 RNN 记忆能力差的问题，出现了 LSTM 和 GRU。
+
+| 模型 | 说明 |
+| --- | --- |
+| LSTM | 引入门控机制，控制哪些信息保留、哪些信息遗忘 |
+| GRU | LSTM 的简化版本，结构更轻量 |
+
+LSTM 的核心思想是：
+
+> 模型不是被动记住所有内容，而是主动决定哪些信息重要，哪些信息可以忘掉。
+
+## 4. Attention：注意力机制
+
+### 4.1 注意力机制是什么
+
+Attention，中文叫注意力机制。
+
+它的核心思想是：
+
+> 模型在处理当前内容时，可以动态关注输入中最重要的部分。
+
+比如翻译句子：
+
+```text
+The animal didn't cross the street because it was too tired.
+```
+
+这里的 `it` 指的是 `animal`。
+
+模型需要知道当前词和前面哪个词关系最强。
+
+Attention 就是帮助模型建立这种关系的机制。
+
+### 4.2 为什么需要 Attention
+
+RNN 的问题是信息必须一步步传递。
+
+如果句子很长，前面的信息传到后面时可能已经丢失。
+
+Attention 的思路是：
+
+> 不再只依赖最后一个隐藏状态，而是让模型直接查看所有位置的信息。
+
+也就是说，模型可以直接建立任意两个词之间的关系。
+
+例如：
+
+```text
+我  喜欢  这辆  汽车  因为  它  很省油
+```
+
+当模型处理「它」时，可以重点关注「汽车」。
+
+### 4.3 Attention 的直观理解
+
+可以把 Attention 理解成阅读文章时的「划重点」。
+
+人在阅读时不会平均关注所有词，而是会重点关注和当前问题相关的信息。
+
+例如问题是：
+
+```text
+这辆车的优点是什么？
+```
+
+文章中可能有很多内容：
+
+```text
+这辆车外观很漂亮，价格适中，油耗很低，空间也不错。
+```
+
+模型应该重点关注：
+
+```text
+外观漂亮、价格适中、油耗低、空间不错
+```
+
+这就是 Attention 的思想。
+
+### 4.4 Q、K、V 是什么
+
+Attention 中有三个重要概念：
+
+| 名称 | 全称 | 作用 |
+| --- | --- | --- |
+| Q | Query | 当前要查询的信息 |
+| K | Key | 被查询内容的索引 |
+| V | Value | 被查询内容的实际信息 |
+
+可以用搜索来理解：
+
+```text
+Query：我要找什么？
+Key：每条信息的标签是什么？
+Value：每条信息的具体内容是什么？
+```
+
+Attention 的计算过程可以简单理解为：
+
+```text
+1. 用 Query 和所有 Key 计算相似度
+2. 相似度越高，说明越应该关注
+3. 根据相似度对 Value 加权求和
+4. 得到当前 token 的新表示
+```
+
+### 4.5 Self-Attention 是什么
+
+Self-Attention，中文叫自注意力机制。
+
+它表示：
+
+> 一个序列内部的每个 token，都和同一个序列中的其他 token 建立关系。
+
+例如句子：
+
+```text
+The car is fast because it has a powerful engine.
+```
+
+Self-Attention 可以让 `it` 关注到 `car`。
+
+这使模型可以理解：
+
+```text
+it = car
+```
+
+### 4.6 Multi-Head Attention 是什么
+
+Multi-Head Attention，中文叫多头注意力。
+
+它的思想是：
+
+> 不只从一个角度理解文本，而是从多个角度同时理解。
+
+例如一句话：
+
+```text
+这辆车价格便宜，动力强，但是油耗较高。
+```
+
+不同注意力头可以关注不同信息：
+
+| 注意力头 | 关注内容 |
+| --- | --- |
+| Head 1 | 价格 |
+| Head 2 | 动力 |
+| Head 3 | 缺点 |
+| Head 4 | 情感倾向 |
+
+多个 Head 的结果合并后，模型对句子的理解更全面。
+
+## 5. Transformer
+
+### 5.1 Transformer 是什么
+
+Transformer 是一种基于 Attention 的深度学习模型结构。
+
+它最大的特点是：
+
+> 不再依赖 RNN 的顺序计算，而是通过 Attention 直接建模序列中任意位置之间的关系。
+
+Transformer 的出现，是 BERT、GPT 等大语言模型的基础。
+
+### 5.2 Transformer 为什么重要
+
+Transformer 解决了 RNN 的几个核心问题：
+
+| RNN 问题 | Transformer 解决方式 |
+| --- | --- |
+| 长距离依赖困难 | Attention 可以直接连接任意两个 token |
+| 无法并行计算 | Transformer 可以并行处理整个序列 |
+| 训练速度慢 | 更适合 GPU 并行训练 |
+| 长文本表达能力有限 | 多层 Attention 能学习复杂语义关系 |
+
+### 5.3 Transformer 的基本结构
+
+Transformer 最经典的结构包括：
+
+```text
+Encoder + Decoder
+```
+
+#### Encoder
+
+Encoder 负责理解输入。
+
+适合任务：
+
+- 文本分类
+- 情感分析
+- 语义理解
+- 句子匹配
+- 信息抽取
+
+BERT 主要使用 Encoder。
+
+#### Decoder
+
+Decoder 负责生成输出。
+
+适合任务：
+
+- 文本生成
+- 对话
+- 翻译
+- 代码生成
+- 摘要生成
+
+GPT 主要使用 Decoder。
+
+## 6. BERT
+
+### 6.1 BERT 是什么
+
+BERT，全称 Bidirectional Encoder Representations from Transformers。
+
+它是基于 Transformer Encoder 的语言模型。
+
+BERT 的核心特点是：
+
+> 双向理解文本。
+
+也就是说，BERT 在理解一个词时，可以同时看左边和右边的上下文。
+
+例如：
+
+```text
+我去银行办理贷款。
+我坐在河边的银行旁。
+```
+
+这里两个「银行」含义不同。
+
+BERT 可以根据上下文判断：
+
+- 第一句的银行是金融机构
+- 第二句的银行更接近河岸含义
+
+### 6.2 BERT 的训练方式
+
+BERT 主要使用两种预训练任务。
+
+#### 6.2.1 Masked Language Model
+
+也叫 MLM，掩码语言模型。
+
+训练方式是随机遮住句子中的一些词，让模型预测被遮住的词。
+
+例如：
+
+```text
+输入：我今天去 [MASK] 买东西。
+目标：超市
+```
+
+模型需要根据上下文预测 `[MASK]` 是什么。
+
+这种方式让 BERT 学会双向理解上下文。
+
+#### 6.2.2 Next Sentence Prediction
+
+也叫 NSP，下一句预测。
+
+给模型两个句子，让它判断第二句是不是第一句的下一句。
+
+例如：
+
+```text
+句子 A：我今天去了超市。
+句子 B：我买了很多水果。
+```
+
+这两个句子是连续的。
+
+再比如：
+
+```text
+句子 A：我今天去了超市。
+句子 B：火箭成功发射。
+```
+
+这两个句子不是连续的。
+
+### 6.3 BERT 适合什么任务
+
+BERT 更适合理解类任务，例如：
+
+- 文本分类
+- 情感分析
+- 命名实体识别
+- 问答匹配
+- 文本相似度
+- 搜索相关性排序
+- 意图识别
+- 信息抽取
+
+例如电商场景中，BERT 可以用于：
+
+- 判断用户搜索词意图
+- 商品标题语义匹配
+- 评论情感分析
+- 商品描述分类
+- FAQ 问答匹配
+
+### 6.4 BERT 的优点
+
+| 优点 | 说明 |
+| --- | --- |
+| 双向理解能力强 | 同时看左右上下文 |
+| 适合理解任务 | 分类、匹配、抽取效果好 |
+| 语义表达能力强 | 可以生成高质量文本向量 |
+| 迁移能力好 | 预训练后可微调用于具体任务 |
+
+### 6.5 BERT 的缺点
+
+| 缺点 | 说明 |
+| --- | --- |
+| 不擅长长文本生成 | 它主要是理解模型，不是生成模型 |
+| 推理成本较高 | 模型参数较多 |
+| 生成能力弱 | 不能像 GPT 一样自然连续生成内容 |
+
+## 7. GPT
+
+### 7.1 GPT 是什么
+
+GPT，全称 Generative Pre-trained Transformer。
+
+它是基于 Transformer Decoder 的生成式语言模型。
+
+GPT 的核心特点是：
+
+> 根据前面的内容，预测下一个 token。
+
+例如输入：
+
+```text
+今天天气很好，我想去
+```
+
+GPT 会预测下一个词可能是：
+
+```text
+公园
+```
+
+然后继续生成：
+
+```text
+散步
+```
+
+最终得到：
+
+```text
+今天天气很好，我想去公园散步。
+```
+
+### 7.2 GPT 的训练方式
+
+GPT 使用的是自回归语言模型。
+
+简单来说：
+
+```text
+根据前面的 token，预测下一个 token。
+```
+
+例如：
+
+```text
+输入：我 喜欢 吃
+目标：苹果
+```
+
+训练时模型会不断学习：
+
+```text
+P(下一个词 | 前面的词)
+```
+
+所以 GPT 非常适合生成任务。
+
+### 7.3 GPT 为什么适合聊天
+
+聊天本质上是一个连续生成任务。
+
+用户输入：
+
+```text
+帮我写一份网站性能优化报告
+```
+
+GPT 需要生成完整回答：
+
+```text
+以下是网站性能优化报告……
+```
+
+这个过程就是不断预测下一个 token。
+
+GPT 适合：
+
+- 写文章
+- 写代码
+- 总结文档
+- 对话问答
+- 翻译
+- 改写
+- 推理
+- 生成 SQL
+- 生成方案文档
+
+### 7.4 GPT 的特点
+
+| 特点 | 说明 |
+| --- | --- |
+| 单向生成 | 从左到右生成文本 |
+| 擅长内容生成 | 写作、对话、代码、总结 |
+| 可通过提示词控制 | Prompt 对输出影响很大 |
+| 可结合工具使用 | 能调用搜索、数据库、文件、API |
+| 可做 Agent | 能规划任务并执行多步骤操作 |
+
+### 7.5 GPT 的缺点
+
+| 缺点 | 说明 |
+| --- | --- |
+| 可能产生幻觉 | 可能生成看似合理但不准确的内容 |
+| 对最新信息依赖外部工具 | 需要联网或接入知识库 |
+| 长上下文仍有成本 | 上下文越长，成本越高 |
+| 不一定天然可靠 | 复杂任务需要校验、工具和流程约束 |
+
+## 8. BERT 和 GPT 的区别
+
+### 8.1 结构区别
+
+| 模型 | Transformer 结构 | 主要能力 |
+| --- | --- | --- |
+| BERT | Encoder | 理解 |
+| GPT | Decoder | 生成 |
+
+### 8.2 方向区别
+
+| 模型 | 关注方式 | 说明 |
+| --- | --- | --- |
+| BERT | 双向 | 同时看左边和右边上下文 |
+| GPT | 单向 | 根据前文预测后文 |
+
+### 8.3 任务区别
+
+| 任务 | BERT 更适合 | GPT 更适合 |
+| --- | --- | --- |
+| 文本分类 | 是 | 可以，但不是最典型 |
+| 情感分析 | 是 | 可以 |
+| 实体识别 | 是 | 可以 |
+| 搜索相关性 | 是 | 可以 |
+| 文本生成 | 不擅长 | 是 |
+| 聊天对话 | 不擅长 | 是 |
+| 代码生成 | 不擅长 | 是 |
+| 长文写作 | 不擅长 | 是 |
+| Agent 任务 | 不典型 | 是 |
+
+### 8.4 用一句话区分
+
+```text
+BERT 更像阅读理解专家。
+GPT 更像写作和对话专家。
+```
+
+## 9. CNN、RNN、Attention、BERT、GPT 对比
+
+| 模型 / 机制 | 核心能力 | 适合数据 | 典型场景 | 主要问题 |
+| --- | --- | --- | --- | --- |
+| CNN | 局部特征提取 | 图像、局部结构数据 | 图像识别、目标检测 | 不擅长长距离依赖 |
+| RNN | 序列建模 | 文本、语音、时间序列 | 翻译、语音、预测 | 长距离依赖弱、训练慢 |
+| Attention | 动态关注重点信息 | 文本、图像、多模态 | 关系建模、重点提取 | 计算成本较高 |
+| BERT | 双向语义理解 | 文本 | 分类、匹配、抽取 | 不擅长生成 |
+| GPT | 自回归文本生成 | 文本、代码、多模态输入 | 对话、写作、代码、Agent | 可能幻觉，需要校验 |
+
+## 10. 从发展脉络理解
+
+可以把这些模型放在一条技术演进线上理解：
+
+```text
+CNN
+  ↓
+擅长图像局部特征
+
+RNN
+  ↓
+开始处理序列数据
+
+LSTM / GRU
+  ↓
+增强序列记忆能力
+
+Attention
+  ↓
+解决长距离依赖问题
+
+Transformer
+  ↓
+用 Attention 替代 RNN，支持并行训练
+
+BERT
+  ↓
+基于 Transformer Encoder，擅长理解
+
+GPT
+  ↓
+基于 Transformer Decoder，擅长生成
+```
+
+## 11. 用电商场景理解这些模型
+
+以 A-Premium 这类汽车配件独立站为例，可以这样理解：
+
+### 11.1 CNN 在电商中的作用
+
+CNN 可以用于商品图片理解。
+
+例如：
+
+- 判断图片是否是汽车配件
+- 识别商品图片质量
+- 检测图片中是否有水印
+- 商品图片分类
+- 相似商品图片检索
+
+### 11.2 RNN 在电商中的作用
+
+RNN 可以用于用户行为序列分析。
+
+例如用户访问路径：
+
+```text
+首页 → 搜索 → 商品详情页 → 加购 → 结账
+```
+
+RNN 可以学习用户行为顺序，用于预测：
+
+- 用户是否会购买
+- 用户下一步可能访问什么页面
+- 用户是否可能流失
+- 推荐下一个商品
+
+不过现在很多这类任务也会用 Transformer 替代 RNN。
+
+### 11.3 Attention 在电商中的作用
+
+Attention 可以用于理解用户搜索词和商品信息之间的关系。
+
+例如用户搜索：
+
+```text
+brake pads for 2015 Toyota Camry
+```
+
+模型需要关注：
+
+```text
+brake pads
+2015
+Toyota
+Camry
+```
+
+然后和商品数据中的：
+
+```text
+品类
+年份
+品牌
+车型
+子车型
+适配关系
+```
+
+进行匹配。
+
+Attention 可以帮助模型判断哪些字段更重要。
+
+### 11.4 BERT 在电商中的作用
+
+BERT 可以用于搜索理解和语义匹配。
+
+例如：
+
+```text
+用户搜索：front shock absorber
+商品标题：Front Left Right Complete Strut Assembly
+```
+
+两者字面不完全一样，但语义相关。
+
+BERT 可以帮助判断它们是否匹配。
+
+适用场景：
+
+- 搜索相关性排序
+- 商品标题语义匹配
+- FAQ 问答匹配
+- 评论情感分析
+- 用户意图识别
+
+### 11.5 GPT 在电商中的作用
+
+GPT 可以用于生成和智能助手。
+
+例如：
+
+- 自动生成商品描述
+- 生成 SEO 文案
+- 生成客服回复
+- 总结用户评论
+- 分析性能报告
+- 生成 SQL
+- 生成埋点方案
+- 辅助开发代码
+- 构建内部知识库问答助手
+
+GPT 更适合做「能交流、能生成、能调用工具」的 AI 应用。
+
+## 12. 学习顺序建议
+
+建议按以下顺序学习：
+
+```text
+第 1 步：理解神经网络基础
+第 2 步：学习 CNN
+第 3 步：学习 RNN、LSTM、GRU
+第 4 步：学习 Attention
+第 5 步：学习 Transformer
+第 6 步：学习 BERT
+第 7 步：学习 GPT
+第 8 步：学习 RAG、Agent、Function Calling、MCP
+```
+
+## 13. 每个阶段应该掌握什么
+
+### 13.1 CNN 阶段
+
+需要掌握：
+
+- 卷积核是什么
+- 特征图是什么
+- 池化层是什么
+- 为什么 CNN 适合图片
+- CNN 和普通全连接网络的区别
+
+不需要一开始就深究：
+
+- 复杂数学推导
+- 反向传播细节
+- 高级网络结构
+
+### 13.2 RNN 阶段
+
+需要掌握：
+
+- 什么是序列数据
+- 什么是隐藏状态
+- 为什么 RNN 可以记住前文
+- 什么是长距离依赖
+- LSTM 和 GRU 解决了什么问题
+
+### 13.3 Attention 阶段
+
+需要掌握：
+
+- Attention 为什么出现
+- Q、K、V 分别是什么
+- Self-Attention 是什么
+- Multi-Head Attention 是什么
+- Attention 为什么比 RNN 更适合长文本
+
+### 13.4 Transformer 阶段
+
+需要掌握：
+
+- Encoder 和 Decoder 的区别
+- Transformer 为什么可以并行
+- Transformer 为什么适合大规模训练
+- BERT 和 GPT 为什么都基于 Transformer
+
+### 13.5 BERT 阶段
+
+需要掌握：
+
+- BERT 是理解模型
+- BERT 是双向模型
+- MLM 是什么
+- BERT 适合分类、匹配、抽取任务
+
+### 13.6 GPT 阶段
+
+需要掌握：
+
+- GPT 是生成模型
+- GPT 是单向自回归模型
+- GPT 如何预测下一个 token
+- Prompt 为什么重要
+- GPT 为什么适合 Agent 和工具调用
+
+## 14. 最重要的理解总结
+
+### 14.1 CNN 的本质
+
+```text
+CNN 的本质是局部特征提取。
+```
+
+它像一个图像观察器，先看局部，再组合整体。
+
+### 14.2 RNN 的本质
+
+```text
+RNN 的本质是按顺序处理信息，并保留历史记忆。
+```
+
+它像一个逐字阅读的人，每读一个词就更新一次记忆。
+
+### 14.3 Attention 的本质
+
+```text
+Attention 的本质是动态分配关注权重。
+```
+
+它像阅读时划重点，不是平均看所有内容，而是重点看相关内容。
+
+### 14.4 BERT 的本质
+
+```text
+BERT 的本质是双向语义理解。
+```
+
+它像一个阅读理解专家，适合判断、分类、匹配和抽取。
+
+### 14.5 GPT 的本质
+
+```text
+GPT 的本质是根据上下文持续生成下一个 token。
+```
+
+它像一个写作和对话专家，适合生成、问答、代码和 Agent。
+
+## 15. 一句话总览
+
+```text
+CNN 解决图像局部特征问题；
+RNN 解决序列记忆问题；
+Attention 解决重点关注和长距离依赖问题；
+Transformer 用 Attention 替代 RNN，提升并行训练能力；
+BERT 基于 Encoder，擅长理解；
+GPT 基于 Decoder，擅长生成。
+```
+
+## 16. 面试或复盘时可以这样回答
+
+如果被问到：
+
+```text
+BERT 和 GPT 有什么区别？
+```
+
+可以回答：
+
+```text
+BERT 和 GPT 都基于 Transformer，但使用的结构和目标不同。
+
+BERT 主要使用 Transformer Encoder，是双向语言模型，能同时利用左右上下文，因此更适合理解类任务，例如文本分类、语义匹配、实体识别和搜索相关性判断。
+
+GPT 主要使用 Transformer Decoder，是自回归生成模型，根据前面的 token 预测下一个 token，因此更适合文本生成、对话、代码生成、总结和 Agent 场景。
+
+简单来说，BERT 更像阅读理解模型，GPT 更像生成和对话模型。
+```
+
+如果被问到：
+
+```text
+Attention 解决了 RNN 的什么问题？
+```
+
+可以回答：
+
+```text
+RNN 需要按顺序传递信息，长序列中前面的信息容易丢失，而且无法很好并行训练。
+
+Attention 让模型可以直接计算序列中任意两个位置之间的关系，不需要完全依赖一步步传递的隐藏状态，因此更擅长处理长距离依赖，也更适合并行计算。
+
+这也是 Transformer 能替代 RNN，成为大语言模型基础结构的重要原因。
+```
+
+## 17. 最后总结
+
+这几个模型可以这样记：
+
+```text
+CNN：看局部，适合图像。
+RNN：按顺序，适合序列。
+Attention：抓重点，解决长距离依赖。
+Transformer：用 Attention 搭建的高效序列模型。
+BERT：理解文本。
+GPT：生成文本。
+```
+
+对于 AI 应用开发来说，最需要重点掌握的是：
+
+```text
+Attention → Transformer → BERT/GPT → RAG/Agent/工具调用
+```
+
+因为现代大模型应用基本都建立在 Transformer 和 GPT 类模型之上。
+8:[["$","$L13",null,{}],["$","main",null,{"className":"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","span",null,{"className":"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full","children":"AI"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"2026-07-21"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"·"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"12 分钟"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight","children":"从 CNN 到 GPT：深度学习核心模型入门指南"}],["$","p",null,{"className":"text-lg text-muted-foreground leading-relaxed","children":"按技术演进脉络梳理 CNN、RNN、Attention、Transformer、BERT 与 GPT，帮助初学者理解核心结构、适用场景和模型差异。"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-4","children":[["$","span","深度学习",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","深度学习"]}],["$","span","Transformer",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Transformer"]}],["$","span","BERT",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","BERT"]}],["$","span","GPT",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","GPT"]}],["$","span","Attention",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Attention"]}]]}]]}],["$","$L14",null,{"content":"$15"}],"$L16"]}]}],"$L17"]
+18:I[76841,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Footer"]
+16:["$","nav",null,{"className":"mt-12 pt-8 border-t border-border","children":["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-2 gap-4","children":[["$","a",null,{"href":"/blog/mcp-learning-guide","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"← 上一篇"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"从协议概念到 Athena MCP 实践"}]]}],["$","a",null,{"href":"/blog/unused-resource-cleanup-skills","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors text-right sm:col-start-2","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"下一篇 →"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"未使用代码与资源扫描的实现原理与入门"}]]}]]}]}]
+17:["$","$L18",null,{}]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0f172a"}]]
+19:I[27201,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"IconMark"]
+b:null
+10:[["$","title","0",{"children":"从 CNN 到 GPT：深度学习核心模型入门指南 | 博客"}],["$","meta","1",{"name":"description","content":"按技术演进脉络梳理 CNN、RNN、Attention、Transformer、BERT 与 GPT，帮助初学者理解核心结构、适用场景和模型差异。"}],["$","meta","2",{"name":"application-name","content":"Personal Space"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"generator","content":"v0.app"}],["$","meta","5",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","6",{"name":"apple-mobile-web-app-title","content":"Personal Space"}],["$","meta","7",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","8",{"property":"og:title","content":"从 CNN 到 GPT：深度学习核心模型入门指南"}],["$","meta","9",{"property":"og:description","content":"按技术演进脉络梳理 CNN、RNN、Attention、Transformer、BERT 与 GPT，帮助初学者理解核心结构、适用场景和模型差异。"}],["$","meta","10",{"property":"og:type","content":"article"}],["$","meta","11",{"property":"article:published_time","content":"2026-07-21"}],["$","meta","12",{"property":"article:tag","content":"深度学习"}],["$","meta","13",{"property":"article:tag","content":"Transformer"}],["$","meta","14",{"property":"article:tag","content":"BERT"}],["$","meta","15",{"property":"article:tag","content":"GPT"}],["$","meta","16",{"property":"article:tag","content":"Attention"}],["$","meta","17",{"name":"twitter:card","content":"summary"}],["$","meta","18",{"name":"twitter:title","content":"从 CNN 到 GPT：深度学习核心模型入门指南"}],["$","meta","19",{"name":"twitter:description","content":"按技术演进脉络梳理 CNN、RNN、Attention、Transformer、BERT 与 GPT，帮助初学者理解核心结构、适用场景和模型差异。"}],["$","link","20",{"rel":"icon","href":"/icons/icon-192x192.png","sizes":"192x192","type":"image/png"}],["$","link","21",{"rel":"icon","href":"/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}],["$","link","22",{"rel":"apple-touch-icon","href":"/apple-touch-icons/apple-touch-icon-180x180.png"}],["$","$L19","23",{}]]

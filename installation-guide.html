@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- PWA Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- iOS Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="PWA">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icons/apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icons/apple-touch-icon-180x180.png">
+  
+  <!-- Regular Icons -->
+  <link rel="icon" type="image/png" sizes="72x72" href="/icons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/icons/icon-96x96.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/icons/icon-128x128.png">
+  
+  <title>My PWA App</title>
+</head>
+<body>
+  <h1>PWA Installation Guide</h1>
+  
+  <h2>1. Add the manifest link to your HTML head</h2>
+  <pre>&lt;link rel="manifest" href="/manifest.json"&gt;</pre>
+  
+  <h2>2. Register the service worker</h2>
+  <pre>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
+  </pre>
+  
+  <h2>3. Place icon files in the correct directories</h2>
+  <ul>
+    <li>/icons/ - PWA icons</li>
+    <li>/apple-touch-icons/ - Apple touch icons</li>
+    <li>/manifest.json - Web app manifest</li>
+    <li>/service-worker.js - Service worker file</li>
+  </ul>
+</body>
+</html>

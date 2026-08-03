@@ -1,0 +1,181 @@
+1:"$Sreact.fragment"
+2:I[63780,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Navbar"]
+3:I[2019,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"BlogPostClient"]
+b:I[76841,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Footer"]
+c:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+4:T2a5a,
+> 本文用于分享对 SVG 资源「相似」的判断方法，以及如何将比对结果安全地用于资源治理。
+
+## 一句话结论
+
+这里的「相似度模型」不是机器学习或像素渲染模型，而是一个**可解释的静态规则引擎**。它从 SVG 的几何、XML 结构、外观声明和画布比例计算分数，用于筛选人工复核队列；分数高不等于可以直接替换。
+
+真正决定能否迁移的条件是：图形是否一致、颜色和样式是否兼容、根尺寸是否会改变使用点的布局，以及引用方式是否安全。
+
+## 为什么不能只看「看起来一样」
+
+同一个图形可能因以下原因不能共用同一个 SVG：
+
+- 根元素带有不同的 `width` / `height`，用于 `<img>` 或懒加载组件时会改变固有尺寸；
+- 图形颜色来自 SVG 内部的 `fill`、`stroke`、渐变或 CSS 变量，而不是调用处的 `color`；
+- 不同的 `viewBox`、描边宽度、缩放方式会在小尺寸下产生不同的视觉结果；
+- SVG 含有外部资源、动画、嵌入图片、复杂 CSS 或 ARIA ID 引用，静态标准化会丢失运行时语义。
+
+因此，工具将「发现相似候选」和「允许迁移」明确分开。
+
+## 判断流程
+
+```mermaid
+flowchart TD
+    A[读取已跟踪 SVG] --> B{能安全静态解析吗？}
+    B -- 否 --> M[人工复核：不自动处理]
+    B -- 是 --> C[规范化 XML、路径与局部 ID]
+    C --> D[规则分组：完全相同 / 仅属性不同 / 严格比例相似]
+    C --> E[计算比例视觉候选与综合静态评分]
+    E --> F{几何、结构均至少 70% 且总分 > 阈值？}
+    F -- 否 --> X[不同资源]
+    F -- 是 --> G[人工复核候选]
+    G --> H{根尺寸、颜色、引用方式均安全？}
+    H -- 否 --> I[逐引用迁移尺寸或样式]
+    H -- 是 --> J[生成待确认替换计划]
+```
+
+默认只读取 Git 已跟踪的 SVG。报告本身不会修改、删除或替换资源。
+
+## 「相似」的六个层级
+
+| 层级 | 定义 | 是否可自动迁移 |
+| --- | --- | --- |
+| 完全相同 | 规范化 XML 一致；忽略注释、属性顺序和可安全改名的本地 ID。 | 可生成替换计划，仍需确认引用。 |
+| 仅属性不同 | 忽略颜色、描边、尺寸、根 `viewBox` 等展示属性后，结构一致。 | 不可直接替换；先确认颜色和主题语义。 |
+| 严格比例相似 | 统一缩放后，路径命令、坐标、描边和结构严格一致。 | 不可直接替换；先确认尺寸与描边缩放。 |
+| 比例视觉候选 | 等比画布、元素结构一致、路径命令拓扑高度接近；允许导出精度和片段顺序差异。 | 仅人工复核，禁止自动替换。 |
+| 综合相似度候选 | 几何、结构、外观、画布比例的加权分数超过阈值。 | 仅人工复核，禁止把分数当作等价证明。 |
+| 可合并但需逐引用迁移 | 静态特征满分一致，但根 `width` / `height` 不同。 | 必须为每个引用保留原尺寸和相关样式，禁止批量替换。 |
+
+此外，解析错误、外部引用、嵌入图片、CSS 变量 / 复杂选择器、SMIL 动画、ARIA ID 引用等都会直接进入「人工复核」。
+
+## 综合相似度如何计算
+
+对可以安全解析的 SVG 配对，综合评分为：
+
+```text
+S = 55% × G + 20% × T + 15% × A + 10% × V
+```
+
+其中：
+
+| 指标 | 含义 | 计算要点 |
+| --- | --- | --- |
+| `G`：几何 | 路径和基础图元的形状是否一致。 | 路径命令、数值坐标和 `circle` / `rect` / `line` 等图元都会参与。坐标按 `viewBox` 宽度归一化，因此不同导出尺寸不会直接降低分数。 |
+| `T`：结构 | XML 元素层级和标签序列是否接近。 | 同时比较标签顺序和标签计数，避免只因路径坐标相近就判定为同一图形。 |
+| `A`：外观 | `fill`、`stroke`、`opacity` 等展示声明是否一致。 | 比较元素级属性和可安全解析的内联 `style`，不会执行运行时 CSS。 |
+| `V`：画布比例 | `viewBox` 的宽高比是否接近。 | 同形但横纵比例不同会被扣分，避免拉伸图标被误判。 |
+
+总分只会在 `G ≥ 70%` 且 `T ≥ 70%` 时产生；默认仅展示严格大于 `80%` 的候选。也就是说，较高外观分不能掩盖显著的几何或结构差异。
+
+### 四项分数如何得出
+
+#### 1. 几何分 `G`：图形是不是同一个轮廓
+
+**采集什么：** `path` 的命令和参数，以及 `circle`、`ellipse`、`line`、`rect` 的几何属性。路径坐标会统一除以 `viewBox` 宽度；因此 `20 × 20` 和 `40 × 40` 的等比导出，不会只因数值翻倍而被扣分。
+
+**怎样计算：**
+
+1. 先只在同类图元之间找最佳配对，例如 `path` 不会和 `rect` 配对；类型不同，该图元得分为 `0`。
+2. 一对图元的分数由「路径命令序列」占 `35%` 与「数值参数」占 `65%` 组成。
+3. 数值参数再由「参数数量相近程度」占 `35%` 与「归一化坐标距离」占 `65%` 组成：参数越少或坐标偏移越大，分数越低。平均坐标偏移达到图标宽度的 `12%` 时，坐标距离分会降到 `0`。
+4. 一个 SVG 中所有图元取最佳一对一匹配后的平均分；双方图元数量不等时，再乘以 `较少图元数 ÷ 较多图元数`，防止「少量相同路径 + 大量额外路径」得到高分。
+
+**会扣分的差异：** 改变路径命令（如曲线变折线）、移动关键节点、增删图元、不同的圆角或描边几何参数。
+
+#### 2. 结构分 `T`：SVG 的组织方式是否接近
+
+**采集什么：** XML 遍历过程中的标签序列，如 `svg → path → defs → linearGradient → stop`，以及每种标签的出现次数。
+
+**怎样计算：**
+
+- 先计算标签序列的相似度，元素顺序不同会扣分；
+- 再计算标签计数的重叠比例，例如一方多出 `mask`、`clipPath` 或多个 `path` 会扣分；
+- 两者取平均值，得到结构分。
+
+因此，两份 SVG 即使轮廓接近，只要一方额外依赖遮罩、渐变定义或多个组合图层，结构分也会下降。
+
+#### 3. 外观分 `A`：同一轮廓是否以相同方式呈现
+
+**采集什么：** 每个元素上的 `color`、`fill`、`fill-opacity`、`fill-rule`、`opacity`、`stroke`、`stroke-width`、虚线、端点 / 连接方式、`stop-color` 等属性，以及可安全解析的内联 `style`。
+
+**怎样计算：** 将「元素位置 + 标签 + 外观属性 + 属性值」视为一条声明，比较双方声明集合的重叠数量，再除以两边声明数的较大值。两份 SVG 都没有这些声明时，外观分为 `100%`；只有一方有时为 `0%`。
+
+**会扣分的差异：** 固定颜色不同、描边宽度不同、实线与虚线不同、渐变 stop 颜色不同、透明度不同。它不执行页面运行时 CSS，因此 CSS 变量和复杂选择器会转入人工复核，而不是假装已判断颜色等价。
+
+#### 4. 画布比例分 `V`：图标占用空间是否相似
+
+**采集什么：** `viewBox` 的宽高比，即 `高度 ÷ 宽度`，而不是根元素 `width` / `height`。
+
+**怎样计算：** 先求两个宽高比的相对差，再按 `20%` 的容忍区间线性扣分：宽高比完全相同为 `100%`；相对差达到 `20%` 时降为 `0%`；介于两者之间按比例递减。双方都没有 `viewBox` 时记为 `100%`，仅一方缺失时为 `0%`。
+
+**会扣分的差异：** 同一个箭头被放进明显更扁或更高的画布、图形被横向 / 纵向拉伸，或只有一方声明了有效画布。
+
+#### 比例视觉候选为什么另算
+
+比例视觉候选不使用上述总分作为自动迁移依据。它额外要求双方 `viewBox` 等比、元素数量一致，并逐路径比较命令序列与参数数量；任一路径低于 `80%`，或所有路径平均低于 `95%`，都不会进入候选。即使通过，也只表示「值得人眼复核」，不表示可自动替换。
+
+## 根尺寸为什么不进入综合评分
+
+根 `width` / `height` 不参与几何分，是为了正确识别同一图形的多尺寸导出；但它们会作为**迁移约束**单独保留。
+
+例如：
+
+```tsx
+// 保留：该资源固有尺寸为 72 × 72，可能被图片式渲染链路直接使用。
+import IconFreeReturn from '@/assets/icons/icon-service-free-return-72.svg'
+
+// 另一个 40 尺寸版本：虽然几何可等比缩放，但没有同样的根尺寸保证。
+import Return from '@/assets/icons/icon-service-free-return-40.svg'
+```
+
+这两个 SVG 可以得到很高甚至满分的静态特征分，但仍不能直接把前者替换为后者。若引用经由 `<img>`、`LazyLoad`、CSS `url()` 或资源 URL 传递，浏览器会受到 SVG 固有尺寸的影响。只有调用处的 CSS 或组件 API 明确固定了显示宽高时，才可以逐引用迁移。
+
+反过来，使用 `MyIcon` 一类组件且由 CSS 明确控制 `font-size`、`width`、`height` 的场景，根尺寸通常不会决定最终渲染大小；但仍需检查颜色、描边和目标尺寸下的视觉效果。
+
+## 推荐的判断与迁移规则
+
+| 检查项 | 通过条件 | 处理方式 |
+| --- | --- | --- |
+| 几何 | 完全相同，或经确认可等比缩放。 | 可继续检查。 |
+| 外观 | `fill` / `stroke` / 渐变在目标场景等价。 | `currentColor` 与内置固定色需要分别验证。 |
+| 根尺寸 | 相同，或调用处明确保持原宽高。 | 不同则建立逐引用迁移清单。 |
+| 引用方式 | 静态 import / `require()` / CSS `url()` 可被工具识别。 | 动态拼接路径和数据 URI 需人工处理。 |
+| 渲染结果 | 在实际主题、断点和目标尺寸下确认无差异。 | 未验证时不删除旧资源。 |
+
+建议把结果分成三档：
+
+- **可计划迁移：** 完全相同，且引用、颜色、尺寸均无差异；
+- **可逐引用迁移：** 图形相同但尺寸或样式不同；每处补齐原有显示约束后再替换；
+- **只保留为候选：** 比例视觉候选、综合高分候选、人工复核项；不修改代码。
+
+## 阈值如何使用
+
+- `> 80%`：默认召回阈值，适合建立人工复核队列；
+- `> 90%`：适合在大量图标中优先查看高度相似的候选；
+- `100%`：只表示当前静态特征满分，不表示业务语义、固有尺寸和运行时 CSS 已等价；
+- `70%`：几何或结构的最低门槛，不满足则不产生综合候选。
+
+阈值的目的不是决定「删不删」，而是排序「先看谁」。
+
+## 边界
+
+1. 这是静态分析，不是浏览器像素级比对，更不是业务语义识别。
+2. 高相似度是人工复核优先级，不是自动删除授权。
+3. SVG 根尺寸是资源接口的一部分，尤其在图片式引用中不能忽略。
+4. 资源治理的目标是减少重复维护成本，而不是为了减少文件数而牺牲视觉稳定性。
+0:{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"className":"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","span",null,{"className":"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full","children":"工具"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"2026-07-23"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"·"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"6 分钟"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight","children":"SVG 资源相似度判断：定义、评分与迁移边界"}],["$","p",null,{"className":"text-lg text-muted-foreground leading-relaxed","children":" SVG 相似度的静态判断方法，拆解几何、结构、外观和画布比例评分，并说明安全迁移边界。"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-4","children":[["$","span","SVG",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","SVG"]}],["$","span","静态分析",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","静态分析"]}],["$","span","资源治理",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","资源治理"]}],["$","span","工程效率",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","工程效率"]}],["$","span","前端",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","前端"]}]]}]]}],["$","$L3",null,{"content":"$4"}],"$L5"]}]}],"$L6"],["$L7","$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Ge3WFl5K-jC_DPBZH61iD"}
+5:["$","nav",null,{"className":"mt-12 pt-8 border-t border-border","children":["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-2 gap-4","children":[["$","a",null,{"href":"/blog/unused-resource-cleanup-skills","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"← 上一篇"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"未使用代码与资源扫描的实现原理与入门"}]]}],null]}]}]
+6:["$","$Lb",null,{}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/0~q9z__bmj2cx.js","async":true}]
+8:["$","script","script-1",{"src":"/_next/static/chunks/08~fq5w8zrgnt.js","async":true}]
+9:["$","script","script-2",{"src":"/_next/static/chunks/11feawoee2hgr.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

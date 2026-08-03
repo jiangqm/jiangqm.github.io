@@ -1,0 +1,1241 @@
+1:"$Sreact.fragment"
+2:I[89554,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ThemeProvider"]
+3:I[39756,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+4:I[37457,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+5:I[36768,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0j6wpee~y8w_e.js"],"default"]
+6:I[33334,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"PWARegister"]
+7:I[2355,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"Analytics"]
+9:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+d:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ViewportBoundary"]
+f:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"MetadataBoundary"]
+11:I[68027,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default",1]
+:HL["/_next/static/chunks/024i-ufi~va-t.css","style"]
+:HL["/_next/static/chunks/0-k~xe~eh-vq5.css","style"]
+:HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","blog","mcp-learning-guide",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","mcp-learning-guide","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/024i-ufi~va-t.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0-k~xe~eh-vq5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0u4~2urk8vz72.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0t2xr05rlu96l.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"dark bg-background","suppressHydrationWarning":true,"children":["$","body",null,{"className":"manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"dark","enableSystem":false,"disableTransitionOnChange":true,"children":[["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L6",null,{}],["$","$L7",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L8",[["$","script","script-0",{"src":"/_next/static/chunks/0~q9z__bmj2cx.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/08~fq5w8zrgnt.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/11feawoee2hgr.js","async":true,"nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],{},null,false,null]},null,false,"$@c"]},null,false,"$@c"]},null,false,null],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$a",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/024i-ufi~va-t.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0-k~xe~eh-vq5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Ge3WFl5K-jC_DPBZH61iD"}
+12:[]
+c:"$W12"
+13:I[63780,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Navbar"]
+14:I[2019,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"BlogPostClient"]
+15:T4e48,
+## 1. MCP 是什么？
+
+MCP 全称是：
+
+```text
+Model Context Protocol
+```
+
+中文可以理解为：
+
+```text
+模型上下文协议
+```
+
+简单说：
+
+MCP 是一种标准协议，用来让 AI 模型发现、调用和使用外部工具。
+
+如果用一句话理解：
+
+MCP 就像 AI 世界的 USB-C 接口，让不同工具、系统、数据库、API 可以用统一方式接入 AI。
+
+------
+
+## 2. MCP 解决了什么问题？
+
+在没有 MCP 之前，如果想让 AI 调用外部系统，通常需要自己写很多 Function Calling。
+
+例如：
+
+```text
+AI
+ ↓
+Function Calling
+ ↓
+你的代码
+ ↓
+GitHub API / Athena API / Cloudflare API / GA4 API
+```
+
+每接入一个系统，都要单独写工具定义、参数 schema、调用逻辑。
+
+比如你想让 AI 操作：
+
+```text
+Athena
+Cloudflare
+GitHub
+Jira
+GA4
+PayPal
+```
+
+可能需要写很多工具：
+
+```text
+run_sql()
+list_tables()
+purge_cache()
+list_dns_records()
+create_issue()
+query_ga4()
+get_paypal_order()
+```
+
+问题是：
+
+```text
+工具越来越多
+维护成本越来越高
+不同 AI 客户端接入方式不统一
+工具复用困难
+```
+
+MCP 的作用就是：
+
+把这些工具按照统一协议包装起来，让 AI 可以自动发现和调用。
+
+------
+
+## 3. MCP 可以理解成工具集吗？
+
+可以，但不完全准确。
+
+日常理解可以说：
+
+MCP 看起来像一个工具集。
+
+但技术上更准确的说法是：
+
+MCP 是一个标准化工具协议，MCP Server 才是承载工具集的服务。
+
+三者关系如下：
+
+```text
+MCP
+  = 协议标准
+
+MCP Server
+  = 按 MCP 协议提供工具的服务
+
+Tool
+  = MCP Server 里面具体能执行的能力
+```
+
+例如一个 Athena MCP Server 里可能包含这些工具：
+
+```text
+athena_run_sql
+athena_list_databases
+athena_list_tables
+athena_describe_table
+athena_get_query_results
+```
+
+所以：
+
+```text
+MCP 本身不是工具
+MCP Server 看起来像一个工具集
+Tool 才是真正执行任务的函数
+```
+
+------
+
+## 4. MCP、MCP Server、Tool 的关系
+
+可以用下面这个结构理解：
+
+```text
+用户
+ ↓
+AI 模型
+ ↓
+MCP Client
+ ↓
+MCP Server
+ ↓
+Tools
+ ↓
+真实系统 / API / 数据库
+```
+
+例如：
+
+```text
+用户问题：
+“帮我查昨天 /product 页面 INP > 0.4 的数据”
+
+AI
+ ↓
+Athena MCP Server
+ ↓
+query_web_vitals 工具
+ ↓
+AWS Athena
+ ↓
+返回查询结果
+```
+
+------
+
+## 5. MCP 和 Function Calling 的区别
+
+### 5.1 Function Calling
+
+Function Calling 更像是：
+
+你自己给模型注册工具。
+
+例如：
+
+```text
+AI
+ ↓
+调用 get_weather()
+ ↓
+你的代码
+ ↓
+天气 API
+```
+
+你需要自己定义：
+
+```text
+工具名
+工具描述
+参数 schema
+调用逻辑
+返回格式
+```
+
+适合少量、定制化工具。
+
+------
+
+### 5.2 MCP
+
+MCP 更像是：
+
+一个工具服务主动告诉 AI：我这里有哪些工具可以用。
+
+例如：
+
+```text
+AI
+ ↓
+连接 Athena MCP Server
+ ↓
+MCP Server 返回工具列表
+ ↓
+AI 选择 athena_run_sql
+ ↓
+MCP Server 执行查询
+```
+
+MCP Server 可以统一管理很多工具。
+
+------
+
+### 5.3 核心区别
+
+```text
+Function Calling：
+工具通常写在你的应用代码里
+
+MCP：
+工具独立运行在 MCP Server 里
+```
+
+对比：
+
+| 对比项 | Function Calling | MCP |
+| --- | --- | --- |
+| 工具定义位置 | 应用代码里 | MCP Server 里 |
+| 工具发现 | 开发者手动注册 | AI 客户端自动发现 |
+| 复用性 | 较低 | 较高 |
+| 适合场景 | 少量自定义工具 | 多工具、多系统集成 |
+| 部署方式 | 跟应用绑定 | 可以独立部署 |
+| 典型用途 | 单个业务函数 | GitHub、Athena、Cloudflare、数据库等工具服务 |
+
+------
+
+## 6. MCP 的核心能力
+
+MCP 主要有几类能力。
+
+### 6.1 Tools
+
+Tools 是最常见的能力。
+
+它表示 AI 可以调用的具体函数。
+
+例如：
+
+```text
+athena_run_sql
+cloudflare_purge_cache
+github_create_issue
+ga4_query_report
+```
+
+每个 Tool 一般包含：
+
+```text
+工具名
+工具描述
+输入参数
+输出结果
+```
+
+------
+
+### 6.2 Resources
+
+Resources 可以理解为：
+
+MCP Server 暴露出来的资源内容。
+
+例如：
+
+```text
+文件
+文档
+数据库表结构
+配置说明
+项目上下文
+```
+
+AI 可以读取这些资源，作为回答或调用工具的上下文。
+
+------
+
+### 6.3 Prompts
+
+Prompts 是 MCP Server 提供的预设提示词模板。
+
+例如：
+
+```text
+分析 Web Vitals 异常
+生成 SQL 查询
+排查 Cloudflare 缓存问题
+生成事故复盘
+```
+
+AI 客户端可以直接使用这些模板。
+
+## 7. 一个 MCP Server 长什么样？
+
+以 Athena MCP 为例，一个 MCP Server 可以包含：
+
+```text
+Athena MCP Server
+├── athena_list_databases
+├── athena_list_tables
+├── athena_describe_table
+├── athena_run_sql
+├── athena_get_query_status
+└── athena_get_query_results
+```
+
+如果是业务增强版，可以继续加：
+
+```text
+A-Premium Athena MCP Server
+├── 通用工具
+│   ├── athena_run_sql
+│   ├── athena_list_tables
+│   └── athena_describe_table
+│
+└── 业务工具
+    ├── query_web_vitals
+    ├── query_gtm_events
+    ├── query_purchase_events
+    └── query_cloudflare_logs
+```
+
+业务工具的价值更大，因为它可以把复杂 SQL 封装起来，让 AI 不需要每次都猜表结构。
+
+------
+
+## 8. 本地 MCP 和远程 MCP
+
+MCP Server 可以分为两种常见运行方式。
+
+------
+
+### 8.1 本地 MCP
+
+本地 MCP 通常通过 `stdio` 方式运行。
+
+结构：
+
+```text
+AI 客户端
+ ↓ stdio
+本地 MCP Server
+ ↓
+本机 AWS Credential / 本地文件 / 本地命令
+```
+
+适合：
+
+```text
+个人使用
+本地开发
+Cursor
+Claude Desktop
+本地 Athena 查询
+内部调试
+```
+
+优点：
+
+```text
+部署简单
+不用公网暴露服务
+可以直接读取本机配置
+开发成本低
+```
+
+缺点：
+
+```text
+不适合多人共享
+权限主要依赖本机环境
+不方便统一审计
+```
+
+------
+
+### 8.2 远程 MCP
+
+远程 MCP 通过 HTTP / SSE 等方式提供服务。
+
+结构：
+
+```text
+AI / OpenAI Responses API
+ ↓ HTTP/SSE
+Remote MCP Server
+ ↓
+AWS / Cloudflare / GA4 / 内部系统
+```
+
+适合：
+
+```text
+团队共享
+生产级工具
+统一权限控制
+统一审计日志
+接入 OpenAI Responses API
+```
+
+优点：
+
+```text
+团队可复用
+方便集中管理权限
+方便做日志和审计
+适合生产环境
+```
+
+缺点：
+
+```text
+需要部署服务
+需要鉴权
+需要考虑网络安全
+```
+
+## 9. 构建一个 MCP Server 需要什么？
+
+构建 MCP Server 通常需要 5 个部分：
+
+```text
+1. 工具定义
+2. 工具实现
+3. MCP 协议层
+4. 运行方式
+5. 权限与安全控制
+```
+
+------
+
+### 9.1 工具定义
+
+要告诉 AI：
+
+```text
+这个工具叫什么
+这个工具能做什么
+需要哪些参数
+返回什么结果
+```
+
+例如：
+
+```text
+工具名：
+athena_run_sql
+
+描述：
+执行只读 Athena SQL 查询，只允许 SELECT / WITH 查询。
+
+输入：
+{
+  "sql": "string",
+  "database": "string",
+  "limit": "number"
+}
+
+输出：
+{
+  "queryExecutionId": "string",
+  "rows": []
+}
+```
+
+------
+
+### 9.2 工具实现
+
+工具实现就是真正执行业务逻辑。
+
+例如：
+
+```text
+athena_run_sql
+ ↓
+校验 SQL 是否安全
+ ↓
+调用 AWS Athena SDK
+ ↓
+等待查询完成
+ ↓
+读取查询结果
+ ↓
+返回给 AI
+```
+
+------
+
+### 9.3 MCP 协议层
+
+这一层一般不需要自己从零实现，可以使用官方 MCP SDK。
+
+常见语言：
+
+```text
+TypeScript / Node.js
+Python
+```
+
+对于本地 MCP，Node.js 和 Python 都比较合适。
+
+------
+
+### 9.4 运行方式
+
+本地运行：
+
+```text
+node dist/index.js
+```
+
+或者：
+
+```text
+python server.py
+```
+
+AI 客户端通过配置启动这个 MCP Server。
+
+------
+
+### 9.5 权限与安全
+
+这是 MCP 最重要的部分。
+
+尤其是接 Athena、Cloudflare、AWS、数据库时，必须控制好权限。
+
+建议：
+
+```text
+只读优先
+只允许 SELECT
+限制 database 白名单
+限制 table 白名单
+限制返回行数
+限制查询时间范围
+记录调用日志
+禁止打印密钥
+危险操作需要人工确认
+```
+
+------
+
+## 10. Athena MCP 的推荐设计
+
+如果要做一个本地 Athena MCP，建议从这些工具开始：
+
+```text
+athena_list_databases
+athena_list_tables
+athena_describe_table
+athena_run_sql
+athena_get_query_status
+athena_get_query_results
+```
+
+------
+
+### 10.1 athena_list_databases
+
+作用：
+
+```text
+列出可访问的 Athena / Glue databases
+```
+
+输入：
+
+```json
+{}
+```
+
+输出：
+
+```json
+{
+  "databases": ["dataworks", "default"]
+}
+```
+
+------
+
+### 10.2 athena_list_tables
+
+作用：
+
+```text
+列出指定 database 下的表
+```
+
+输入：
+
+```json
+{
+  "database": "dataworks"
+}
+```
+
+输出：
+
+```json
+{
+  "tables": ["ods_mixp_track_event_dip"]
+}
+```
+
+------
+
+### 10.3 athena_describe_table
+
+作用：
+
+```text
+查看表结构
+```
+
+输入：
+
+```json
+{
+  "database": "dataworks",
+  "table": "ods_mixp_track_event_dip"
+}
+```
+
+输出：
+
+```json
+{
+  "columns": [
+    {
+      "name": "dt",
+      "type": "string"
+    },
+    {
+      "name": "event",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "type": "string"
+    }
+  ]
+}
+```
+
+------
+
+### 10.4 athena_run_sql
+
+作用：
+
+```text
+执行只读 SQL 查询
+```
+
+输入：
+
+```json
+{
+  "database": "dataworks",
+  "sql": "SELECT * FROM dataworks.ods_mixp_track_event_dip LIMIT 10"
+}
+```
+
+输出：
+
+```json
+{
+  "queryExecutionId": "xxx",
+  "rows": []
+}
+```
+
+安全要求：
+
+```text
+只允许 SELECT / WITH
+禁止 DROP / DELETE / UPDATE / INSERT / ALTER / CREATE / TRUNCATE
+默认 LIMIT 100
+限制最大扫描范围
+限制 database 白名单
+```
+
+------
+
+## 11. Athena MCP 的目录结构示例
+
+推荐结构：
+
+```text
+a-premium-athena-mcp/
+├── src/
+│   ├── index.ts
+│   ├── server.ts
+│   ├── config.ts
+│   ├── tools/
+│   │   ├── listDatabases.ts
+│   │   ├── listTables.ts
+│   │   ├── describeTable.ts
+│   │   ├── runSql.ts
+│   │   ├── getQueryStatus.ts
+│   │   └── getQueryResults.ts
+│   ├── aws/
+│   │   └── athenaClient.ts
+│   └── security/
+│       └── sqlGuard.ts
+├── package.json
+├── tsconfig.json
+├── .env.example
+└── README.md
+```
+
+------
+
+## 12. Athena MCP 的配置项
+
+本地 Athena MCP 一般需要这些环境变量：
+
+```env
+AWS_REGION=us-east-2
+AWS_PROFILE=default
+
+ATHENA_WORKGROUP=primary
+ATHENA_DATABASE=dataworks
+ATHENA_OUTPUT_LOCATION=s3://your-athena-query-results-bucket/path/
+
+ALLOWED_DATABASES=dataworks,default
+DEFAULT_QUERY_LIMIT=100
+MAX_QUERY_LIMIT=1000
+```
+
+说明：
+
+```text
+AWS_REGION：
+Athena 所在区域
+
+AWS_PROFILE：
+使用本机 ~/.aws/credentials 中的哪个 profile
+
+ATHENA_WORKGROUP：
+Athena 查询使用的 workgroup
+
+ATHENA_DATABASE：
+默认 database
+
+ATHENA_OUTPUT_LOCATION：
+Athena 查询结果输出到哪个 S3 路径
+
+ALLOWED_DATABASES：
+允许查询的数据库白名单
+
+DEFAULT_QUERY_LIMIT：
+默认返回条数
+
+MAX_QUERY_LIMIT：
+最大返回条数
+```
+
+------
+
+## 13. 本地 MCP 客户端配置思路
+
+以 Claude Desktop / Cursor 这类本地 MCP 客户端为例，配置思路是：
+
+```json
+{
+  "mcpServers": {
+    "athena": {
+      "command": "node",
+      "args": [
+        "/path/to/a-premium-athena-mcp/dist/index.js"
+      ],
+      "env": {
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "us-east-2",
+        "ATHENA_DATABASE": "dataworks",
+        "ATHENA_WORKGROUP": "primary",
+        "ATHENA_OUTPUT_LOCATION": "s3://your-athena-query-results-bucket/path/",
+        "ALLOWED_DATABASES": "dataworks"
+      }
+    }
+  }
+}
+```
+
+如果是 Python 版本，可能是：
+
+```json
+{
+  "mcpServers": {
+    "athena": {
+      "command": "python",
+      "args": [
+        "/path/to/athena-mcp/server.py"
+      ],
+      "env": {
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "us-east-2"
+      }
+    }
+  }
+}
+```
+
+------
+
+## 14. 给 AI 生成 Athena MCP 的提示词
+
+如果要让 AI 帮你生成一个本地 Athena MCP，可以直接使用下面这段提示词。
+
+```text
+你是一个 MCP Server 开发助手。请帮我构建一个本地运行的 Athena MCP Server，用于让 AI 客户端通过 MCP 协议查询 AWS Athena。
+
+目标：
+1. 使用本地 MCP，优先支持 stdio 模式。
+2. 用 TypeScript / Node.js 实现。
+3. 使用官方 MCP SDK。
+4. 通过 AWS SDK 调用 Athena。
+5. 支持读取本机 AWS Credential，包括环境变量、~/.aws/credentials、AWS Profile。
+6. 默认只允许只读查询，禁止 DROP、DELETE、UPDATE、INSERT、ALTER、CREATE、TRUNCATE 等危险 SQL。
+7. 查询结果默认限制返回 100 行。
+8. 支持配置 Athena workgroup、region、database、outputLocation。
+9. 代码结构清晰，方便后续增加业务工具。
+
+请先实现这些 MCP tools：
+
+- athena_list_databases：列出 Glue/Athena database
+- athena_list_tables：列出指定 database 下的 tables
+- athena_describe_table：查看表结构
+- athena_run_sql：执行只读 SELECT 查询
+- athena_get_query_status：查看查询状态
+- athena_get_query_results：获取查询结果
+
+请输出：
+1. 项目目录结构
+2. package.json
+3. TypeScript 源码
+4. .env.example
+5. README.md
+6. Claude Desktop / Cursor 的本地 MCP 配置示例
+7. 本地调试命令
+8. AWS IAM 最小权限策略示例
+
+安全要求：
+- athena_run_sql 必须校验 SQL，只允许 SELECT / WITH 开头。
+- 自动追加或校验 LIMIT，避免大结果集。
+- 禁止访问未配置白名单之外的 database。
+- 所有查询都需要打印日志，包括调用时间、SQL、database、queryExecutionId。
+- 不要在日志中打印 AWS Secret。
+```
+
+------
+
+## 15. 业务版 Athena MCP 提示词
+
+如果你要结合 Web Vitals、GTM、性能分析，可以继续追加：
+
+```text
+请额外增加一个业务工具 query_web_vitals，用于查询我们 Athena 中的 Web Vitals 埋点数据。
+
+表名：
+dataworks.ods_mixp_track_event_dip
+
+常用字段：
+- dt：日期分区，格式 YYYY-MM-DD
+- ts：事件时间
+- shop_id
+- platform：Mobile / Desktop
+- event：事件名
+- data：JSON 字符串
+- page_url
+- route_path_name
+- user_agent
+- sid
+- client_id
+
+Web Vitals 事件：
+- preformance_inp
+- preformance_lcp
+- preformance_cls
+
+value 获取方式：
+json_extract_scalar(data,'$.value')
+
+query_web_vitals 入参：
+- metric: INP | LCP | CLS
+- start_date: string
+- end_date: string
+- platform?: Mobile | Desktop
+- path_pattern?: string，例如 /product/%
+- min_value?: number
+- limit?: number
+
+生成 SQL 示例：
+SELECT
+  dt,
+  ts,
+  shop_id,
+  platform,
+  event,
+  CAST(json_extract_scalar(data,'$.value') AS DOUBLE) AS value,
+  json_extract_scalar(data,'$.element') AS element,
+  page_url,
+  route_path_name,
+  sid,
+  client_id,
+  user_agent
+FROM dataworks.ods_mixp_track_event_dip
+WHERE dt BETWEEN :start_date AND :end_date
+  AND event = :event
+  AND platform = :platform
+  AND url_extract_path(page_url) LIKE :path_pattern
+  AND CAST(json_extract_scalar(data,'$.value') AS DOUBLE) > :min_value
+LIMIT :limit;
+
+注意：
+- event 映射规则：INP -> preformance_inp，LCP -> preformance_lcp，CLS -> preformance_cls。
+- 所有参数必须做安全拼接，不能直接字符串裸拼接用户输入。
+```
+
+------
+
+## 16. Athena MCP 最小 IAM 权限
+
+本地 Athena MCP 使用的 AWS 用户或 Role 建议只给最小权限。
+
+大致需要：
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "athena:StartQueryExecution",
+        "athena:GetQueryExecution",
+        "athena:GetQueryResults",
+        "athena:StopQueryExecution",
+        "athena:ListQueryExecutions",
+        "athena:ListWorkGroups",
+        "athena:GetWorkGroup"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetDatabase",
+        "glue:GetDatabases",
+        "glue:GetTable",
+        "glue:GetTables",
+        "glue:GetPartitions"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::your-athena-query-results-bucket",
+        "arn:aws:s3:::your-athena-query-results-bucket/*"
+      ]
+    }
+  ]
+}
+```
+
+注意：
+
+```text
+S3 权限只给 Athena 查询结果桶
+不要给所有 S3 桶
+如果只查询固定库表，Glue 也可以进一步收窄 Resource
+```
+
+------
+
+## 17. MCP 安全设计建议
+
+MCP 一旦接入真实系统，就相当于让 AI 获得了某些系统操作能力。
+
+所以安全非常重要。
+
+### 17.1 Athena 类工具
+
+建议：
+
+```text
+只允许 SELECT / WITH
+禁止写操作
+限制 database
+限制 table
+限制 LIMIT
+限制日期范围
+限制扫描数据量
+记录 SQL 日志
+```
+
+不建议一开始开放：
+
+```text
+CREATE TABLE
+DROP TABLE
+INSERT INTO
+DELETE
+UPDATE
+ALTER
+MSCK REPAIR TABLE
+```
+
+------
+
+### 17.2 Cloudflare 类工具
+
+建议先开放只读工具：
+
+```text
+list_dns_records
+get_cache_analytics
+get_firewall_events
+get_audit_logs
+```
+
+谨慎开放写操作：
+
+```text
+purge_cache
+update_dns_record
+delete_dns_record
+create_waf_rule
+```
+
+如果要开放写操作，建议增加：
+
+```text
+人工确认
+操作白名单
+环境隔离
+审计日志
+回滚方案
+```
+
+------
+
+### 17.3 生产环境建议
+
+```text
+开发环境和生产环境分开
+只读 MCP 和写入 MCP 分开
+高危工具单独授权
+所有调用记录日志
+敏感参数脱敏
+定期 review 工具权限
+```
+
+------
+
+## 18. 适合你当前场景的 MCP 规划
+
+结合当前工作内容，可以设计成：
+
+```text
+A-Premium MCP
+├── Athena MCP
+│   ├── query_web_vitals
+│   ├── query_gtm_events
+│   ├── query_purchase_events
+│   └── run_sql
+│
+├── Cloudflare MCP
+│   ├── get_cache_hit_rate
+│   ├── get_firewall_events
+│   ├── list_dns_records
+│   └── purge_cache
+│
+├── GA4 MCP
+│   ├── query_events
+│   ├── query_purchase
+│   └── query_realtime
+│
+├── GitHub MCP
+│   ├── search_issue
+│   ├── create_issue
+│   └── get_deployment
+│
+└── PayPal MCP
+    ├── get_order
+    └── get_payment_status
+```
+
+短期建议先做：
+
+```text
+本地 Athena MCP
+```
+
+原因：
+
+```text
+你现在经常需要查 Athena SQL
+只读风险较低
+可以快速验证 MCP 价值
+能直接提升性能分析、埋点分析效率
+```
+
+------
+
+## 19. 推荐学习顺序
+
+建议按这个顺序学：
+
+```text
+1. Function Calling
+2. MCP 基本概念
+3. 本地 MCP stdio
+4. MCP Server 工具定义
+5. MCP Server 工具实现
+6. Athena MCP
+7. 业务工具封装
+8. 远程 MCP
+9. 权限、鉴权、审计
+10. 多工具 Agent 工作流
+```
+
+------
+
+## 20. 最小实践路径
+
+可以按这个路线做：
+
+```text
+第一步：
+跑通一个本地 MCP demo
+
+第二步：
+增加 athena_run_sql 工具
+
+第三步：
+增加 SQL 安全校验
+
+第四步：
+增加 list_tables / describe_table
+
+第五步：
+增加 query_web_vitals 业务工具
+
+第六步：
+接入 Cursor 或 Claude Desktop
+
+第七步：
+沉淀团队内部 README
+
+第八步：
+考虑远程 MCP 和团队共享
+```
+
+------
+
+## 21. 最终要记住的核心概念
+
+```text
+MCP 是协议，不是工具本身。
+
+MCP Server 是工具服务，看起来像一个工具集。
+
+Tool 是具体能力，例如 run_sql、purge_cache。
+
+本地 MCP 适合个人开发和本机环境。
+
+远程 MCP 适合团队共享和生产级服务。
+
+业务工具比通用工具更有价值。
+
+安全控制是 MCP 落地的核心。
+```
+
+------
+
+## 22. 用一句话总结 MCP
+
+MCP 是一套让 AI 标准化连接外部工具的协议；通过 MCP Server，AI 可以自动发现并调用各种工具，比如 Athena 查询、Cloudflare 分析、GitHub Issue、GA4 报表等。
+
+对于你的工作场景，MCP 最直接的价值是：
+
+把日常需要手动写 SQL、查 Cloudflare、看 GA4、排查性能数据的操作，封装成 AI 可以直接调用的工具，让 AI 从“回答问题”升级成“帮你执行分析流程”。
+8:[["$","$L13",null,{}],["$","main",null,{"className":"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","span",null,{"className":"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full","children":"AI"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"2026-07-18"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"·"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"10 分钟"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight","children":"从协议概念到 Athena MCP 实践"}],["$","p",null,{"className":"text-lg text-muted-foreground leading-relaxed","children":"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-4","children":[["$","span","MCP",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","MCP"]}],["$","span","AI",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","AI"]}],["$","span","Athena",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Athena"]}],["$","span","工具协议",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","工具协议"]}],["$","span","Agent",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Agent"]}]]}]]}],["$","$L14",null,{"content":"$15"}],"$L16"]}]}],"$L17"]
+18:I[76841,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Footer"]
+16:["$","nav",null,{"className":"mt-12 pt-8 border-t border-border","children":["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-2 gap-4","children":[["$","a",null,{"href":"/blog/performance-optimization-practice","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"← 上一篇"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"Core Web Vitals 性能优化实践"}]]}],["$","a",null,{"href":"/blog/cnn-rnn-attention-bert-gpt","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors text-right sm:col-start-2","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"下一篇 →"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"从 CNN 到 GPT：深度学习核心模型入门指南"}]]}]]}]}]
+17:["$","$L18",null,{}]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0f172a"}]]
+19:I[27201,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"IconMark"]
+b:null
+10:[["$","title","0",{"children":"从协议概念到 Athena MCP 实践 | 博客"}],["$","meta","1",{"name":"description","content":"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"}],["$","meta","2",{"name":"application-name","content":"Personal Space"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"generator","content":"v0.app"}],["$","meta","5",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","6",{"name":"apple-mobile-web-app-title","content":"Personal Space"}],["$","meta","7",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","8",{"property":"og:title","content":"从协议概念到 Athena MCP 实践"}],["$","meta","9",{"property":"og:description","content":"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"}],["$","meta","10",{"property":"og:type","content":"article"}],["$","meta","11",{"property":"article:published_time","content":"2026-07-18"}],["$","meta","12",{"property":"article:tag","content":"MCP"}],["$","meta","13",{"property":"article:tag","content":"AI"}],["$","meta","14",{"property":"article:tag","content":"Athena"}],["$","meta","15",{"property":"article:tag","content":"工具协议"}],["$","meta","16",{"property":"article:tag","content":"Agent"}],["$","meta","17",{"name":"twitter:card","content":"summary"}],["$","meta","18",{"name":"twitter:title","content":"从协议概念到 Athena MCP 实践"}],["$","meta","19",{"name":"twitter:description","content":"系统梳理 MCP 的核心概念、与 Function Calling 的区别、本地与远程 MCP 的部署方式，并结合 Athena MCP 示例说明工具设计、安全控制和落地路径。"}],["$","link","20",{"rel":"icon","href":"/icons/icon-192x192.png","sizes":"192x192","type":"image/png"}],["$","link","21",{"rel":"icon","href":"/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}],["$","link","22",{"rel":"apple-touch-icon","href":"/apple-touch-icons/apple-touch-icon-180x180.png"}],["$","$L19","23",{}]]

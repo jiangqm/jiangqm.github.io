@@ -1,0 +1,280 @@
+1:"$Sreact.fragment"
+2:I[89554,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ThemeProvider"]
+3:I[39756,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+4:I[37457,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+5:I[36768,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0j6wpee~y8w_e.js"],"default"]
+6:I[33334,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"PWARegister"]
+7:I[2355,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"Analytics"]
+9:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+d:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ViewportBoundary"]
+f:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"MetadataBoundary"]
+11:I[68027,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default",1]
+:HL["/_next/static/chunks/024i-ufi~va-t.css","style"]
+:HL["/_next/static/chunks/0-k~xe~eh-vq5.css","style"]
+:HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","blog","performance-optimization-practice",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","performance-optimization-practice","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/024i-ufi~va-t.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0-k~xe~eh-vq5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0u4~2urk8vz72.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0t2xr05rlu96l.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"dark bg-background","suppressHydrationWarning":true,"children":["$","body",null,{"className":"manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"dark","enableSystem":false,"disableTransitionOnChange":true,"children":[["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L6",null,{}],["$","$L7",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L8",[["$","script","script-0",{"src":"/_next/static/chunks/0~q9z__bmj2cx.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/08~fq5w8zrgnt.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/11feawoee2hgr.js","async":true,"nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],{},null,false,null]},null,false,"$@c"]},null,false,"$@c"]},null,false,null],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$a",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/024i-ufi~va-t.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/0-k~xe~eh-vq5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Ge3WFl5K-jC_DPBZH61iD"}
+12:[]
+c:"$W12"
+13:I[63780,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Navbar"]
+14:I[2019,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"BlogPostClient"]
+15:T401d,
+## 前言：Core Web Vitals 三大核心指标的价值
+
+2020 年 Google 推出 Core Web Vitals 时，最初的三个指标是 LCP、FID（首次输入延迟）和 CLS。2023 年 5 月，Google 宣布从 2024 年 3 月开始，FID 将被 INP（交互到下次绘制）取代；2024 年 3 月 12 日，INP 正式成为 Core Web Vitals 的核心指标。
+
+这三大指标覆盖了用户访问网页的关键体验链路：LCP 衡量**加载速度**，CLS 衡量**视觉稳定性**，INP 衡量**交互响应性**。
+
+它们不仅影响用户留存和操作体验，也已经成为 Google 搜索排名的重要参考因素。LCP 每延迟 100 ms，转化率都可能受到影响；CLS 超标（> 0.25）时，用户误触概率会增加；INP > 500 ms 时，用户更容易放弃操作。
+
+## 一、LCP（最大内容绘制）：聚焦视觉加载速度
+
+### 指标解释
+
+LCP（Largest Contentful Paint）指从用户发起网页加载，到视口中渲染出最大图片或文本块所用的时间。它是衡量页面视觉加载性能的核心指标，直接决定用户对「页面是否加载完成」的第一感知。
+
+### 指标组成
+
+LCP 的总耗时由以下四个关键环节累加而成：
+
+1. **文档加载第一个字节（TTFB）：** 用户请求页面到服务器返回第一个字节的时间，反映服务端响应速度。
+2. **资源加载延迟：** 浏览器发现 LCP 资源（首屏大图、大段文本等）到开始加载的时间，受浏览器资源调度策略影响。
+3. **资源加载时长：** LCP 资源的实际传输时间，取决于网络带宽和资源体积，例如图片分辨率、文本长度。
+4. **元素渲染延迟：** 资源加载完成后到实际渲染的时间，受浏览器渲染队列、CSS 阻塞等因素影响。
+
+### 指标评级
+
+| 评级 | 耗时阈值 | 用户体验影响 |
+| --- | --- | --- |
+| 良好 | ≤ 2.5 秒 | 视觉加载体验优秀，用户留存率更高 |
+| 需要改进 | 2.5 秒 - 4 秒 | 加载速度存在感知延迟，可能导致部分用户中途退出 |
+| 欠佳 | > 4 秒 | 加载过慢，移动端用户流失风险明显升高，严重影响业务转化 |
+
+### 高频原因与优化方案
+
+#### 1. 初始加载资源过量，首屏冗余资源阻塞
+
+**案例：** 商品详情页首次加载资源总量达到 5 MB，包含非首屏的「相关推荐」组件、弹窗组件 JS/CSS、冗余第三方统计脚本，导致 LCP 元素（商品主图）加载被阻塞，耗时 3.9 秒。
+
+**核心原因：** 首屏加载未做资源筛选，非关键资源与 LCP 资源竞争加载带宽，延长关键资源加载时间。
+
+**解决方案：**
+
+- **组件分级加载：** 非首屏组件（如推荐商品、售后弹窗）采用闲时加载（`requestIdleCallback`）或按需加载（用户触发时加载）。
+- **SEO 兼容处理：** 需要搜索引擎抓取的非首屏内容，生成纯 DOM 简版组件嵌入初始 HTML，实际交互组件异步加载。
+- **资源拆包与减重：** 通过打包配置和代码优化分割公共依赖包，首屏仅加载业务核心代码，删除 JS/CSS 中未使用的代码。
+
+#### 2. LCP 元素优先级配置错误，未优先加载
+
+**案例：** 首页首屏 banner 图因未配置加载优先级，被非首屏图片、第三方脚本抢占加载资源，导致 banner 图开始加载延迟 1.2 秒，最终 LCP 耗时 4.8 秒。
+
+**核心原因：** 浏览器默认按资源加载顺序调度，未通过显式配置提升 LCP 元素优先级，导致关键资源加载被阻塞。
+
+**解决方案：**
+
+- 图片类 LCP 元素：使用 `next/image` 组件的 `priority={true}` 属性，或原生 `<img loading="eager" fetchpriority="high">` 提升加载优先级。
+- 文本类 LCP 元素：将核心文本直接内嵌到 HTML 中，避免通过 JS 动态插入，确保浏览器解析 HTML 时即可渲染。
+- 禁用 LCP 元素懒加载：避免 `loading="lazy"` 误用于首屏 LCP 资源。
+
+#### 3. LCP 元素资源体积过大，传输耗时过长
+
+**案例：** PC 端商品详情页主图为 1600 × 1600 像素的高清图，单张体积约 300 KB；而实际渲染尺寸仅为 600 × 600 像素，存在大量冗余像素。
+
+**核心原因：** 资源尺寸与渲染尺寸不匹配，未针对不同设备、网络环境做适配优化，导致无效传输成本。
+
+**解决方案：**
+
+- **尺寸适配：** 按实际渲染尺寸提供资源，如渲染 600 × 600 像素则直接输出对应尺寸图片，体积可明显下降。
+- **格式优化：** 图片优先使用 WebP/AVIF 格式，文本类 LCP 元素避免内嵌大段 Base64 图片。
+- **渐进式加载：** 使用 `next/image` 组件或叠图策略，采用「小图优先占位 + 高清图替换」策略。
+
+#### 4. LCP 元素动态插入，初始文档中缺失
+
+**案例：** 类目页面活动 banner 图需要通过客户端接口请求获取，初始 HTML 中无该元素。浏览器首次渲染时没有有效 LCP 候选元素，接口返回后才动态插入 banner 图，LCP 耗时达到 5.2 秒。
+
+**核心原因：** LCP 元素依赖客户端异步数据，初始文档未包含，导致「发现资源 - 加载 - 渲染」全链路延迟。
+
+**解决方案：**
+
+- **服务端预取数据：** 活动 banner、核心文本等 LCP 元素数据，通过服务端接口提前获取，直接嵌入初始 HTML。
+- **降级兜底方案：** 接口异常或无数据时，预设静态占位图（如品牌 Logo）作为 LCP 候选元素，避免 LCP 缺失。
+
+#### 5. 非核心元素抢占 LCP，导致指标二次计算
+
+**案例：** 页面已渲染完成商品列表（LCP 元素，耗时 2.3 秒），但 3 秒后自动弹出的开屏广告因面积占比更大，被浏览器判定为新的 LCP 元素，最终 LCP 总耗时达到 4.1 秒。
+
+**核心原因：** 非核心交互元素（广告、通告栏）面积超过原有 LCP 元素，触发 LCP 二次计算，叠加耗时。
+
+**解决方案：**
+
+- 拆分大尺寸非核心元素，降低单元素面积占比，避免抢占 LCP。
+- 限制非核心元素层级，通过 `position: absolute` 让广告、弹窗脱离文档流，并设置 `max-width`/`max-height` 控制面积。
+- 延迟非核心元素加载，订阅弹窗等内容等到用户交互后再加载。
+
+## 二、CLS（累积布局偏移）：聚焦视觉稳定性
+
+### 指标解释
+
+CLS（Cumulative Layout Shift）衡量页面在加载和交互过程中，可见内容的「非预期位置跳动」程度，反映布局稳定性。非预期布局偏移会导致用户误触，例如点击按钮时，按钮被突然下移的元素挤开，最终点到错误位置。
+
+### CLS 豁免规则
+
+用户主动交互（点击、触摸、键盘输入）后 **500 ms** 内发生的布局偏移，会被浏览器忽略，避免将合理交互反馈（如下拉菜单展开）计入 CLS 评分。
+
+### 指标组成
+
+CLS 的计算逻辑是：
+
+```text
+单次布局偏移分数 = impactFraction（影响面积占比）× distanceFraction（偏移距离占比）
+```
+
+页面生命周期内所有单次分数累加，即为最终 CLS 值。
+
+例如：按钮加载后被图片挤下移 25% 视口高度，受影响区域占 75% 视口面积，单次偏移分数就是 `0.75 × 0.25 = 0.1875`。
+
+### 指标评级
+
+| 评级 | 分数阈值 | 用户体验影响 |
+| --- | --- | --- |
+| 良好 | ≤ 0.1 | 布局稳定性优秀，用户无明显视觉干扰 |
+| 需要改进 | 0.1 - 0.25 | 存在轻微布局跳动，可能导致用户操作犹豫 |
+| 欠佳 | > 0.25 | 布局跳动严重，用户误触率增加，体验差评风险升高 |
+
+### 高频原因与优化方案
+
+#### 1. 图片未设置尺寸占位，加载后撑开布局
+
+**案例：** 类目页 banner 图未设置宽高属性，初始渲染时无占位空间。图片加载完成后突然撑开容器，导致下方商品列表整体下移，单次 CLS 达到 0.3。
+
+**核心原因：** 未提前为媒体资源预留固定布局空间，资源加载完成后尺寸突变引发布局偏移。
+
+**解决方案：**
+
+- 显式设置宽高属性：`<img src="banner.jpg" width="1200" height="400" alt="类目 banner">`，确保浏览器初始渲染时预留空间。
+- 使用 CSS `aspect-ratio`：为图片容器设置 `aspect-ratio: 3 / 1`，配合 `width: 100%`，适配响应式布局。
+- 使用框架组件能力：例如 `next/image` 自动生成尺寸占位，避免手动配置失误。
+
+#### 2. 动态插入内容未预留占位，挤压现有布局
+
+**案例：** 商品详情页的「换购、推荐」等模块通过客户端接口请求数据，接口返回后直接插入页面，未预留占位空间，导致下方评论区整体上移，CLS 增加 0.2。
+
+**核心原因：** 动态内容（接口返回、JS 注入）未提前占据布局空间，加载完成后突然占用空间引发偏移。
+
+**解决方案：**
+
+- **骨架屏占位：** 为动态模块预设与最终渲染尺寸一致的骨架屏，接口返回后替换骨架屏。
+- **服务端预渲染：** 首屏动态内容通过服务端接口预取数据，直接嵌入初始 HTML，减少客户端动态插入。
+- **固定容器高度：** 对高度可预期的动态模块设置 `min-height`，确保内容加载前后容器高度稳定。
+- **产品设计约束：** 尽量让核心模块保持固定尺寸，减少可变内容对页面整体布局的影响。
+
+#### 3. 不合理 CSS 属性触发重排，导致布局抖动
+
+**案例：** 商品详情页的大图放大镜功能，通过 `top`/`left` 属性动态调整放大区域位置。每次鼠标滑动都会触发浏览器重排，多次滑动后 CLS 累积达到 0.28。
+
+**核心原因：** 使用 `top`/`left`、`width`、`margin` 等布局属性修改元素位置或尺寸，触发浏览器重排（Reflow），导致关联元素布局偏移。
+
+**解决方案：**
+
+- 优先使用合成属性：动画和交互中修改元素位置时，使用 `transform: translateX()`/`translateY()`；修改透明度时使用 `opacity`。这些属性通常只触发 GPU 合成，不影响文档流布局。
+- 隔离重排元素：对频繁变化的元素（如放大镜、倒计时）设置 `will-change: transform`，提示浏览器提前优化渲染策略。
+- 避免高频样式修改：通过 JS 动态修改样式时，批量操作，例如使用 `class` 切换替代直接修改 `style`。
+
+#### 4. 字体加载未处理，导致文本跳动
+
+**案例：** 未配置字体加载策略，系统字体渲染后，自定义字体加载完成触发文本尺寸和间距变化，导致标题区域横向拉伸。
+
+**核心原因：** 自定义字体加载延迟，系统字体与自定义字体的字重、间距差异引发文本区域尺寸变化。
+
+**解决方案：**
+
+- 预加载关键字体：通过 `<link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>` 提前加载自定义字体。
+- 统一字体资源：减少字体家族和字重数量，降低字体加载成本。
+- 字体子集化：从完整字体文件中提取实际使用的字符，生成更小的字体文件。
+
+### 易引发 CLS 的 CSS 属性清单
+
+| CSS 属性类别 | 具体属性 | 导致 CLS 的核心原因 | 替代方案 |
+| --- | --- | --- | --- |
+| 位置类 | `top`、`left`、`right`、`bottom` | 修改元素几何位置，触发重排，改变周围元素布局 | `transform: translate()` |
+| 尺寸类 | `width`、`height` | 动态改变元素宽高，挤压或拉伸周围元素 | 固定 `min-width`、`min-height` 或 `aspect-ratio` |
+| 间距类 | `padding`、`margin` | 改变元素间距，引发连锁布局变化 | 使用 `transform` 替代或提前预留间距 |
+| 显示隐藏类 | `display`（`none` ↔ `block`/`inline`） | 释放或占据布局空间，导致周围元素偏移 | `visibility: hidden`（保留布局） |
+| 文本字体类 | `font-size`、`line-height`、`font-family` | 改变文本尺寸或样式，导致文本区域突变 | `font-display: swap` + 固定容器尺寸 |
+| 浮动定位类 | `float`、`position`（`static` ↔ `absolute`） | 改变元素在文档流中的排列方式 | 统一使用 Flex 布局或固定定位 |
+| 弹性/网格布局类 | `flex-grow`、`flex-shrink`、`grid-template-columns` | 动态修改弹性因子或网格结构，导致子元素尺寸突变 | 设置 `flex-basis` 固定基准尺寸 |
+
+## 三、INP（交互到下次绘制）：聚焦交互响应速度
+
+### 指标解释
+
+INP（Interaction to Next Paint）衡量从用户发起互动（点击、输入、滑动等），到浏览器绘制出包含互动视觉结果的下一帧所用的时间。它反映网页对用户操作的响应速度，直接影响「页面是否流畅」的感知。
+
+INP 越低，用户操作反馈越即时。
+
+### 指标组成
+
+INP 的总耗时由三个关键环节累加而成：
+
+1. **输入延迟时间：** 用户发起互动到事件回调开始运行的时间。
+2. **处理时长：** 事件回调函数执行完成的时间。
+3. **呈现延迟时间：** 浏览器处理完回调后，绘制下一帧视觉结果的时间。
+
+### 指标评级
+
+| 评级 | 耗时阈值 | 用户体验影响 |
+| --- | --- | --- |
+| 良好 | ≤ 200 毫秒 | 交互响应即时，用户无延迟感知，操作流畅 |
+| 需要改进 | 200 毫秒 - 500 毫秒 | 存在轻微延迟，用户可能犹豫是否重复操作 |
+| 欠佳 | > 500 毫秒 | 响应过慢，用户重复点击率增加，严重时可能放弃操作 |
+
+### 高频原因与优化方案
+
+#### 1. 异步组件加载延迟，交互触发后才加载资源
+
+**案例：** 商品详情页点击「立即购买」按钮后，需要动态加载「下单弹窗」组件。组件包含 JS/CSS 资源，资源加载和渲染耗时约 500 ms，导致用户点击后没有即时反馈，INP 达到 680 ms。
+
+**核心原因：** 交互触发的关键组件未提前加载，资源下载、解析和渲染耗时叠加，导致响应延迟。
+
+**解决方案：**
+
+- **闲时预加载：** 利用页面加载空闲时间（如 `requestIdleCallback`）或首屏加载完成后，异步加载「下单弹窗」「详情面板」等高频交互组件。
+- **组件轻量化：** 拆分组件冗余代码，删除未使用的表单校验逻辑和样式，将组件体积控制在合理范围。
+- **核心 UI 优先加载：** 优先加载表单框架等核心部分，非核心功能（如支付按钮）延迟加载，确保先显示基础交互界面。
+- **即时视觉反馈：** 点击后先执行状态变更，例如显示 loading、禁用按钮，确保用户在 100 ms 内收到反馈。
+
+#### 2. 事件回调包含长耗时同步任务，阻塞主线程
+
+**案例：** 购物车点击「创建订单」按钮后，事件回调中同步执行地址校验、价格计算、库存查询三个耗时操作，总执行时间 420 ms，叠加呈现延迟后 INP 达到 510 ms。
+
+**核心原因：** 长耗时同步任务占据主线程，导致浏览器无法及时处理后续渲染，延长交互响应时间。
+
+**解决方案：**
+
+- **拆分同步任务：** 将耗时超过 50 ms 的同步操作拆分为异步任务，主线程仅处理视觉反馈。
+- **先反馈后处理：** 点击后立即显示「创建中」状态，再异步执行校验、计算等逻辑，避免用户因无反馈重复点击。
+- **防抖与节流：** 对高频输入、滚动、拖拽等交互做防抖或节流，减少不必要的事件处理。
+- **让出主线程：** 将长任务拆分到多个任务片段中，必要时使用 Web Worker 处理重计算逻辑。
+
+## 总结
+
+Core Web Vitals 优化不能只盯着一个分数看。LCP 关注首屏关键内容能否尽快被发现、加载并渲染；CLS 关注页面布局在加载和交互过程中是否稳定；INP 关注用户操作后能否快速得到视觉反馈。
+
+实践中可以按这个顺序排查：
+
+1. 先定位核心页面和核心路径，优先处理流量高、转化强相关的页面。
+2. 对 LCP 拆分 TTFB、资源加载延迟、资源加载时长、元素渲染延迟。
+3. 对 CLS 检查图片尺寸、动态模块占位、字体加载和高频布局属性变更。
+4. 对 INP 检查交互组件是否预加载、事件回调是否阻塞主线程、视觉反馈是否足够及时。
+
+性能优化的关键不是一次性把所有指标压到极致，而是建立稳定的分析路径：先找到影响用户体验和业务结果的瓶颈，再用可验证的方式逐项收敛。
+8:[["$","$L13",null,{}],["$","main",null,{"className":"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","span",null,{"className":"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full","children":"性能"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"2026-07-18"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"·"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"8 分钟"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight","children":"Core Web Vitals 性能优化实践"}],["$","p",null,{"className":"text-lg text-muted-foreground leading-relaxed","children":"围绕 Core Web Vitals 的 LCP、CLS、INP 三大核心指标，结合真实业务场景拆解加载速度、视觉稳定性和交互响应的常见问题与优化策略。"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-4","children":[["$","span","性能优化",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","性能优化"]}],["$","span","Core Web Vitals",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","Core Web Vitals"]}],["$","span","LCP",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","LCP"]}],["$","span","CLS",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","CLS"]}],["$","span","INP",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","INP"]}]]}]]}],["$","$L14",null,{"content":"$15"}],"$L16"]}]}],"$L17"]
+18:I[76841,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0~q9z__bmj2cx.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/11feawoee2hgr.js"],"Footer"]
+16:["$","nav",null,{"className":"mt-12 pt-8 border-t border-border","children":["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-2 gap-4","children":[null,["$","a",null,{"href":"/blog/mcp-learning-guide","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors text-right sm:col-start-2","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"下一篇 →"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"从协议概念到 Athena MCP 实践"}]]}]]}]}]
+17:["$","$L18",null,{}]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0f172a"}]]
+19:I[27201,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"IconMark"]
+b:null
+10:[["$","title","0",{"children":"Core Web Vitals 性能优化实践 | 博客"}],["$","meta","1",{"name":"description","content":"围绕 Core Web Vitals 的 LCP、CLS、INP 三大核心指标，结合真实业务场景拆解加载速度、视觉稳定性和交互响应的常见问题与优化策略。"}],["$","meta","2",{"name":"application-name","content":"Personal Space"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"generator","content":"v0.app"}],["$","meta","5",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","6",{"name":"apple-mobile-web-app-title","content":"Personal Space"}],["$","meta","7",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","8",{"property":"og:title","content":"Core Web Vitals 性能优化实践"}],["$","meta","9",{"property":"og:description","content":"围绕 Core Web Vitals 的 LCP、CLS、INP 三大核心指标，结合真实业务场景拆解加载速度、视觉稳定性和交互响应的常见问题与优化策略。"}],["$","meta","10",{"property":"og:type","content":"article"}],["$","meta","11",{"property":"article:published_time","content":"2026-07-18"}],["$","meta","12",{"property":"article:tag","content":"性能优化"}],["$","meta","13",{"property":"article:tag","content":"Core Web Vitals"}],["$","meta","14",{"property":"article:tag","content":"LCP"}],["$","meta","15",{"property":"article:tag","content":"CLS"}],["$","meta","16",{"property":"article:tag","content":"INP"}],["$","meta","17",{"name":"twitter:card","content":"summary"}],["$","meta","18",{"name":"twitter:title","content":"Core Web Vitals 性能优化实践"}],["$","meta","19",{"name":"twitter:description","content":"围绕 Core Web Vitals 的 LCP、CLS、INP 三大核心指标，结合真实业务场景拆解加载速度、视觉稳定性和交互响应的常见问题与优化策略。"}],["$","link","20",{"rel":"icon","href":"/icons/icon-192x192.png","sizes":"192x192","type":"image/png"}],["$","link","21",{"rel":"icon","href":"/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}],["$","link","22",{"rel":"apple-touch-icon","href":"/apple-touch-icons/apple-touch-icon-180x180.png"}],["$","$L19","23",{}]]
