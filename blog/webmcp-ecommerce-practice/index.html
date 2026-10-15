@@ -1,0 +1,763 @@
+<!DOCTYPE html><html lang="zh-CN" class="dark bg-background"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/1594d4ad-5bc8-4ca2-93f0-37b8dd92c933.png"/><link rel="preload" as="image" href="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/6bd2d570-c4fb-4d07-b7ac-7161e37d6c78.png"/><link rel="stylesheet" href="/_next/static/chunks/0cr~6phfu878..css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/10lnsxb-la40~.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/08myss0_lyhe7.js"/><script src="/_next/static/chunks/0pqt~8bl3ukh4.js" async=""></script><script src="/_next/static/chunks/0fmbw4~~97zxm.js" async=""></script><script src="/_next/static/chunks/0ngil2786cktb.js" async=""></script><script src="/_next/static/chunks/turbopack-0zm~7v170suyc.js" async=""></script><script src="/_next/static/chunks/0u4~2urk8vz72.js" async=""></script><script src="/_next/static/chunks/0t2xr05rlu96l.js" async=""></script><script src="/_next/static/chunks/0j6wpee~y8w_e.js" async=""></script><script src="/_next/static/chunks/12ikvmw31x79x.js" async=""></script><script src="/_next/static/chunks/08~fq5w8zrgnt.js" async=""></script><script src="/_next/static/chunks/0ebdi26zoura9.js" async=""></script><meta name="next-size-adjust" content=""/><meta name="theme-color" content="#0f172a"/><title>WebMCP 在电商网站中的落地实践 | 博客</title><meta name="description" content="结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"/><meta name="application-name" content="Personal Space"/><link rel="manifest" href="/manifest.json"/><meta name="generator" content="v0.app"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Personal Space"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta property="og:title" content="WebMCP 在电商网站中的落地实践"/><meta property="og:description" content="结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"/><meta property="og:type" content="article"/><meta property="article:published_time" content="2026-09-15"/><meta property="article:tag" content="WebMCP"/><meta property="article:tag" content="MCP"/><meta property="article:tag" content="电商"/><meta property="article:tag" content="AI Agent"/><meta property="article:tag" content="前端架构"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="WebMCP 在电商网站中的落地实践"/><meta name="twitter:description" content="结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"/><link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" type="image/png"/><link rel="icon" href="/icons/icon-512x512.png" sizes="512x512" type="image/png"/><link rel="apple-touch-icon" href="/apple-touch-icons/apple-touch-icon-180x180.png"/><script src="/_next/static/chunks/03~yq9q893hmn.js" noModule=""></script></head><body class="manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><script>((a,b,c,d,e,f,g,h)=>{let i=document.documentElement,j=["light","dark"];function k(b){var c;(Array.isArray(a)?a:[a]).forEach(a=>{let c="class"===a,d=c&&f?e.map(a=>f[a]||a):e;c?(i.classList.remove(...d),i.classList.add(f&&f[b]?f[b]:b)):i.setAttribute(a,b)}),c=b,h&&j.includes(c)&&(i.style.colorScheme=c)}if(d)k(d);else try{let a=localStorage.getItem(b)||c,d=g&&"system"===a?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":a;k(d)}catch(a){}})("class","theme","dark",null,["light","dark"],null,false,true)</script><header class="fixed top-0 left-0 right-0 z-50 will-change-transform bg-transparent"><nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16 md:h-20"><a class="text-xl font-semibold font-display text-foreground tracking-wide" href="/">个人空间</a><div class="hidden md:flex items-center gap-6"><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/">首页</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/blog/">博客</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/tools/">工具</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/demos/">Demo</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/offline/">离线</a><a class="transition-colors duration-200 text-muted-foreground hover:text-foreground" href="/about/">关于</a><button class="flex items-center justify-center w-10 h-10 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" aria-label="切换主题"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button type="button" aria-label="打开命令面板" class="hidden md:inline-flex items-center gap-2 text-muted-foreground hover:text-foreground border border-border rounded-md px-2.5 h-9 text-sm transition-colors bg-background/60 hover:bg-muted/60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-4 h-4" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><span class="opacity-80">搜索</span><kbd class="ml-2 text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground border border-border">⌘K</kbd></button><a class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity duration-200" href="/about/">联系我</a></div><div class="flex items-center gap-1 md:hidden"><button class="flex items-center justify-center w-10 h-10 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors" aria-label="切换主题"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-5 h-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button class="p-2 text-foreground" aria-label="搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-5 h-5" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button><button class="p-2 text-foreground" aria-label="打开菜单"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></nav></header><div class="fixed inset-0 z-50 md:hidden transition-opacity duration-300 opacity-0 pointer-events-none"><div class="absolute inset-0 bg-background/80 backdrop-blur-sm"></div><div class="absolute top-0 right-0 h-full w-72 bg-card border-l border-border transition-transform duration-300 ease-out translate-x-full"><div class="flex items-center justify-between p-4 border-b border-border"><span class="text-lg font-semibold text-foreground">菜单</span><button class="p-2 text-muted-foreground hover:text-foreground transition-colors" aria-label="关闭菜单"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><div class="p-4 flex flex-col gap-4"><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/">首页</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/blog/">博客</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/tools/">工具</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/demos/">Demo</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/offline/">离线</a><a class="transition-colors duration-200 py-2 text-foreground hover:text-primary" href="/about/">关于</a><a class="mt-4 px-4 py-3 bg-primary text-primary-foreground rounded-lg text-center hover:opacity-90 transition-opacity duration-200" href="/about/">联系我</a></div></div></div><div data-slot="dialog-header" class="flex flex-col gap-2 text-center sm:text-left sr-only"><h2 id="radix-_R_1lbsnpfdbH1_" data-slot="dialog-title" class="text-lg leading-none font-semibold">快速跳转</h2><p id="radix-_R_1lbsnpfdbH2_" data-slot="dialog-description" class="text-muted-foreground text-sm">搜索并跳转到任意工具、Demo 或页面。</p></div><main class="min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8"><div class="max-w-6xl mx-auto"><header class="mb-10"><div class="flex items-center gap-3 mb-4"><span class="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">AI</span><span class="text-sm text-muted-foreground">2026-09-15</span><span class="text-sm text-muted-foreground">·</span><span class="text-sm text-muted-foreground">12 分钟</span></div><h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight">WebMCP 在电商网站中的落地实践</h1><p class="text-lg text-muted-foreground leading-relaxed">结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。</p><div class="flex flex-wrap gap-2 mt-4"><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->WebMCP</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->MCP</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->电商</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->AI Agent</span><span class="px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md">#<!-- -->前端架构</span></div></header><div class="fixed top-0 left-0 right-0 z-50 h-1 bg-secondary/50"><div class="h-full bg-primary transition-all duration-150 ease-out" style="width:0%"></div></div><button class="lg:hidden fixed bottom-6 right-6 z-40 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg flex items-center justify-center hover:opacity-90 transition-opacity"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list w-5 h-5" aria-hidden="true"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg></button><div class="flex gap-8"><aside class="hidden lg:block w-56 flex-shrink-0"><div class="sticky top-28"><nav class="space-y-1"><h3 class="text-sm font-semibold text-foreground mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list w-4 h-4" aria-hidden="true"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg>目录</h3><a href="#摘要" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">摘要</a><a href="#一-webmcp-解决了什么问题" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">一、WebMCP 解决了什么问题</a><a href="#1-从-页面内容-走向-页面能力" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 从「页面内容」走向「页面能力」</a><a href="#2-webmcp-在电商场景中的价值" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. WebMCP 在电商场景中的价值</a><a href="#二-webmcp-与传统服务端-mcp-的区别" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">二、WebMCP 与传统服务端 MCP 的区别</a><a href="#1-传统服务端-mcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 传统服务端 MCP</a><a href="#2-当前项目中的-webmcp" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. 当前项目中的 WebMCP</a><a href="#三-当前项目的-webmcp-架构" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">三、当前项目的 WebMCP 架构</a><a href="#1-页面入口层-src-pages-app-tsx" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 页面入口层：src/pages/app.tsx</a><a href="#2-类型契约层-src-features-webmcp-types-ts" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. 类型契约层：src/features/webmcp/types.ts</a><a href="#3-注册适配层-src-features-webmcp-register-ts" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">3. 注册适配层：src/features/webmcp/register.ts</a><a href="#4-工具实现层-src-features-webmcp-tools-ts" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">4. 工具实现层：src/features/webmcp/tools.ts</a><a href="#5-归一化和返回值层-src-features-webmcp-utils-ts" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">5. 归一化和返回值层：src/features/webmcp/utils.ts</a><a href="#四-webmcp-注册与购物流程" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">四、WebMCP 注册与购物流程</a><a href="#1-工具注册流程" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 工具注册流程</a><a href="#2-电商工具调用流程" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. 电商工具调用流程</a><a href="#五-工具是如何被模型理解和调用的" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">五、工具是如何被模型理解和调用的</a><a href="#1-webmcptool-的统一契约" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. WebMcpTool 的统一契约</a><a href="#2-schema-描述与运行时校验是两回事" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. Schema 描述与运行时校验是两回事</a><a href="#六-当前实现的-8-个-webmcp-工具" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">六、当前实现的 8 个 WebMCP 工具</a><a href="#1-工具职责概览" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 工具职责概览</a><a href="#2-工具参数和状态影响" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. 工具参数和状态影响</a><a href="#七-工具注册的生命周期管理" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">七、工具注册的生命周期管理</a><a href="#1-只在浏览器环境中运行" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 只在浏览器环境中运行</a><a href="#2-使用动态导入降低页面耦合" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. 使用动态导入降低页面耦合</a><a href="#3-使用-abortcontroller-取消注册" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">3. 使用 AbortController 取消注册</a><a href="#4-处理组件销毁和异步竞态" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">4. 处理组件销毁和异步竞态</a><a href="#八-只读工具与写操作工具" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">八、只读工具与写操作工具</a><a href="#1-readonlyhint" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. readOnlyHint</a><a href="#2-untrustedcontenthint" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. untrustedContentHint</a><a href="#九-归一化函数-让-ai-看到稳定的数据结构" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">九、归一化函数：让 AI 看到稳定的数据结构</a><a href="#1-车型归一化" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">1. 车型归一化</a><a href="#2-vin-归一化和校验" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">2. VIN 归一化和校验</a><a href="#3-金额归一化" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">3. 金额归一化</a><a href="#4-商品和配送归一化" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">4. 商品和配送归一化</a><a href="#十-统一的成功和失败格式" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">十、统一的成功和失败格式</a><a href="#十一-如何新增一个-webmcp-工具" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">十一、如何新增一个 WebMCP 工具</a><a href="#十二-当前实现的限制与后续演进方向" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">十二、当前实现的限制与后续演进方向</a><a href="#当前限制" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">当前限制</a><a href="#1-工具依赖浏览器页面上下文" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:32px">1. 工具依赖浏览器页面上下文</a><a href="#2-只在-document-modelcontext-存在时注册" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:32px">2. 只在 document.modelContext 存在时注册</a><a href="#3-工具返回值依赖-json-字符串" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:32px">3. 工具返回值依赖 JSON 字符串</a><a href="#4-订单流程只推进到结账页面" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:32px">4. 订单流程只推进到结账页面</a><a href="#5-购物车工具的一致性校验相对有限" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:32px">5. 购物车工具的一致性校验相对有限</a><a href="#后续可以演进的方向" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">后续可以演进的方向</a><a href="#十三-faq" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">十三、FAQ</a><a href="#webmcp-工具和普通前端函数有什么区别" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">WebMCP 工具和普通前端函数有什么区别？</a><a href="#为什么工具返回-json-字符串" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">为什么工具返回 JSON 字符串？</a><a href="#为什么要区分读操作和写操作" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">为什么要区分读操作和写操作？</a><a href="#为什么不能让-ai-直接完成支付" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">为什么不能让 AI 直接完成支付？</a><a href="#如何避免-ai-传错商品或地址参数" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:16px">如何避免 AI 传错商品或地址参数？</a><a href="#举个例子" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">举个例子</a><a href="#补充限制一-webmcp-仍处于实验阶段" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">补充限制一：WebMCP 仍处于实验阶段</a><a href="#补充限制二-ai-不会自动识别站内是否提供-webmcp-工具" class="block text-sm py-1 transition-colors duration-200 hover:text-primary text-muted-foreground" style="padding-left:0px">补充限制二：AI 不会自动识别站内是否提供 WebMCP 工具</a></nav></div></aside><article class="blog-content flex-1 min-w-0 max-w-none"><h2 id="摘要">摘要</h2>
+<p>WebMCP 的核心价值，是让网页不再只是被 AI「阅读」，还可以通过一组结构化工具被 AI「调用」。</p>
+<p>在 A-Premium 汽车配件电商网站中，前端通过 <code>document.modelContext</code> 向模型注册搜索、车型识别、适配校验、商品详情、配送估算、购物车和结账订单等工具。AI 可以根据用户意图，在浏览器页面上下文中完成从找配件到进入支付页面的连续操作。</p>
+<p>本文基于分支 <code>feature/kermit-webMcp-0817</code> 的真实代码，重点介绍：</p>
+<ul>
+<li>WebMCP 与传统服务端 MCP 的概念区别；</li>
+<li>浏览器页面如何注册和管理 WebMCP 工具；</li>
+<li><code>WebMcpTool</code> 工具契约如何统一名称、描述、输入 Schema 和执行函数；</li>
+<li>如何通过归一化函数屏蔽电商后端数据差异；</li>
+<li>如何区分只读工具与写操作工具；</li>
+<li>如何在创建订单和确认地址时控制风险；</li>
+<li>如何新增、测试和验证一个 WebMCP 工具。</li>
+</ul>
+<h2 id="一-webmcp-解决了什么问题">一、WebMCP 解决了什么问题</h2>
+<h3 id="1-从-页面内容-走向-页面能力">1. 从「页面内容」走向「页面能力」</h3>
+<p>传统网页对 AI 暴露的内容主要是：</p>
+<ul>
+<li>商品标题；</li>
+<li>商品描述；</li>
+<li>价格；</li>
+<li>页面链接；</li>
+<li>页面中的文本和图片。</li>
+</ul>
+<p>AI 可以读取这些信息，但如果要真正完成业务操作，通常还需要依赖额外的服务端 API、浏览器自动化或人工点击。</p>
+<p>WebMCP 提供了另一种思路：由网页主动向模型提供可调用工具。</p>
+<p>例如，A-Premium 页面可以暴露以下能力：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">search_parts
+decode_vin
+check_part_fitment
+get_part_details
+estimate_delivery
+add_to_cart
+create_checkout_order
+confirm_checkout_address
+</pre></div>
+<p>这些工具不是简单的前端按钮，而是带有明确输入和输出契约的业务能力。模型可以根据用户意图决定：</p>
+<ol>
+<li>调用哪个工具；</li>
+<li>传入哪些参数；</li>
+<li>如何使用上一步的返回值；</li>
+<li>什么时候停止调用；</li>
+<li>什么时候必须让用户确认。</li>
+</ol>
+<p>例如，用户说：</p>
+<blockquote>
+<p>帮我找适配 2020 Honda Civic 的刹车片。</p>
+</blockquote>
+<p>AI 不需要模拟点击搜索框，而是可以调用：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;keyword&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;brake pads&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;vehicle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;year&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2020&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Honda&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Civic&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<h3 id="2-webmcp-在电商场景中的价值">2. WebMCP 在电商场景中的价值</h3>
+<p>汽车配件电商有几个天然复杂点：</p>
+<ul>
+<li>同一个商品可能有多个 SKU；</li>
+<li>商品是否适配车型不能只看关键词；</li>
+<li>VIN、车型、发动机和配置之间存在层级关系；</li>
+<li>配送费用和配送时间依赖目的地；</li>
+<li>创建订单前必须保证商品和 SKU 一致；</li>
+<li>收货地址需要经过校验；</li>
+<li>支付属于高风险操作，不应由普通 AI 工具直接处理。</li>
+</ul>
+<p>WebMCP 可以把这些业务边界包装成工具，让模型按照业务顺序调用，而不是直接拼装底层请求。</p>
+<p>因此，WebMCP 的重点不是「让 AI 调一个 API」，而是：</p>
+<blockquote>
+<p>将页面当前可执行、可验证、可控风险的业务能力，以结构化工具的方式交给模型。</p>
+</blockquote>
+<h2 id="二-webmcp-与传统服务端-mcp-的区别">二、WebMCP 与传统服务端 MCP 的区别</h2>
+<p>这里需要区分两个层面：</p>
+<ul>
+<li>WebMCP 作为一种通用概念；</li>
+<li>当前项目对 WebMCP 的具体实现。</li>
+</ul>
+<p>当前仓库没有引入官方 MCP SDK，也没有实现一个独立的服务端 MCP Server。项目使用的是自定义的 <code>WebMcpTool</code> 和 <code>WebMcpModelContext</code> 类型，依赖浏览器页面中的 <code>document.modelContext</code>。</p>
+<h3 id="1-传统服务端-mcp">1. 传统服务端 MCP</h3>
+<p>传统服务端 MCP 通常具有以下特点：</p>
+<ul>
+<li>工具注册在独立服务或后端进程中；</li>
+<li>模型通过协议或网络连接调用工具；</li>
+<li>工具生命周期与某个具体网页页面相对独立；</li>
+<li>服务端可以直接访问数据库、内部 API 或第三方服务；</li>
+<li>工具通常面向更广泛的应用场景。</li>
+</ul>
+<h3 id="2-当前项目中的-webmcp">2. 当前项目中的 WebMCP</h3>
+<p>当前项目的实现具有以下特点：</p>
+<ul>
+<li>工具注册发生在浏览器页面中；</li>
+<li>注册入口是可选的 <code>document.modelContext</code>；</li>
+<li>工具依赖当前页面的状态、浏览器环境和前端 Store；</li>
+<li>工具可以直接调用现有前端业务函数；</li>
+<li>写操作可以直接改变购物车或触发页面跳转；</li>
+<li>工具注册与页面组件生命周期绑定；</li>
+<li>页面不存在 <code>document.modelContext</code> 时，不注册任何 WebMCP 工具。</li>
+</ul>
+<table><thead><tr><th>对比项</th><th>传统服务端 MCP</th><th>当前项目的 WebMCP</th></tr></thead><tbody><tr><td>工具运行位置</td><td>独立服务端进程</td><td>浏览器页面</td></tr><tr><td>注册入口</td><td>MCP Server</td><td><code>document.modelContext</code></td></tr><tr><td>工具上下文</td><td>服务端运行环境</td><td>当前页面、浏览器和前端 Store</td></tr><tr><td>数据访问</td><td>服务端 API、数据库</td><td>现有前端请求函数和页面状态</td></tr><tr><td>页面交互</td><td>通常不直接控制页面</td><td>可以通过 <code>window.location.assign</code> 进入结账页</td></tr><tr><td>生命周期</td><td>服务进程级别</td><td>React App 生命周期</td></tr><tr><td>当前仓库类型</td><td>通用 MCP 服务未实现</td><td>自定义 <code>WebMcpTool</code> 类型</td></tr></tbody></table>
+<p>需要特别注意：</p>
+<blockquote>
+<p><code>WebMcpTool</code> 是当前项目定义的 TypeScript 类型，不应描述为官方 MCP SDK 类型。</p>
+</blockquote>
+<h2 id="三-当前项目的-webmcp-架构">三、当前项目的 WebMCP 架构</h2>
+<p>当前实现大致分为 5 层。</p>
+<h3 id="1-页面入口层-src-pages-_app-tsx">1. 页面入口层：<code>src/pages/_app.tsx</code></h3>
+<p><code>MyApp</code> 中通过 <code>useEffect</code> 检查：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-variable language_">document</span>.<span class="hljs-property">modelContext</span>
+</pre></div>
+<p>只有浏览器提供了该对象时，页面才会动态加载 WebMCP 注册模块。</p>
+<p>这样做有两个好处：</p>
+<ul>
+<li>服务端渲染时不会访问不存在的 <code>document</code>；</li>
+<li>不支持 WebMCP 的浏览器不会影响页面正常运行。</li>
+</ul>
+<h3 id="2-类型契约层-src-features-webmcp-types-ts">2. 类型契约层：<code>src/features/webmcp/types.ts</code></h3>
+<p>该文件定义了项目自己的工具类型：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">WebMcpTool</span> = {
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">title</span>?: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">description</span>: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">inputSchema</span>: <span class="hljs-title class_">Record</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">unknown</span>&gt;
+  <span class="hljs-attr">execute</span>: <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">input</span>: <span class="hljs-built_in">unknown</span></span>) =&gt;</span> <span class="hljs-built_in">string</span> | <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt;
+  <span class="hljs-attr">annotations</span>?: {
+    <span class="hljs-attr">readOnlyHint</span>?: <span class="hljs-built_in">boolean</span>
+    <span class="hljs-attr">untrustedContentHint</span>?: <span class="hljs-built_in">boolean</span>
+  }
+}
+</pre></div>
+<p>同时定义了页面上下文：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">WebMcpModelContext</span> = {
+  <span class="hljs-attr">registerTool</span>: <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">tool</span>: <span class="hljs-title class_">WebMcpTool</span>, <span class="hljs-attr">options</span>?: { signal?: AbortSignal }</span>) =&gt;</span> <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt;
+}
+</pre></div>
+<h3 id="3-注册适配层-src-features-webmcp-register-ts">3. 注册适配层：<code>src/features/webmcp/register.ts</code></h3>
+<p><code>registerWebMcpTools</code> 负责：</p>
+<ol>
+<li>创建 <code>AbortController</code>；</li>
+<li>遍历 <code>webMcpTools</code>；</li>
+<li>调用 <code>modelContext.registerTool</code>；</li>
+<li>将同一个 <code>AbortSignal</code> 传给所有注册操作；</li>
+<li>任意注册失败时终止其他注册；</li>
+<li>返回 <code>AbortController</code>，交给调用方管理生命周期。</li>
+</ol>
+<h3 id="4-工具实现层-src-features-webmcp-tools-ts">4. 工具实现层：<code>src/features/webmcp/tools.ts</code></h3>
+<p>该文件负责定义 8 个工具，并连接现有业务能力，例如：</p>
+<ul>
+<li><code>getPublicSearchFilter</code></li>
+<li><code>checkUniversalMatch</code></li>
+<li><code>getProductDetailV2</code></li>
+<li><code>verifyZipcode</code></li>
+<li><code>getEstimateSingle</code></li>
+<li><code>onAddToCart</code></li>
+<li><code>createBynowOrder</code></li>
+<li><code>checkAddress</code></li>
+<li><code>updateOrderV6</code></li>
+</ul>
+<p>每个工具都遵循同样的结构：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">const</span> <span class="hljs-attr">tool</span>: <span class="hljs-title class_">WebMcpTool</span> = {
+  name,
+  title,
+  description,
+  inputSchema,
+  annotations,
+  execute,
+}
+</pre></div>
+<h3 id="5-归一化和返回值层-src-features-webmcp-utils-ts">5. 归一化和返回值层：<code>src/features/webmcp/utils.ts</code></h3>
+<p>该文件主要解决两个问题：</p>
+<ul>
+<li>统一后端返回的数据结构；</li>
+<li>统一 AI 能够理解的成功和失败格式。</li>
+</ul>
+<p>典型函数包括：</p>
+<ul>
+<li><code>normalizeVehicle</code></li>
+<li><code>normalizeVin</code></li>
+<li><code>buildVehicleSearchParams</code></li>
+<li><code>normalizeAmount</code></li>
+<li><code>normalizeSearchItem</code></li>
+<li><code>normalizeProductDetail</code></li>
+<li><code>normalizeShippingEstimate</code></li>
+<li><code>toolSuccess</code></li>
+<li><code>toolFailure</code></li>
+</ul>
+<h2 id="四-webmcp-注册与购物流程">四、WebMCP 注册与购物流程</h2>
+<h3 id="1-工具注册流程">1. 工具注册流程</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">mermaid</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-mermaid" node="[object Object]">flowchart TD
+    A[&quot;浏览器加载 Next.js 页面&quot;] --&gt; B{&quot;document.modelContext 是否存在？&quot;}
+    B --&gt;|&quot;否&quot;| C[&quot;跳过 WebMCP 注册&quot;]
+    B --&gt;|&quot;是&quot;| D[&quot;MyApp 中的 useEffect 执行&quot;]
+    D --&gt; E[&quot;动态 import registerWebMcpTools&quot;]
+    E --&gt; F[&quot;创建 AbortController&quot;]
+    F --&gt; G[&quot;遍历 webMcpTools&quot;]
+    G --&gt; H[&quot;modelContext.registerTool(tool, { signal })&quot;]
+    H --&gt; I[&quot;8 个 WebMCP 工具注册完成&quot;]
+    D -. &quot;组件销毁&quot; .-&gt; J[&quot;controller.abort()&quot;]
+    H -. &quot;任意注册失败&quot; .-&gt; K[&quot;中止全部注册并抛出异常&quot;]
+    K --&gt; L[&quot;MyApp 捕获异常并输出 warning&quot;]
+</pre></div>
+<h3 id="2-电商工具调用流程">2. 电商工具调用流程</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">mermaid</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-mermaid" node="[object Object]">flowchart TD
+    A[&quot;用户提出配件需求&quot;] --&gt; B[&quot;search_parts&quot;]
+    B --&gt; C{&quot;是否需要 VIN？&quot;}
+    C --&gt;|&quot;需要&quot;| D[&quot;decode_vin&quot;]
+    C --&gt;|&quot;已有车型&quot;| E[&quot;使用车型信息&quot;]
+    D --&gt; E
+    E --&gt; F[&quot;check_part_fitment&quot;]
+    F --&gt; G{&quot;适配状态是否为 FIT？&quot;}
+    G --&gt;|&quot;否&quot;| H[&quot;停止当前商品流程&quot;]
+    G --&gt;|&quot;是&quot;| I[&quot;get_part_details&quot;]
+    I --&gt; J[&quot;estimate_delivery&quot;]
+    J --&gt; K{&quot;用户选择后续操作&quot;}
+    K --&gt;|&quot;加入购物车&quot;| L[&quot;add_to_cart&quot;]
+    K --&gt;|&quot;立即结账&quot;| M[&quot;create_checkout_order&quot;]
+    M --&gt; N[&quot;进入收货地址步骤&quot;]
+    N --&gt; O[&quot;confirm_checkout_address&quot;]
+    O --&gt; P{&quot;是否需要选择配送方案？&quot;}
+    P --&gt;|&quot;是&quot;| Q[&quot;进入 shippingMethod&quot;]
+    P --&gt;|&quot;否&quot;| R[&quot;进入 paymentMethod&quot;]
+    R --&gt; S[&quot;由真实结账页面完成支付&quot;]
+</pre></div>
+<p>当前代码支持的是「工具驱动的页面流程」，并不代表模型可以绕过页面直接操作支付系统。</p>
+<h2 id="五-工具是如何被模型理解和调用的">五、工具是如何被模型理解和调用的</h2>
+<h3 id="1-webmcptool-的统一契约">1. <code>WebMcpTool</code> 的统一契约</h3>
+<p>当前项目通过 <code>WebMcpTool</code> 统一描述工具，而不是为每个工具设计一套完全不同的注册方式。</p>
+<p>一个工具至少包含：</p>
+<table><thead><tr><th>字段</th><th>作用</th></tr></thead><tbody><tr><td><code>name</code></td><td>模型调用时使用的稳定工具名称</td></tr><tr><td><code>title</code></td><td>面向用户或宿主界面的可读标题</td></tr><tr><td><code>description</code></td><td>告诉模型工具用途、返回值和限制</td></tr><tr><td><code>inputSchema</code></td><td>描述输入参数结构</td></tr><tr><td><code>execute</code></td><td>真实执行逻辑</td></tr><tr><td><code>annotations</code></td><td>标注工具行为特征</td></tr></tbody></table>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">getPartDetailsTool</span>: <span class="hljs-title class_">WebMcpTool</span> = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;get_part_details&#x27;</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Get part details&#x27;</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;Get concise product details for an A-Premium part by SEO URL.&#x27;</span>,
+  <span class="hljs-attr">inputSchema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;object&#x27;</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">seoUrl</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;string&#x27;</span>,
+        <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;Product SEO URL from search results or the current product page&#x27;</span>,
+      },
+    },
+    <span class="hljs-attr">required</span>: [<span class="hljs-string">&#x27;seoUrl&#x27;</span>],
+  },
+  <span class="hljs-attr">annotations</span>: readOnlyAnnotations,
+  <span class="hljs-attr">execute</span>: <span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span>
+    <span class="hljs-title function_">safeExecute</span>(<span class="hljs-title function_">async</span> () =&gt; {
+      <span class="hljs-comment">// 具体实现</span>
+    }),
+}
+</pre></div>
+<h3 id="2-schema-描述与运行时校验是两回事">2. Schema 描述与运行时校验是两回事</h3>
+<p><code>inputSchema</code> 主要用于描述工具参数结构，但当前项目的 <code>execute</code> 函数仍然会再次做运行时校验。</p>
+<p>例如：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">const</span> source = <span class="hljs-title function_">asInput</span>(input)
+<span class="hljs-keyword">const</span> seoUrl = <span class="hljs-title function_">requiredString</span>(source, <span class="hljs-string">&#x27;seoUrl&#x27;</span>)
+<span class="hljs-keyword">if</span> (!seoUrl) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">toolFailure</span>(<span class="hljs-string">&#x27;INVALID_INPUT&#x27;</span>, <span class="hljs-string">&#x27;seoUrl 不能为空&#x27;</span>)
+}
+</pre></div>
+<p>这意味着：</p>
+<ul>
+<li>Schema 负责帮助模型理解参数；</li>
+<li><code>execute</code> 负责在真实执行前保护业务逻辑；</li>
+<li>不能只依赖模型是否正确生成了 Schema 参数。</li>
+</ul>
+<h2 id="六-当前实现的-8-个-webmcp-工具">六、当前实现的 8 个 WebMCP 工具</h2>
+<h3 id="1-工具职责概览">1. 工具职责概览</h3>
+<table><thead><tr><th>工具</th><th>核心职责</th></tr></thead><tbody><tr><td><code>search_parts</code></td><td>按关键词、分类和车型搜索汽车配件</td></tr><tr><td><code>decode_vin</code></td><td>将 VIN 解析为车型信息</td></tr><tr><td><code>check_part_fitment</code></td><td>校验指定 SKU 是否适配车型</td></tr><tr><td><code>get_part_details</code></td><td>获取商品详情、价格、库存和配送信息</td></tr><tr><td><code>estimate_delivery</code></td><td>校验 ZIP / postal code 并估算配送方案</td></tr><tr><td><code>add_to_cart</code></td><td>将指定 SKU 加入当前购物车</td></tr><tr><td><code>create_checkout_order</code></td><td>创建 buy-now 结账订单草稿</td></tr><tr><td><code>confirm_checkout_address</code></td><td>校验并更新收货地址，推进结账步骤</td></tr></tbody></table>
+<h3 id="2-工具参数和状态影响">2. 工具参数和状态影响</h3>
+<table><thead><tr><th>工具名称</th><th>读 / 写</th><th>主要输入参数</th><th>返回内容</th><th>是否改变页面、购物车或订单状态</th><th>关键限制</th></tr></thead><tbody><tr><td><code>search_parts</code></td><td>读操作</td><td><code>keyword</code>、<code>categorySeoUrl</code>、可选 <code>vehicle</code>、<code>page</code>、<code>size</code>、<code>sort</code></td><td>查询信息、车型、总数、归一化商品列表</td><td>否</td><td><code>keyword</code> 和 <code>categorySeoUrl</code> 至少提供一个；<code>page</code> 限制在 1～100，<code>size</code> 限制在 1～20</td></tr><tr><td><code>decode_vin</code></td><td>读操作</td><td><code>vin</code></td><td>归一化 VIN 和车型信息</td><td>不改变当前车型 Store</td><td>VIN 必须是 17 位，不能包含 <code>I</code>、<code>O</code>、<code>Q</code>；解析不到完整车型时失败</td></tr><tr><td><code>check_part_fitment</code></td><td>读操作</td><td><code>itemId</code>、<code>skuId</code>、可选 <code>vehicle</code></td><td>车型和 <code>fitment.status</code>、<code>fitment.note</code></td><td>否</td><td>必须有车型和 <code>attributeValueId</code></td></tr><tr><td><code>get_part_details</code></td><td>读操作</td><td><code>seoUrl</code></td><td>商品 ID、SKU、SEO 信息、价格、库存、保修、评价和物流列表</td><td>否</td><td><code>seoUrl</code> 不能为空；商品不存在返回 <code>NOT_FOUND</code></td></tr><tr><td><code>estimate_delivery</code></td><td>读操作</td><td><code>itemId</code>、可选 <code>skuId</code>、<code>zipcode</code></td><td>ZIP 位置、<code>canSale</code>、配送方案、价格和时间</td><td>否</td><td><code>itemId</code> 和 <code>zipcode</code> 必填；ZIP 无效时失败</td></tr><tr><td><code>add_to_cart</code></td><td>写操作</td><td><code>itemId</code>、<code>skuId</code>、可选 <code>seoId</code>、<code>attributeValueId</code>、<code>quantity</code></td><td>已加入商品、购物车 UUID、商品数量和购物车列表</td><td>改变购物车状态</td><td><code>quantity</code> 限制在 1～20；当前工具本身不通过 <code>seoUrl</code> 做商品一致性校验</td></tr><tr><td><code>create_checkout_order</code></td><td>写操作</td><td><code>itemId</code>、<code>skuId</code>、<code>seoUrl</code>、可选 <code>quantity</code>、<code>attributeValueId</code></td><td><code>orderId</code>、订单状态、结账 URL 和商品信息</td><td>创建订单草稿并跳转地址步骤</td><td>商品详情中的 ID 和 SKU 必须与输入匹配；不处理支付信息</td></tr><tr><td><code>confirm_checkout_address</code></td><td>写操作</td><td><code>orderId</code>、<code>addressConfirmed</code>、<code>address</code>、可选 <code>useStandardizedAddress</code></td><td>地址摘要、订单商品、下一结账步骤和 URL</td><td>更新订单地址并跳转运输或支付步骤</td><td><code>addressConfirmed</code> 必须严格为 <code>true</code>；地址必须满足必填字段并经过校验</td></tr></tbody></table>
+<h2 id="七-工具注册的生命周期管理">七、工具注册的生命周期管理</h2>
+<h3 id="1-只在浏览器环境中运行">1. 只在浏览器环境中运行</h3>
+<p><code>src/pages/_app.tsx</code> 中的注册逻辑首先检查：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">document</span> === <span class="hljs-string">&#x27;undefined&#x27;</span> || !<span class="hljs-variable language_">document</span>.<span class="hljs-property">modelContext</span>) <span class="hljs-keyword">return</span>
+</pre></div>
+<p>这说明当前实现具有两个明确边界：</p>
+<ul>
+<li>服务端渲染阶段不访问 <code>document</code>；</li>
+<li>浏览器没有 <code>modelContext</code> 时不启用 WebMCP。</li>
+</ul>
+<p>项目没有实现轮询或延迟等待机制。如果页面初始化时 <code>document.modelContext</code> 不存在，当前 <code>useEffect</code> 会直接结束。</p>
+<h3 id="2-使用动态导入降低页面耦合">2. 使用动态导入降低页面耦合</h3>
+<p>注册模块通过动态导入加载：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">const</span> { registerWebMcpTools } = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">&#x27;@/features/webmcp/register&#x27;</span>)
+</pre></div>
+<p>这样做使 WebMCP 注册逻辑不会在服务端渲染阶段直接执行，也避免在不支持 WebMCP 的环境中提前加载相关模块。</p>
+<h3 id="3-使用-abortcontroller-取消注册">3. 使用 <code>AbortController</code> 取消注册</h3>
+<p><code>register.ts</code> 中创建一个控制器：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">const</span> controller = <span class="hljs-keyword">new</span> <span class="hljs-title class_">AbortController</span>()
+</pre></div>
+<p>然后将同一个 signal 传递给所有工具注册：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(
+  webMcpTools.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">tool</span> =&gt;</span>
+    modelContext.<span class="hljs-title function_">registerTool</span>(tool, {
+      <span class="hljs-attr">signal</span>: controller.<span class="hljs-property">signal</span>,
+    }),
+  ),
+)
+</pre></div>
+<p>如果任意工具注册失败：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">catch</span> (error) {
+  controller.<span class="hljs-title function_">abort</span>()
+  <span class="hljs-keyword">throw</span> error
+}
+</pre></div>
+<p>这可以避免出现「一部分工具注册成功、另一部分工具失败」但页面仍然继续使用不完整工具集合的情况。</p>
+<h3 id="4-处理组件销毁和异步竞态">4. 处理组件销毁和异步竞态</h3>
+<p><code>_app.tsx</code> 同时使用了 <code>disposed</code> 标记：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">let</span> disposed = <span class="hljs-literal">false</span>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">controller</span>: <span class="hljs-title class_">AbortController</span> | <span class="hljs-literal">undefined</span>
+</pre></div>
+<p>注册完成后再次判断：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">if</span> (disposed) controller.<span class="hljs-title function_">abort</span>()
+</pre></div>
+<p>组件销毁时：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
+  disposed = <span class="hljs-literal">true</span>
+  controller?.<span class="hljs-title function_">abort</span>()
+}
+</pre></div>
+<p>这解决了动态导入和工具注册期间组件已经销毁的问题。</p>
+<h2 id="八-只读工具与写操作工具">八、只读工具与写操作工具</h2>
+<p>当前项目定义了两组 annotation：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">const</span> readOnlyAnnotations = {
+  <span class="hljs-attr">readOnlyHint</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">untrustedContentHint</span>: <span class="hljs-literal">true</span>,
+}
+<span class="hljs-keyword">const</span> writeAnnotations = {
+  <span class="hljs-attr">readOnlyHint</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">untrustedContentHint</span>: <span class="hljs-literal">true</span>,
+}
+</pre></div>
+<h3 id="1-readonlyhint">1. <code>readOnlyHint</code></h3>
+<p>当前代码使用 <code>readOnlyHint</code> 区分工具是否会改变业务状态：</p>
+<ul>
+<li><code>true</code>：搜索、查询、校验、估算；</li>
+<li><code>false</code>：加入购物车、创建订单、更新地址。</li>
+</ul>
+<p>这是模型和宿主判断工具行为的重要提示。</p>
+<h3 id="2-untrustedcontenthint">2. <code>untrustedContentHint</code></h3>
+<p>当前项目将所有工具都标记为：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-attr">untrustedContentHint</span>: <span class="hljs-literal">true</span>
+</pre></div>
+<p>说明工具返回的数据应该被视为来自外部业务系统的内容，模型不应把它当成绝对可信的系统指令。</p>
+<p>需要注意：</p>
+<blockquote>
+<p>当前代码中的 annotation 是行为提示，不代替 <code>execute</code> 内部的业务校验，也不等同于权限系统。</p>
+</blockquote>
+<p>真正的安全控制仍然来自：</p>
+<ul>
+<li>必填参数检查；</li>
+<li>商品详情重新查询；</li>
+<li><code>itemId</code> 和 <code>skuId</code> 一致性校验；</li>
+<li>地址校验；</li>
+<li>明确确认字段；</li>
+<li>页面负责处理支付。</li>
+</ul>
+<h2 id="九-归一化函数-让-ai-看到稳定的数据结构">九、归一化函数：让 AI 看到稳定的数据结构</h2>
+<p>电商后端数据通常存在多种字段形态。当前项目没有把原始响应直接返回给 AI，而是在 <code>utils.ts</code> 中做归一化。</p>
+<h3 id="1-车型归一化">1. 车型归一化</h3>
+<p><code>normalizeVehicle</code> 可以处理嵌套对象和扁平字段。</p>
+<p>例如，它可以识别：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;Year&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2020&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2020&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;Make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;honda&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Honda&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;Model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;civic&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Civic&quot;</span> <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>也可以处理类似：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;yearId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2020&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;yearName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2020&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;makeId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;honda&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;makeName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Honda&quot;</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>归一化后统一得到：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]">{
+  year,
+  yearName,
+  make,
+  makeName,
+  model,
+  modelName,
+  trim,
+  trimName,
+  engine,
+  engineName,
+  attributeValueId,
+  allAttributeValue,
+}
+</pre></div>
+<p>其中：</p>
+<ul>
+<li><code>attributeValueId</code> 优先使用发动机、配置、车型、品牌或年份中更细粒度的 ID；</li>
+<li><code>allAttributeValue</code> 默认由年份、品牌和型号组成，例如 <code>2020-Honda-Civic</code>。</li>
+</ul>
+<h3 id="2-vin-归一化和校验">2. VIN 归一化和校验</h3>
+<p><code>normalizeVin</code> 会：</p>
+<ul>
+<li>转换为大写；</li>
+<li>删除非字母数字字符；</li>
+<li>删除 <code>I</code>、<code>O</code>、<code>Q</code>；</li>
+<li>截取前 17 位。</li>
+</ul>
+<p>但 <code>isValidVin</code> 会对原始输入进行严格检查：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">if</span> (raw.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&#x27;I&#x27;</span>) || raw.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&#x27;O&#x27;</span>) || raw.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&#x27;Q&#x27;</span>)) {
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+<span class="hljs-keyword">return</span> <span class="hljs-regexp">/^[A-HJ-NPR-Z0-9]{17}$/</span>.<span class="hljs-title function_">test</span>(raw)
+</pre></div>
+<p>因此，工具执行时即使 <code>normalizeVin</code> 能够清理字符串，只要原始 VIN 包含 <code>I</code>、<code>O</code>、<code>Q</code>，仍然会返回 <code>INVALID_VIN</code>。</p>
+<h3 id="3-金额归一化">3. 金额归一化</h3>
+<p><code>normalizeAmount</code> 支持多种输入形式：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-number">1299</span>
+<span class="hljs-string">&quot;12.99&quot;</span>
+{
+  <span class="hljs-attr">cent</span>: <span class="hljs-number">1299</span>,
+  <span class="hljs-attr">precision</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">currency</span>: <span class="hljs-string">&quot;USD&quot;</span>
+}
+</pre></div>
+<p>对于带 <code>cent</code> 的金额，会计算：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]">value = cent / <span class="hljs-number">10</span> ** precision
+</pre></div>
+<p>最终统一为：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]">{
+  <span class="hljs-attr">cent</span>?: <span class="hljs-built_in">number</span>
+  <span class="hljs-attr">precision</span>: <span class="hljs-built_in">number</span>
+  <span class="hljs-attr">currency</span>: <span class="hljs-built_in">string</span>
+  <span class="hljs-attr">value</span>: <span class="hljs-built_in">number</span>
+}
+</pre></div>
+<p>这样，模型不需要判断某个后端字段究竟是金额字符串、浮点金额还是最小货币单位。</p>
+<h3 id="4-商品和配送归一化">4. 商品和配送归一化</h3>
+<p>以下函数分别统一了不同场景的数据：</p>
+<ul>
+<li><code>normalizeSearchItem</code>：搜索结果；</li>
+<li><code>normalizeProductDetail</code>：商品详情；</li>
+<li><code>normalizeCheckoutShippingItem</code>：结账商品和配送模板；</li>
+<li><code>normalizeShippingEstimate</code>：配送估算结果。</li>
+</ul>
+<p>例如，商品搜索项最终会稳定返回：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]">{
+  id,
+  skuId,
+  seoId,
+  seoUrl,
+  title,
+  brand,
+  partNumber,
+  price,
+  originalPrice,
+  currency,
+  availableTotal,
+  fitment,
+  vehicleUniversal,
+  imageUrl,
+}
+</pre></div>
+<p>这也是为什么 AI 可以安全地在不同工具之间传递：</p>
+<ul>
+<li><code>itemId</code>；</li>
+<li><code>skuId</code>；</li>
+<li><code>seoUrl</code>；</li>
+<li><code>attributeValueId</code>。</li>
+</ul>
+<h2 id="十-统一的成功和失败格式">十、统一的成功和失败格式</h2>
+<p>当前项目没有让每个工具自行设计返回结构，而是统一使用：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">toolSuccess</span>(<span class="hljs-params"><span class="hljs-attr">data</span>: <span class="hljs-built_in">unknown</span></span>): <span class="hljs-built_in">string</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">ok</span>: <span class="hljs-literal">true</span>, data })
+}
+</pre></div>
+<p>和：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">toolFailure</span>(<span class="hljs-params"><span class="hljs-attr">code</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">message</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">details</span>?: <span class="hljs-built_in">unknown</span></span>): <span class="hljs-built_in">string</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({
+    <span class="hljs-attr">ok</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">error</span>: {
+      code,
+      message,
+      ...(details === <span class="hljs-literal">undefined</span> ? {} : { details }),
+    },
+  })
+}
+</pre></div>
+<p>成功返回示例：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ok&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;itemId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;item-123&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;skuId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sku-456&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;canSale&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p>失败返回示例：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">json</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-json" node="[object Object]"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ok&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;INVALID_ZIPCODE&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ZIP/postal code 无效或暂不支持配送&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</pre></div>
+<p><code>WebMcpTool</code> 当前定义的执行函数返回：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-built_in">string</span> | <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt;
+</pre></div>
+<p>因此工具统一使用 <code>JSON.stringify</code>，将结构化数据编码成字符串返回。</p>
+<h2 id="十一-如何新增一个-webmcp-工具">十一、如何新增一个 WebMCP 工具</h2>
+<p>新增工具通常需要完成 3 件事：</p>
+<ol>
+<li>定义一个符合 <code>WebMcpTool</code> 的对象；</li>
+<li>在 <code>execute</code> 中做输入校验、请求和结果归一化；</li>
+<li>将工具加入 <code>webMcpTools</code> 数组。</li>
+</ol>
+<p>下面是基于当前 <code>tools.ts</code> 风格的示意代码。</p>
+<blockquote>
+<p>示意代码：以下代码假设直接添加到 <code>src/features/webmcp/tools.ts</code>，因此可以复用该文件内已有的 <code>asInput</code>、<code>requiredString</code>、<code>safeExecute</code>、<code>readOnlyAnnotations</code>、<code>toolSuccess</code> 和 <code>toolFailure</code>。</p>
+</blockquote>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">getPartInventoryTool</span>: <span class="hljs-title class_">WebMcpTool</span> = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;get_part_inventory&#x27;</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Get part inventory&#x27;</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;Get the available inventory for an A-Premium part by SEO URL.&#x27;</span>,
+  <span class="hljs-attr">inputSchema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;object&#x27;</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">seoUrl</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;string&#x27;</span>,
+        <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;Product SEO URL from search results or product details&#x27;</span>,
+      },
+    },
+    <span class="hljs-attr">required</span>: [<span class="hljs-string">&#x27;seoUrl&#x27;</span>],
+  },
+  <span class="hljs-attr">annotations</span>: readOnlyAnnotations,
+  <span class="hljs-attr">execute</span>: <span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span>
+    <span class="hljs-title function_">safeExecute</span>(<span class="hljs-title function_">async</span> () =&gt; {
+      <span class="hljs-keyword">const</span> source = <span class="hljs-title function_">asInput</span>(input)
+      <span class="hljs-keyword">const</span> seoUrl = <span class="hljs-title function_">requiredString</span>(source, <span class="hljs-string">&#x27;seoUrl&#x27;</span>)
+      <span class="hljs-keyword">if</span> (!seoUrl) {
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">toolFailure</span>(<span class="hljs-string">&#x27;INVALID_INPUT&#x27;</span>, <span class="hljs-string">&#x27;seoUrl 不能为空&#x27;</span>)
+      }
+      <span class="hljs-keyword">const</span> detail = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getProductDetailV2</span>({
+        seoUrl,
+        <span class="hljs-attr">shopId</span>: <span class="hljs-title function_">getShopIdByClient</span>(),
+      })
+      <span class="hljs-keyword">if</span> (!detail) {
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">toolFailure</span>(<span class="hljs-string">&#x27;NOT_FOUND&#x27;</span>, <span class="hljs-string">&#x27;未找到对应商品&#x27;</span>)
+      }
+      <span class="hljs-keyword">const</span> normalized = <span class="hljs-title function_">normalizeProductDetail</span>(detail)
+      <span class="hljs-keyword">return</span> <span class="hljs-title function_">toolSuccess</span>({
+        <span class="hljs-attr">itemId</span>: normalized.<span class="hljs-property">id</span>,
+        <span class="hljs-attr">skuId</span>: normalized.<span class="hljs-property">skuId</span>,
+        <span class="hljs-attr">availableTotal</span>: normalized.<span class="hljs-property">availableTotal</span>,
+      })
+    }),
+}
+</pre></div>
+<p>然后加入工具列表：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">webMcpTools</span>: <span class="hljs-title class_">WebMcpTool</span>[] = [
+  searchPartsTool,
+  decodeVinTool,
+  checkPartFitmentTool,
+  getPartDetailsTool,
+  estimateDeliveryTool,
+  addToCartTool,
+  createCheckoutOrderTool,
+  confirmCheckoutAddressTool,
+  getPartInventoryTool,
+]
+</pre></div>
+<p>新增工具时建议遵循以下原则：</p>
+<ul>
+<li><code>name</code> 保持稳定，不要频繁修改；</li>
+<li><code>description</code> 明确说明能力边界和副作用；</li>
+<li><code>inputSchema.required</code> 与实际校验保持一致；</li>
+<li><code>execute</code> 中继续做运行时校验；</li>
+<li>查询类工具使用 <code>readOnlyAnnotations</code>；</li>
+<li>会改变购物车或订单状态的工具使用 <code>writeAnnotations</code>；</li>
+<li>外部请求统一放在 <code>safeExecute</code> 中；</li>
+<li>成功使用 <code>toolSuccess</code>；</li>
+<li>失败使用 <code>toolFailure</code> 和可识别错误码；</li>
+<li>尽量返回归一化后的字段；</li>
+<li>如果工具会导航或改变状态，需要在描述中明确说明。</li>
+</ul>
+<h2 id="十二-当前实现的限制与后续演进方向">十二、当前实现的限制与后续演进方向</h2>
+<h3 id="当前限制">当前限制</h3>
+<h4 id="1-工具依赖浏览器页面上下文">1. 工具依赖浏览器页面上下文</h4>
+<p>当前 WebMCP 工具依赖：</p>
+<ul>
+<li><code>document.modelContext</code>；</li>
+<li><code>window.location</code>；</li>
+<li><code>useSearchStore</code>；</li>
+<li><code>useShopCartStore</code>；</li>
+<li>浏览器中的 Cookie 和本地存储。</li>
+</ul>
+<p>因此这些工具不是完全独立的服务端能力。</p>
+<h4 id="2-只在-document-modelcontext-存在时注册">2. 只在 <code>document.modelContext</code> 存在时注册</h4>
+<p>当前代码没有实现：</p>
+<ul>
+<li><code>modelContext</code> 延迟出现后的重试；</li>
+<li>浏览器能力探测 UI；</li>
+<li>工具注册状态展示；</li>
+<li>工具注册失败后的自动恢复。</li>
+</ul>
+<h4 id="3-工具返回值依赖-json-字符串">3. 工具返回值依赖 JSON 字符串</h4>
+<p>当前 <code>WebMcpTool.execute</code> 的契约是：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-built_in">string</span> | <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt;
+</pre></div>
+<p>因此所有结果都需要通过 JSON 字符串编码。</p>
+<h4 id="4-订单流程只推进到结账页面">4. 订单流程只推进到结账页面</h4>
+<p>当前实现支持：</p>
+<ul>
+<li>创建 buy-now 订单草稿；</li>
+<li>更新收货地址；</li>
+<li>进入配送方式步骤；</li>
+<li>进入支付步骤。</li>
+</ul>
+<p>当前实现不支持：</p>
+<ul>
+<li>自动填写银行卡；</li>
+<li>自动提交支付；</li>
+<li>自动处理支付验证；</li>
+<li>自动确认支付成功。</li>
+</ul>
+<h4 id="5-购物车工具的一致性校验相对有限">5. 购物车工具的一致性校验相对有限</h4>
+<p><code>create_checkout_order</code> 会重新获取商品详情并校验 <code>itemId</code>、<code>skuId</code>。</p>
+<p>而 <code>add_to_cart</code> 主要依赖传入的 <code>itemId</code>、<code>skuId</code> 调用 <code>onAddToCart</code>，没有通过 <code>seoUrl</code> 再做同等程度的商品一致性校验。</p>
+<h3 id="后续可以演进的方向">后续可以演进的方向</h3>
+<p>可以进一步增加：</p>
+<ul>
+<li><code>get_order_status</code>：查询订单状态；</li>
+<li><code>track_order</code>：查询物流轨迹；</li>
+<li><code>select_shipping_method</code>：选择具体配送方案；</li>
+<li><code>get_cart_summary</code>：读取当前购物车；</li>
+<li><code>remove_from_cart</code>：删除购物车商品；</li>
+<li><code>update_cart_quantity</code>：修改数量；</li>
+<li><code>get_return_policy</code>：查询退换货政策；</li>
+<li><code>create_return_request</code>：创建退换货申请；</li>
+<li>工具注册状态监控；</li>
+<li>工具调用日志和审计；</li>
+<li>更严格的输入 Schema 校验；</li>
+<li>商品、SKU、车型和订单上下文的跨工具状态管理。</li>
+</ul>
+<h2 id="十三-faq">十三、FAQ</h2>
+<h3 id="webmcp-工具和普通前端函数有什么区别">WebMCP 工具和普通前端函数有什么区别？</h3>
+<p>普通前端函数主要由页面代码或用户点击事件调用。</p>
+<p>WebMCP 工具除了包含执行逻辑，还需要提供：</p>
+<ul>
+<li>稳定的工具名称；</li>
+<li>面向模型的描述；</li>
+<li>输入 Schema；</li>
+<li>行为 annotation；</li>
+<li>统一的结构化返回格式。</li>
+</ul>
+<p>因此，WebMCP 工具可以被模型发现和调用，而普通前端函数通常只对项目内部代码可见。</p>
+<h3 id="为什么工具返回-json-字符串">为什么工具返回 JSON 字符串？</h3>
+<p>因为当前项目的 <code>WebMcpTool</code> 类型约定：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-attr">execute</span>: <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">input</span>: <span class="hljs-built_in">unknown</span></span>) =&gt;</span> <span class="hljs-built_in">string</span> | <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt;
+</pre></div>
+<p>项目通过 <code>toolSuccess</code> 和 <code>toolFailure</code> 把结果统一编码成 JSON 字符串，使模型可以稳定识别：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">ok
+data
+error.code
+error.message
+</pre></div>
+<h3 id="为什么要区分读操作和写操作">为什么要区分读操作和写操作？</h3>
+<p>搜索、详情、适配和配送估算不会改变业务状态。</p>
+<p>加入购物车、创建订单和更新地址会改变用户数据或订单状态。</p>
+<p>通过：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-attr">readOnlyHint</span>: <span class="hljs-literal">true</span>
+</pre></div>
+<p>和：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-attr">readOnlyHint</span>: <span class="hljs-literal">false</span>
+</pre></div>
+<p>可以让模型和宿主更清楚地识别工具副作用，也便于后续增加人工确认、权限控制或审计能力。</p>
+<h3 id="为什么不能让-ai-直接完成支付">为什么不能让 AI 直接完成支付？</h3>
+<p>支付涉及银行卡、支付 Token、二次验证和风控信息。</p>
+<p>当前项目的 WebMCP 工具不接收或处理这些数据，只负责把用户带到真实结账页面。支付表单和支付提交仍然由网站结账流程处理，可以减少敏感信息进入模型上下文的风险。</p>
+<h3 id="如何避免-ai-传错商品或地址参数">如何避免 AI 传错商品或地址参数？</h3>
+<p>当前实现采用多层保护：</p>
+<ul>
+<li>搜索和详情结果统一返回 <code>itemId</code>、<code>skuId</code>、<code>seoUrl</code>；</li>
+<li>创建订单前重新通过 <code>seoUrl</code> 查询商品详情；</li>
+<li>对比详情中的商品 ID 和 SKU；</li>
+<li>地址字段进入后端校验；</li>
+<li><code>addressConfirmed</code> 必须严格为 <code>true</code>；</li>
+<li>错误结果携带明确的错误码；</li>
+<li>外部请求异常统一转换为 <code>REQUEST_FAILED</code>。</li>
+</ul>
+<p>模型仍然不应凭记忆生成商品 ID、SKU 或订单 ID，而应该始终使用上一步工具返回的值。</p>
+<h2 id="举个例子">举个例子</h2>
+<p>搜索商品、查详情和适配状态：</p>
+<p><img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/1594d4ad-5bc8-4ca2-93f0-37b8dd92c933.png" alt="搜索商品和适配状态"/></p>
+<p>加购并下单：</p>
+<p><img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/6bd2d570-c4fb-4d07-b7ac-7161e37d6c78.png" alt="加购并下单"/></p>
+<h2 id="补充限制一-webmcp-仍处于实验阶段">补充限制一：WebMCP 仍处于实验阶段</h2>
+<p>当前 WebMCP 仍属于 Chrome 的实验性能力。进行本地开发或测试时，需要手动开启 Chrome 实验开关；官方文档当前给出的开关是：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">chrome://flags/#enable-webmcp-testing
+</pre></div>
+<p>开启步骤如下：</p>
+<ol>
+<li>打开 Chrome，在地址栏输入：</li>
+</ol>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">chrome://flags/#enable-webmcp-testing
+</pre></div>
+<ol start="2">
+<li>将 <code>WebMCP for testing</code> 设置为 <code>Enabled</code>。</li>
+<li>点击页面底部的 <code>Relaunch</code>，重启 Chrome。</li>
+<li>重新打开 A-Premium 页面，并检查页面是否能够获得：</li>
+</ol>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-variable language_">document</span>.<span class="hljs-property">modelContext</span>
+</pre></div>
+<p>Chrome 官方说明中，WebMCP 的本地开发版本通过 <code>enable-webmcp-testing</code> 开关启用；具体名称和可用版本可能随 Chrome 实验版本变化，实际使用时应以当前 Chrome 页面显示为准。更多信息可参考 <a href="https://developer.chrome.com/docs/ai/webmcp">Chrome WebMCP 官方文档</a>。</p>
+<p>当前项目中的注册逻辑依赖 <code>document.modelContext</code>：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">ts</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-ts" node="[object Object]"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">document</span> === <span class="hljs-string">&#x27;undefined&#x27;</span> || !<span class="hljs-variable language_">document</span>.<span class="hljs-property">modelContext</span>) <span class="hljs-keyword">return</span>
+</pre></div>
+<p>因此，如果实验功能未开启，页面不会注册 WebMCP 工具，但普通电商页面仍可以正常使用。</p>
+<h2 id="补充限制二-ai-不会自动识别站内是否提供-webmcp-工具">补充限制二：AI 不会自动识别站内是否提供 WebMCP 工具</h2>
+<p>GPT 这类 AI 不会仅仅因为打开了一个网页，就自动扫描页面并判断站内是否存在 WebMCP 工具。</p>
+<p>在当前项目中，工具能否被 AI 使用，至少依赖以下链路：</p>
+<ol>
+<li>Chrome 开启 WebMCP 实验能力；</li>
+<li>浏览器或宿主提供 <code>document.modelContext</code>；</li>
+<li>A-Premium 页面执行 <code>registerWebMcpTools</code>；</li>
+<li>页面将 <code>webMcpTools</code> 中的工具注册到 <code>modelContext</code>；</li>
+<li>AI 宿主读取并暴露这些工具；</li>
+<li>模型根据用户意图决定是否调用工具。</li>
+</ol>
+<p>也就是说，下面这些工具不会因为写在前端代码中，就自动对所有 AI 可见：</p>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-lang">text</span><button class="code-block-copy" title="复制代码"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-3.5 h-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>复制</span></button></div><pre class="hljs language-text" node="[object Object]">search_parts
+decode_vin
+check_part_fitment
+get_part_details
+estimate_delivery
+add_to_cart
+create_checkout_order
+confirm_checkout_address
+</pre></div>
+<p>当前项目只负责在 <code>document.modelContext</code> 存在时注册工具，并没有实现：</p>
+<ul>
+<li>自动检测 AI 是否支持 WebMCP；</li>
+<li>自动唤起 AI；</li>
+<li>向用户展示工具注册状态；</li>
+<li>在没有 AI 宿主时主动发现工具；</li>
+<li>工具注册失败后的自动重试。</li>
+</ul>
+<p>因此，WebMCP 更准确的理解是：</p>
+<blockquote>
+<p>WebMCP 为网页向 AI 暴露结构化能力提供了机制，但工具发现仍依赖浏览器、AI 宿主和模型之间的完整接入链路。</p>
+</blockquote>
+<p>在实际产品中，可以通过以下方式降低用户理解成本：</p>
+<ul>
+<li>页面提示当前支持 AI 助手；</li>
+<li>开发文档列出可用工具；</li>
+<li>测试环境展示 <code>document.modelContext</code> 是否存在；</li>
+<li>在 AI 宿主中展示当前页面已注册的工具；</li>
+<li>WebMCP 不可用时提示用户开启 Chrome 实验功能。</li>
+</ul>
+<p>Chrome 官方也将 WebMCP 定位为面向浏览器 Agent 的网页工具能力，而不是普通 AI 自动扫描网页后即可使用的接口。更多信息可参考 <a href="https://developer.chrome.com/docs/ai/webmcp/compare-mcp">WebMCP 与 MCP 的关系说明</a>。</p></article></div><nav class="mt-12 pt-8 border-t border-border"><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><a href="/blog/svg-assets-similarity-methodology" class="group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"><span class="text-xs text-muted-foreground">← 上一篇</span><p class="text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors">SVG 资源相似度判断：定义、评分与迁移边界</p></a></div></nav></div></main><footer id="contact" class="relative py-20 px-4 sm:px-6 lg:px-8 border-t border-border overflow-hidden"><div class="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div><div class="max-w-6xl mx-auto relative"><div data-footer-top="true" class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"><div class="transition-all duration-500" style="transition-delay:100ms"><h3 class="text-2xl font-bold font-display text-foreground mb-4 gradient-text">个人空间</h3><p class="text-muted-foreground text-sm leading-relaxed mb-6">记录产品与技术的细节打磨，分享可复用的工具与思考。</p><div class="flex items-center gap-3"><a data-social-icon="true" href="https://github.com/jiangqm" class="group relative w-11 h-11 flex items-center justify-center bg-secondary rounded-xl text-muted-foreground overflow-hidden hover:text-primary transition-all duration-300 hover:scale-110" aria-label="GitHub"><div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a><a data-social-icon="true" href="#" class="group relative w-11 h-11 flex items-center justify-center bg-secondary rounded-xl text-muted-foreground overflow-hidden hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Twitter"><div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a><a data-social-icon="true" href="mailto:hello@example.com" class="group relative w-11 h-11 flex items-center justify-center bg-secondary rounded-xl text-muted-foreground overflow-hidden hover:text-primary transition-all duration-300 hover:scale-110" aria-label="Email"><div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-5 h-5 relative z-10 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg></a></div></div><div class="transition-all duration-500" style="transition-delay:100ms"><h4 class="text-sm font-semibold text-foreground uppercase tracking-wider mb-5">导航</h4><ul class="space-y-3"><li><a href="/" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>首页</a></li><li><a href="/blog" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>博客</a></li><li><a href="/tools" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>工具</a></li><li><a href="/about" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>关于</a></li></ul></div><div class="transition-all duration-500" style="transition-delay:200ms"><h4 class="text-sm font-semibold text-foreground uppercase tracking-wider mb-5">资源</h4><ul class="space-y-3"><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>开源项目</a></li><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>代码片段</a></li><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>设计资源</a></li><li><a href="#" class="group inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"><span class="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>推荐书单</a></li></ul></div></div><div data-footer-bottom="true" class="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4"><p class="flex items-center gap-2 text-sm text-muted-foreground"><span>Crafted with</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-4 h-4 text-red-500 animate-pulse" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg><span>© 2026 个人空间</span></p><div class="flex items-center gap-6 text-sm text-muted-foreground"><a href="#" class="hover:text-foreground transition-colors duration-300 hover:underline underline-offset-4">隐私政策</a><a href="#" class="hover:text-foreground transition-colors duration-300 hover:underline underline-offset-4">使用条款</a></div></div></div><button class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground rounded-xl flex items-center justify-center shadow-lg shadow-primary/20
+          hover:scale-110 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 z-50
+          opacity-0 translate-y-4 pointer-events-none" aria-label="返回顶部"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up w-5 h-5" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></footer><!--$--><!--/$--><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$--><script src="/_next/static/chunks/08myss0_lyhe7.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[89554,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"ThemeProvider\"]\n3:I[39756,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"default\"]\n4:I[37457,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"default\"]\n5:I[36768,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/0j6wpee~y8w_e.js\"],\"default\"]\n6:I[33334,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"PWARegister\"]\n7:I[2355,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"Analytics\"]\n9:I[97367,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"OutletBoundary\"]\na:\"$Sreact.suspense\"\nd:I[97367,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"ViewportBoundary\"]\nf:I[97367,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"MetadataBoundary\"]\n11:I[68027,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"default\",1]\n:HL[\"/_next/static/chunks/0cr~6phfu878..css\",\"style\"]\n:HL[\"/_next/static/chunks/10lnsxb-la40~.css\",\"style\"]\n:HL[\"/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"c\":[\"\",\"blog\",\"webmcp-ecommerce-practice\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"webmcp-ecommerce-practice\",\"d\",null],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",16],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/0cr~6phfu878..css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/10lnsxb-la40~.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/0u4~2urk8vz72.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/0t2xr05rlu96l.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"className\":\"dark bg-background\",\"suppressHydrationWarning\":true,\"children\":[\"$\",\"body\",null,{\"className\":\"manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased\",\"children\":[\"$\",\"$L2\",null,{\"attribute\":\"class\",\"defaultTheme\":\"dark\",\"enableSystem\":false,\"disableTransitionOnChange\":true,\"children\":[[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L5\",null,{}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"$L6\",null,{}],[\"$\",\"$L7\",null,{}]]}]}]}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"$\",\"$1\",\"c\",{\"children\":[\"$L8\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/12ikvmw31x79x.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/0ebdi26zoura9.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L9\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@b\"}]}]]}],{},null,false,null]},null,false,\"$@c\"]},null,false,\"$@c\"]},null,false,null],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$Ld\",null,{\"children\":\"$Le\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$Lf\",null,{\"children\":[\"$\",\"$a\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L10\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/0cr~6phfu878..css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/10lnsxb-la40~.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]]],\"S\":true,\"h\":null,\"s\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"DG2-h785RvjBLnYa5v4Bd\"}\n"])</script><script>self.__next_f.push([1,"12:[]\nc:\"$W12\"\n"])</script><script>self.__next_f.push([1,"13:I[63780,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/12ikvmw31x79x.js\",\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"/_next/static/chunks/0ebdi26zoura9.js\"],\"Navbar\"]\n14:I[2019,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/12ikvmw31x79x.js\",\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"/_next/static/chunks/0ebdi26zoura9.js\"],\"BlogPostClient\"]\n15:T7527,"])</script><script>self.__next_f.push([1,"\n## 摘要\n\nWebMCP 的核心价值，是让网页不再只是被 AI「阅读」，还可以通过一组结构化工具被 AI「调用」。\n\n在 A-Premium 汽车配件电商网站中，前端通过 `document.modelContext` 向模型注册搜索、车型识别、适配校验、商品详情、配送估算、购物车和结账订单等工具。AI 可以根据用户意图，在浏览器页面上下文中完成从找配件到进入支付页面的连续操作。\n\n本文基于分支 `feature/kermit-webMcp-0817` 的真实代码，重点介绍：\n\n- WebMCP 与传统服务端 MCP 的概念区别；\n- 浏览器页面如何注册和管理 WebMCP 工具；\n- `WebMcpTool` 工具契约如何统一名称、描述、输入 Schema 和执行函数；\n- 如何通过归一化函数屏蔽电商后端数据差异；\n- 如何区分只读工具与写操作工具；\n- 如何在创建订单和确认地址时控制风险；\n- 如何新增、测试和验证一个 WebMCP 工具。\n\n## 一、WebMCP 解决了什么问题\n\n### 1. 从「页面内容」走向「页面能力」\n\n传统网页对 AI 暴露的内容主要是：\n\n- 商品标题；\n- 商品描述；\n- 价格；\n- 页面链接；\n- 页面中的文本和图片。\n\nAI 可以读取这些信息，但如果要真正完成业务操作，通常还需要依赖额外的服务端 API、浏览器自动化或人工点击。\n\nWebMCP 提供了另一种思路：由网页主动向模型提供可调用工具。\n\n例如，A-Premium 页面可以暴露以下能力：\n\n```text\nsearch_parts\ndecode_vin\ncheck_part_fitment\nget_part_details\nestimate_delivery\nadd_to_cart\ncreate_checkout_order\nconfirm_checkout_address\n```\n\n这些工具不是简单的前端按钮，而是带有明确输入和输出契约的业务能力。模型可以根据用户意图决定：\n\n1. 调用哪个工具；\n2. 传入哪些参数；\n3. 如何使用上一步的返回值；\n4. 什么时候停止调用；\n5. 什么时候必须让用户确认。\n\n例如，用户说：\n\n\u003e 帮我找适配 2020 Honda Civic 的刹车片。\n\nAI 不需要模拟点击搜索框，而是可以调用：\n\n```json\n{\n  \"keyword\": \"brake pads\",\n  \"vehicle\": {\n    \"year\": \"2020\",\n    \"make\": \"Honda\",\n    \"model\": \"Civic\"\n  }\n}\n```\n\n### 2. WebMCP 在电商场景中的价值\n\n汽车配件电商有几个天然复杂点：\n\n- 同一个商品可能有多个 SKU；\n- 商品是否适配车型不能只看关键词；\n- VIN、车型、发动机和配置之间存在层级关系；\n- 配送费用和配送时间依赖目的地；\n- 创建订单前必须保证商品和 SKU 一致；\n- 收货地址需要经过校验；\n- 支付属于高风险操作，不应由普通 AI 工具直接处理。\n\nWebMCP 可以把这些业务边界包装成工具，让模型按照业务顺序调用，而不是直接拼装底层请求。\n\n因此，WebMCP 的重点不是「让 AI 调一个 API」，而是：\n\n\u003e 将页面当前可执行、可验证、可控风险的业务能力，以结构化工具的方式交给模型。\n\n## 二、WebMCP 与传统服务端 MCP 的区别\n\n这里需要区分两个层面：\n\n- WebMCP 作为一种通用概念；\n- 当前项目对 WebMCP 的具体实现。\n\n当前仓库没有引入官方 MCP SDK，也没有实现一个独立的服务端 MCP Server。项目使用的是自定义的 `WebMcpTool` 和 `WebMcpModelContext` 类型，依赖浏览器页面中的 `document.modelContext`。\n\n### 1. 传统服务端 MCP\n\n传统服务端 MCP 通常具有以下特点：\n\n- 工具注册在独立服务或后端进程中；\n- 模型通过协议或网络连接调用工具；\n- 工具生命周期与某个具体网页页面相对独立；\n- 服务端可以直接访问数据库、内部 API 或第三方服务；\n- 工具通常面向更广泛的应用场景。\n\n### 2. 当前项目中的 WebMCP\n\n当前项目的实现具有以下特点：\n\n- 工具注册发生在浏览器页面中；\n- 注册入口是可选的 `document.modelContext`；\n- 工具依赖当前页面的状态、浏览器环境和前端 Store；\n- 工具可以直接调用现有前端业务函数；\n- 写操作可以直接改变购物车或触发页面跳转；\n- 工具注册与页面组件生命周期绑定；\n- 页面不存在 `document.modelContext` 时，不注册任何 WebMCP 工具。\n\n| 对比项 | 传统服务端 MCP | 当前项目的 WebMCP |\n| --- | --- | --- |\n| 工具运行位置 | 独立服务端进程 | 浏览器页面 |\n| 注册入口 | MCP Server | `document.modelContext` |\n| 工具上下文 | 服务端运行环境 | 当前页面、浏览器和前端 Store |\n| 数据访问 | 服务端 API、数据库 | 现有前端请求函数和页面状态 |\n| 页面交互 | 通常不直接控制页面 | 可以通过 `window.location.assign` 进入结账页 |\n| 生命周期 | 服务进程级别 | React App 生命周期 |\n| 当前仓库类型 | 通用 MCP 服务未实现 | 自定义 `WebMcpTool` 类型 |\n\n需要特别注意：\n\n\u003e `WebMcpTool` 是当前项目定义的 TypeScript 类型，不应描述为官方 MCP SDK 类型。\n\n## 三、当前项目的 WebMCP 架构\n\n当前实现大致分为 5 层。\n\n### 1. 页面入口层：`src/pages/_app.tsx`\n\n`MyApp` 中通过 `useEffect` 检查：\n\n```ts\ndocument.modelContext\n```\n\n只有浏览器提供了该对象时，页面才会动态加载 WebMCP 注册模块。\n\n这样做有两个好处：\n\n- 服务端渲染时不会访问不存在的 `document`；\n- 不支持 WebMCP 的浏览器不会影响页面正常运行。\n\n### 2. 类型契约层：`src/features/webmcp/types.ts`\n\n该文件定义了项目自己的工具类型：\n\n```ts\nexport type WebMcpTool = {\n  name: string\n  title?: string\n  description: string\n  inputSchema: Record\u003cstring, unknown\u003e\n  execute: (input: unknown) =\u003e string | Promise\u003cstring\u003e\n  annotations?: {\n    readOnlyHint?: boolean\n    untrustedContentHint?: boolean\n  }\n}\n```\n\n同时定义了页面上下文：\n\n```ts\nexport type WebMcpModelContext = {\n  registerTool: (tool: WebMcpTool, options?: { signal?: AbortSignal }) =\u003e Promise\u003cvoid\u003e\n}\n```\n\n### 3. 注册适配层：`src/features/webmcp/register.ts`\n\n`registerWebMcpTools` 负责：\n\n1. 创建 `AbortController`；\n2. 遍历 `webMcpTools`；\n3. 调用 `modelContext.registerTool`；\n4. 将同一个 `AbortSignal` 传给所有注册操作；\n5. 任意注册失败时终止其他注册；\n6. 返回 `AbortController`，交给调用方管理生命周期。\n\n### 4. 工具实现层：`src/features/webmcp/tools.ts`\n\n该文件负责定义 8 个工具，并连接现有业务能力，例如：\n\n- `getPublicSearchFilter`\n- `checkUniversalMatch`\n- `getProductDetailV2`\n- `verifyZipcode`\n- `getEstimateSingle`\n- `onAddToCart`\n- `createBynowOrder`\n- `checkAddress`\n- `updateOrderV6`\n\n每个工具都遵循同样的结构：\n\n```ts\nconst tool: WebMcpTool = {\n  name,\n  title,\n  description,\n  inputSchema,\n  annotations,\n  execute,\n}\n```\n\n### 5. 归一化和返回值层：`src/features/webmcp/utils.ts`\n\n该文件主要解决两个问题：\n\n- 统一后端返回的数据结构；\n- 统一 AI 能够理解的成功和失败格式。\n\n典型函数包括：\n\n- `normalizeVehicle`\n- `normalizeVin`\n- `buildVehicleSearchParams`\n- `normalizeAmount`\n- `normalizeSearchItem`\n- `normalizeProductDetail`\n- `normalizeShippingEstimate`\n- `toolSuccess`\n- `toolFailure`\n\n## 四、WebMCP 注册与购物流程\n\n### 1. 工具注册流程\n\n```mermaid\nflowchart TD\n    A[\"浏览器加载 Next.js 页面\"] --\u003e B{\"document.modelContext 是否存在？\"}\n    B --\u003e|\"否\"| C[\"跳过 WebMCP 注册\"]\n    B --\u003e|\"是\"| D[\"MyApp 中的 useEffect 执行\"]\n    D --\u003e E[\"动态 import registerWebMcpTools\"]\n    E --\u003e F[\"创建 AbortController\"]\n    F --\u003e G[\"遍历 webMcpTools\"]\n    G --\u003e H[\"modelContext.registerTool(tool, { signal })\"]\n    H --\u003e I[\"8 个 WebMCP 工具注册完成\"]\n    D -. \"组件销毁\" .-\u003e J[\"controller.abort()\"]\n    H -. \"任意注册失败\" .-\u003e K[\"中止全部注册并抛出异常\"]\n    K --\u003e L[\"MyApp 捕获异常并输出 warning\"]\n```\n\n### 2. 电商工具调用流程\n\n```mermaid\nflowchart TD\n    A[\"用户提出配件需求\"] --\u003e B[\"search_parts\"]\n    B --\u003e C{\"是否需要 VIN？\"}\n    C --\u003e|\"需要\"| D[\"decode_vin\"]\n    C --\u003e|\"已有车型\"| E[\"使用车型信息\"]\n    D --\u003e E\n    E --\u003e F[\"check_part_fitment\"]\n    F --\u003e G{\"适配状态是否为 FIT？\"}\n    G --\u003e|\"否\"| H[\"停止当前商品流程\"]\n    G --\u003e|\"是\"| I[\"get_part_details\"]\n    I --\u003e J[\"estimate_delivery\"]\n    J --\u003e K{\"用户选择后续操作\"}\n    K --\u003e|\"加入购物车\"| L[\"add_to_cart\"]\n    K --\u003e|\"立即结账\"| M[\"create_checkout_order\"]\n    M --\u003e N[\"进入收货地址步骤\"]\n    N --\u003e O[\"confirm_checkout_address\"]\n    O --\u003e P{\"是否需要选择配送方案？\"}\n    P --\u003e|\"是\"| Q[\"进入 shippingMethod\"]\n    P --\u003e|\"否\"| R[\"进入 paymentMethod\"]\n    R --\u003e S[\"由真实结账页面完成支付\"]\n```\n\n当前代码支持的是「工具驱动的页面流程」，并不代表模型可以绕过页面直接操作支付系统。\n\n## 五、工具是如何被模型理解和调用的\n\n### 1. `WebMcpTool` 的统一契约\n\n当前项目通过 `WebMcpTool` 统一描述工具，而不是为每个工具设计一套完全不同的注册方式。\n\n一个工具至少包含：\n\n| 字段 | 作用 |\n| --- | --- |\n| `name` | 模型调用时使用的稳定工具名称 |\n| `title` | 面向用户或宿主界面的可读标题 |\n| `description` | 告诉模型工具用途、返回值和限制 |\n| `inputSchema` | 描述输入参数结构 |\n| `execute` | 真实执行逻辑 |\n| `annotations` | 标注工具行为特征 |\n\n例如：\n\n```ts\nexport const getPartDetailsTool: WebMcpTool = {\n  name: 'get_part_details',\n  title: 'Get part details',\n  description: 'Get concise product details for an A-Premium part by SEO URL.',\n  inputSchema: {\n    type: 'object',\n    properties: {\n      seoUrl: {\n        type: 'string',\n        description: 'Product SEO URL from search results or the current product page',\n      },\n    },\n    required: ['seoUrl'],\n  },\n  annotations: readOnlyAnnotations,\n  execute: input =\u003e\n    safeExecute(async () =\u003e {\n      // 具体实现\n    }),\n}\n```\n\n### 2. Schema 描述与运行时校验是两回事\n\n`inputSchema` 主要用于描述工具参数结构，但当前项目的 `execute` 函数仍然会再次做运行时校验。\n\n例如：\n\n```ts\nconst source = asInput(input)\nconst seoUrl = requiredString(source, 'seoUrl')\nif (!seoUrl) {\n  return toolFailure('INVALID_INPUT', 'seoUrl 不能为空')\n}\n```\n\n这意味着：\n\n- Schema 负责帮助模型理解参数；\n- `execute` 负责在真实执行前保护业务逻辑；\n- 不能只依赖模型是否正确生成了 Schema 参数。\n\n## 六、当前实现的 8 个 WebMCP 工具\n\n### 1. 工具职责概览\n\n| 工具 | 核心职责 |\n| --- | --- |\n| `search_parts` | 按关键词、分类和车型搜索汽车配件 |\n| `decode_vin` | 将 VIN 解析为车型信息 |\n| `check_part_fitment` | 校验指定 SKU 是否适配车型 |\n| `get_part_details` | 获取商品详情、价格、库存和配送信息 |\n| `estimate_delivery` | 校验 ZIP / postal code 并估算配送方案 |\n| `add_to_cart` | 将指定 SKU 加入当前购物车 |\n| `create_checkout_order` | 创建 buy-now 结账订单草稿 |\n| `confirm_checkout_address` | 校验并更新收货地址，推进结账步骤 |\n\n### 2. 工具参数和状态影响\n\n| 工具名称 | 读 / 写 | 主要输入参数 | 返回内容 | 是否改变页面、购物车或订单状态 | 关键限制 |\n| --- | --- | --- | --- | --- | --- |\n| `search_parts` | 读操作 | `keyword`、`categorySeoUrl`、可选 `vehicle`、`page`、`size`、`sort` | 查询信息、车型、总数、归一化商品列表 | 否 | `keyword` 和 `categorySeoUrl` 至少提供一个；`page` 限制在 1～100，`size` 限制在 1～20 |\n| `decode_vin` | 读操作 | `vin` | 归一化 VIN 和车型信息 | 不改变当前车型 Store | VIN 必须是 17 位，不能包含 `I`、`O`、`Q`；解析不到完整车型时失败 |\n| `check_part_fitment` | 读操作 | `itemId`、`skuId`、可选 `vehicle` | 车型和 `fitment.status`、`fitment.note` | 否 | 必须有车型和 `attributeValueId` |\n| `get_part_details` | 读操作 | `seoUrl` | 商品 ID、SKU、SEO 信息、价格、库存、保修、评价和物流列表 | 否 | `seoUrl` 不能为空；商品不存在返回 `NOT_FOUND` |\n| `estimate_delivery` | 读操作 | `itemId`、可选 `skuId`、`zipcode` | ZIP 位置、`canSale`、配送方案、价格和时间 | 否 | `itemId` 和 `zipcode` 必填；ZIP 无效时失败 |\n| `add_to_cart` | 写操作 | `itemId`、`skuId`、可选 `seoId`、`attributeValueId`、`quantity` | 已加入商品、购物车 UUID、商品数量和购物车列表 | 改变购物车状态 | `quantity` 限制在 1～20；当前工具本身不通过 `seoUrl` 做商品一致性校验 |\n| `create_checkout_order` | 写操作 | `itemId`、`skuId`、`seoUrl`、可选 `quantity`、`attributeValueId` | `orderId`、订单状态、结账 URL 和商品信息 | 创建订单草稿并跳转地址步骤 | 商品详情中的 ID 和 SKU 必须与输入匹配；不处理支付信息 |\n| `confirm_checkout_address` | 写操作 | `orderId`、`addressConfirmed`、`address`、可选 `useStandardizedAddress` | 地址摘要、订单商品、下一结账步骤和 URL | 更新订单地址并跳转运输或支付步骤 | `addressConfirmed` 必须严格为 `true`；地址必须满足必填字段并经过校验 |\n\n## 七、工具注册的生命周期管理\n\n### 1. 只在浏览器环境中运行\n\n`src/pages/_app.tsx` 中的注册逻辑首先检查：\n\n```ts\nif (typeof document === 'undefined' || !document.modelContext) return\n```\n\n这说明当前实现具有两个明确边界：\n\n- 服务端渲染阶段不访问 `document`；\n- 浏览器没有 `modelContext` 时不启用 WebMCP。\n\n项目没有实现轮询或延迟等待机制。如果页面初始化时 `document.modelContext` 不存在，当前 `useEffect` 会直接结束。\n\n### 2. 使用动态导入降低页面耦合\n\n注册模块通过动态导入加载：\n\n```ts\nconst { registerWebMcpTools } = await import('@/features/webmcp/register')\n```\n\n这样做使 WebMCP 注册逻辑不会在服务端渲染阶段直接执行，也避免在不支持 WebMCP 的环境中提前加载相关模块。\n\n### 3. 使用 `AbortController` 取消注册\n\n`register.ts` 中创建一个控制器：\n\n```ts\nconst controller = new AbortController()\n```\n\n然后将同一个 signal 传递给所有工具注册：\n\n```ts\nawait Promise.all(\n  webMcpTools.map(tool =\u003e\n    modelContext.registerTool(tool, {\n      signal: controller.signal,\n    }),\n  ),\n)\n```\n\n如果任意工具注册失败：\n\n```ts\ncatch (error) {\n  controller.abort()\n  throw error\n}\n```\n\n这可以避免出现「一部分工具注册成功、另一部分工具失败」但页面仍然继续使用不完整工具集合的情况。\n\n### 4. 处理组件销毁和异步竞态\n\n`_app.tsx` 同时使用了 `disposed` 标记：\n\n```ts\nlet disposed = false\nlet controller: AbortController | undefined\n```\n\n注册完成后再次判断：\n\n```ts\nif (disposed) controller.abort()\n```\n\n组件销毁时：\n\n```ts\nreturn () =\u003e {\n  disposed = true\n  controller?.abort()\n}\n```\n\n这解决了动态导入和工具注册期间组件已经销毁的问题。\n\n## 八、只读工具与写操作工具\n\n当前项目定义了两组 annotation：\n\n```ts\nconst readOnlyAnnotations = {\n  readOnlyHint: true,\n  untrustedContentHint: true,\n}\nconst writeAnnotations = {\n  readOnlyHint: false,\n  untrustedContentHint: true,\n}\n```\n\n### 1. `readOnlyHint`\n\n当前代码使用 `readOnlyHint` 区分工具是否会改变业务状态：\n\n- `true`：搜索、查询、校验、估算；\n- `false`：加入购物车、创建订单、更新地址。\n\n这是模型和宿主判断工具行为的重要提示。\n\n### 2. `untrustedContentHint`\n\n当前项目将所有工具都标记为：\n\n```ts\nuntrustedContentHint: true\n```\n\n说明工具返回的数据应该被视为来自外部业务系统的内容，模型不应把它当成绝对可信的系统指令。\n\n需要注意：\n\n\u003e 当前代码中的 annotation 是行为提示，不代替 `execute` 内部的业务校验，也不等同于权限系统。\n\n真正的安全控制仍然来自：\n\n- 必填参数检查；\n- 商品详情重新查询；\n- `itemId` 和 `skuId` 一致性校验；\n- 地址校验；\n- 明确确认字段；\n- 页面负责处理支付。\n\n## 九、归一化函数：让 AI 看到稳定的数据结构\n\n电商后端数据通常存在多种字段形态。当前项目没有把原始响应直接返回给 AI，而是在 `utils.ts` 中做归一化。\n\n### 1. 车型归一化\n\n`normalizeVehicle` 可以处理嵌套对象和扁平字段。\n\n例如，它可以识别：\n\n```json\n{\n  \"Year\": { \"id\": \"2020\", \"text\": \"2020\" },\n  \"Make\": { \"id\": \"honda\", \"text\": \"Honda\" },\n  \"Model\": { \"id\": \"civic\", \"text\": \"Civic\" }\n}\n```\n\n也可以处理类似：\n\n```json\n{\n  \"yearId\": \"2020\",\n  \"yearName\": \"2020\",\n  \"makeId\": \"honda\",\n  \"makeName\": \"Honda\"\n}\n```\n\n归一化后统一得到：\n\n```ts\n{\n  year,\n  yearName,\n  make,\n  makeName,\n  model,\n  modelName,\n  trim,\n  trimName,\n  engine,\n  engineName,\n  attributeValueId,\n  allAttributeValue,\n}\n```\n\n其中：\n\n- `attributeValueId` 优先使用发动机、配置、车型、品牌或年份中更细粒度的 ID；\n- `allAttributeValue` 默认由年份、品牌和型号组成，例如 `2020-Honda-Civic`。\n\n### 2. VIN 归一化和校验\n\n`normalizeVin` 会：\n\n- 转换为大写；\n- 删除非字母数字字符；\n- 删除 `I`、`O`、`Q`；\n- 截取前 17 位。\n\n但 `isValidVin` 会对原始输入进行严格检查：\n\n```ts\nif (raw.includes('I') || raw.includes('O') || raw.includes('Q')) {\n  return false\n}\nreturn /^[A-HJ-NPR-Z0-9]{17}$/.test(raw)\n```\n\n因此，工具执行时即使 `normalizeVin` 能够清理字符串，只要原始 VIN 包含 `I`、`O`、`Q`，仍然会返回 `INVALID_VIN`。\n\n### 3. 金额归一化\n\n`normalizeAmount` 支持多种输入形式：\n\n```ts\n1299\n\"12.99\"\n{\n  cent: 1299,\n  precision: 2,\n  currency: \"USD\"\n}\n```\n\n对于带 `cent` 的金额，会计算：\n\n```ts\nvalue = cent / 10 ** precision\n```\n\n最终统一为：\n\n```ts\n{\n  cent?: number\n  precision: number\n  currency: string\n  value: number\n}\n```\n\n这样，模型不需要判断某个后端字段究竟是金额字符串、浮点金额还是最小货币单位。\n\n### 4. 商品和配送归一化\n\n以下函数分别统一了不同场景的数据：\n\n- `normalizeSearchItem`：搜索结果；\n- `normalizeProductDetail`：商品详情；\n- `normalizeCheckoutShippingItem`：结账商品和配送模板；\n- `normalizeShippingEstimate`：配送估算结果。\n\n例如，商品搜索项最终会稳定返回：\n\n```ts\n{\n  id,\n  skuId,\n  seoId,\n  seoUrl,\n  title,\n  brand,\n  partNumber,\n  price,\n  originalPrice,\n  currency,\n  availableTotal,\n  fitment,\n  vehicleUniversal,\n  imageUrl,\n}\n```\n\n这也是为什么 AI 可以安全地在不同工具之间传递：\n\n- `itemId`；\n- `skuId`；\n- `seoUrl`；\n- `attributeValueId`。\n\n## 十、统一的成功和失败格式\n\n当前项目没有让每个工具自行设计返回结构，而是统一使用：\n\n```ts\nexport function toolSuccess(data: unknown): string {\n  return JSON.stringify({ ok: true, data })\n}\n```\n\n和：\n\n```ts\nexport function toolFailure(code: string, message: string, details?: unknown): string {\n  return JSON.stringify({\n    ok: false,\n    error: {\n      code,\n      message,\n      ...(details === undefined ? {} : { details }),\n    },\n  })\n}\n```\n\n成功返回示例：\n\n```json\n{\n  \"ok\": true,\n  \"data\": {\n    \"itemId\": \"item-123\",\n    \"skuId\": \"sku-456\",\n    \"canSale\": true\n  }\n}\n```\n\n失败返回示例：\n\n```json\n{\n  \"ok\": false,\n  \"error\": {\n    \"code\": \"INVALID_ZIPCODE\",\n    \"message\": \"ZIP/postal code 无效或暂不支持配送\"\n  }\n}\n```\n\n`WebMcpTool` 当前定义的执行函数返回：\n\n```ts\nstring | Promise\u003cstring\u003e\n```\n\n因此工具统一使用 `JSON.stringify`，将结构化数据编码成字符串返回。\n\n## 十一、如何新增一个 WebMCP 工具\n\n新增工具通常需要完成 3 件事：\n\n1. 定义一个符合 `WebMcpTool` 的对象；\n2. 在 `execute` 中做输入校验、请求和结果归一化；\n3. 将工具加入 `webMcpTools` 数组。\n\n下面是基于当前 `tools.ts` 风格的示意代码。\n\n\u003e 示意代码：以下代码假设直接添加到 `src/features/webmcp/tools.ts`，因此可以复用该文件内已有的 `asInput`、`requiredString`、`safeExecute`、`readOnlyAnnotations`、`toolSuccess` 和 `toolFailure`。\n\n```ts\nexport const getPartInventoryTool: WebMcpTool = {\n  name: 'get_part_inventory',\n  title: 'Get part inventory',\n  description: 'Get the available inventory for an A-Premium part by SEO URL.',\n  inputSchema: {\n    type: 'object',\n    properties: {\n      seoUrl: {\n        type: 'string',\n        description: 'Product SEO URL from search results or product details',\n      },\n    },\n    required: ['seoUrl'],\n  },\n  annotations: readOnlyAnnotations,\n  execute: input =\u003e\n    safeExecute(async () =\u003e {\n      const source = asInput(input)\n      const seoUrl = requiredString(source, 'seoUrl')\n      if (!seoUrl) {\n        return toolFailure('INVALID_INPUT', 'seoUrl 不能为空')\n      }\n      const detail = await getProductDetailV2({\n        seoUrl,\n        shopId: getShopIdByClient(),\n      })\n      if (!detail) {\n        return toolFailure('NOT_FOUND', '未找到对应商品')\n      }\n      const normalized = normalizeProductDetail(detail)\n      return toolSuccess({\n        itemId: normalized.id,\n        skuId: normalized.skuId,\n        availableTotal: normalized.availableTotal,\n      })\n    }),\n}\n```\n\n然后加入工具列表：\n\n```ts\nexport const webMcpTools: WebMcpTool[] = [\n  searchPartsTool,\n  decodeVinTool,\n  checkPartFitmentTool,\n  getPartDetailsTool,\n  estimateDeliveryTool,\n  addToCartTool,\n  createCheckoutOrderTool,\n  confirmCheckoutAddressTool,\n  getPartInventoryTool,\n]\n```\n\n新增工具时建议遵循以下原则：\n\n- `name` 保持稳定，不要频繁修改；\n- `description` 明确说明能力边界和副作用；\n- `inputSchema.required` 与实际校验保持一致；\n- `execute` 中继续做运行时校验；\n- 查询类工具使用 `readOnlyAnnotations`；\n- 会改变购物车或订单状态的工具使用 `writeAnnotations`；\n- 外部请求统一放在 `safeExecute` 中；\n- 成功使用 `toolSuccess`；\n- 失败使用 `toolFailure` 和可识别错误码；\n- 尽量返回归一化后的字段；\n- 如果工具会导航或改变状态，需要在描述中明确说明。\n\n## 十二、当前实现的限制与后续演进方向\n\n### 当前限制\n\n#### 1. 工具依赖浏览器页面上下文\n\n当前 WebMCP 工具依赖：\n\n- `document.modelContext`；\n- `window.location`；\n- `useSearchStore`；\n- `useShopCartStore`；\n- 浏览器中的 Cookie 和本地存储。\n\n因此这些工具不是完全独立的服务端能力。\n\n#### 2. 只在 `document.modelContext` 存在时注册\n\n当前代码没有实现：\n\n- `modelContext` 延迟出现后的重试；\n- 浏览器能力探测 UI；\n- 工具注册状态展示；\n- 工具注册失败后的自动恢复。\n\n#### 3. 工具返回值依赖 JSON 字符串\n\n当前 `WebMcpTool.execute` 的契约是：\n\n```ts\nstring | Promise\u003cstring\u003e\n```\n\n因此所有结果都需要通过 JSON 字符串编码。\n\n#### 4. 订单流程只推进到结账页面\n\n当前实现支持：\n\n- 创建 buy-now 订单草稿；\n- 更新收货地址；\n- 进入配送方式步骤；\n- 进入支付步骤。\n\n当前实现不支持：\n\n- 自动填写银行卡；\n- 自动提交支付；\n- 自动处理支付验证；\n- 自动确认支付成功。\n\n#### 5. 购物车工具的一致性校验相对有限\n\n`create_checkout_order` 会重新获取商品详情并校验 `itemId`、`skuId`。\n\n而 `add_to_cart` 主要依赖传入的 `itemId`、`skuId` 调用 `onAddToCart`，没有通过 `seoUrl` 再做同等程度的商品一致性校验。\n\n### 后续可以演进的方向\n\n可以进一步增加：\n\n- `get_order_status`：查询订单状态；\n- `track_order`：查询物流轨迹；\n- `select_shipping_method`：选择具体配送方案；\n- `get_cart_summary`：读取当前购物车；\n- `remove_from_cart`：删除购物车商品；\n- `update_cart_quantity`：修改数量；\n- `get_return_policy`：查询退换货政策；\n- `create_return_request`：创建退换货申请；\n- 工具注册状态监控；\n- 工具调用日志和审计；\n- 更严格的输入 Schema 校验；\n- 商品、SKU、车型和订单上下文的跨工具状态管理。\n\n## 十三、FAQ\n\n### WebMCP 工具和普通前端函数有什么区别？\n\n普通前端函数主要由页面代码或用户点击事件调用。\n\nWebMCP 工具除了包含执行逻辑，还需要提供：\n\n- 稳定的工具名称；\n- 面向模型的描述；\n- 输入 Schema；\n- 行为 annotation；\n- 统一的结构化返回格式。\n\n因此，WebMCP 工具可以被模型发现和调用，而普通前端函数通常只对项目内部代码可见。\n\n### 为什么工具返回 JSON 字符串？\n\n因为当前项目的 `WebMcpTool` 类型约定：\n\n```ts\nexecute: (input: unknown) =\u003e string | Promise\u003cstring\u003e\n```\n\n项目通过 `toolSuccess` 和 `toolFailure` 把结果统一编码成 JSON 字符串，使模型可以稳定识别：\n\n```text\nok\ndata\nerror.code\nerror.message\n```\n\n### 为什么要区分读操作和写操作？\n\n搜索、详情、适配和配送估算不会改变业务状态。\n\n加入购物车、创建订单和更新地址会改变用户数据或订单状态。\n\n通过：\n\n```ts\nreadOnlyHint: true\n```\n\n和：\n\n```ts\nreadOnlyHint: false\n```\n\n可以让模型和宿主更清楚地识别工具副作用，也便于后续增加人工确认、权限控制或审计能力。\n\n### 为什么不能让 AI 直接完成支付？\n\n支付涉及银行卡、支付 Token、二次验证和风控信息。\n\n当前项目的 WebMCP 工具不接收或处理这些数据，只负责把用户带到真实结账页面。支付表单和支付提交仍然由网站结账流程处理，可以减少敏感信息进入模型上下文的风险。\n\n### 如何避免 AI 传错商品或地址参数？\n\n当前实现采用多层保护：\n\n- 搜索和详情结果统一返回 `itemId`、`skuId`、`seoUrl`；\n- 创建订单前重新通过 `seoUrl` 查询商品详情；\n- 对比详情中的商品 ID 和 SKU；\n- 地址字段进入后端校验；\n- `addressConfirmed` 必须严格为 `true`；\n- 错误结果携带明确的错误码；\n- 外部请求异常统一转换为 `REQUEST_FAILED`。\n\n模型仍然不应凭记忆生成商品 ID、SKU 或订单 ID，而应该始终使用上一步工具返回的值。\n\n## 举个例子\n\n搜索商品、查详情和适配状态：\n\n![搜索商品和适配状态](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/1594d4ad-5bc8-4ca2-93f0-37b8dd92c933.png)\n\n加购并下单：\n\n![加购并下单](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/6bd2d570-c4fb-4d07-b7ac-7161e37d6c78.png)\n\n## 补充限制一：WebMCP 仍处于实验阶段\n\n当前 WebMCP 仍属于 Chrome 的实验性能力。进行本地开发或测试时，需要手动开启 Chrome 实验开关；官方文档当前给出的开关是：\n\n```text\nchrome://flags/#enable-webmcp-testing\n```\n\n开启步骤如下：\n\n1. 打开 Chrome，在地址栏输入：\n\n```text\nchrome://flags/#enable-webmcp-testing\n```\n\n2. 将 `WebMCP for testing` 设置为 `Enabled`。\n3. 点击页面底部的 `Relaunch`，重启 Chrome。\n4. 重新打开 A-Premium 页面，并检查页面是否能够获得：\n\n```ts\ndocument.modelContext\n```\n\nChrome 官方说明中，WebMCP 的本地开发版本通过 `enable-webmcp-testing` 开关启用；具体名称和可用版本可能随 Chrome 实验版本变化，实际使用时应以当前 Chrome 页面显示为准。更多信息可参考 [Chrome WebMCP 官方文档](https://developer.chrome.com/docs/ai/webmcp)。\n\n当前项目中的注册逻辑依赖 `document.modelContext`：\n\n```ts\nif (typeof document === 'undefined' || !document.modelContext) return\n```\n\n因此，如果实验功能未开启，页面不会注册 WebMCP 工具，但普通电商页面仍可以正常使用。\n\n## 补充限制二：AI 不会自动识别站内是否提供 WebMCP 工具\n\nGPT 这类 AI 不会仅仅因为打开了一个网页，就自动扫描页面并判断站内是否存在 WebMCP 工具。\n\n在当前项目中，工具能否被 AI 使用，至少依赖以下链路：\n\n1. Chrome 开启 WebMCP 实验能力；\n2. 浏览器或宿主提供 `document.modelContext`；\n3. A-Premium 页面执行 `registerWebMcpTools`；\n4. 页面将 `webMcpTools` 中的工具注册到 `modelContext`；\n5. AI 宿主读取并暴露这些工具；\n6. 模型根据用户意图决定是否调用工具。\n\n也就是说，下面这些工具不会因为写在前端代码中，就自动对所有 AI 可见：\n\n```text\nsearch_parts\ndecode_vin\ncheck_part_fitment\nget_part_details\nestimate_delivery\nadd_to_cart\ncreate_checkout_order\nconfirm_checkout_address\n```\n\n当前项目只负责在 `document.modelContext` 存在时注册工具，并没有实现：\n\n- 自动检测 AI 是否支持 WebMCP；\n- 自动唤起 AI；\n- 向用户展示工具注册状态；\n- 在没有 AI 宿主时主动发现工具；\n- 工具注册失败后的自动重试。\n\n因此，WebMCP 更准确的理解是：\n\n\u003e WebMCP 为网页向 AI 暴露结构化能力提供了机制，但工具发现仍依赖浏览器、AI 宿主和模型之间的完整接入链路。\n\n在实际产品中，可以通过以下方式降低用户理解成本：\n\n- 页面提示当前支持 AI 助手；\n- 开发文档列出可用工具；\n- 测试环境展示 `document.modelContext` 是否存在；\n- 在 AI 宿主中展示当前页面已注册的工具；\n- WebMCP 不可用时提示用户开启 Chrome 实验功能。\n\nChrome 官方也将 WebMCP 定位为面向浏览器 Agent 的网页工具能力，而不是普通 AI 自动扫描网页后即可使用的接口。更多信息可参考 [WebMCP 与 MCP 的关系说明](https://developer.chrome.com/docs/ai/webmcp/compare-mcp)。\n"])</script><script>self.__next_f.push([1,"8:[[\"$\",\"$L13\",null,{}],[\"$\",\"main\",null,{\"className\":\"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-6xl mx-auto\",\"children\":[[\"$\",\"header\",null,{\"className\":\"mb-10\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center gap-3 mb-4\",\"children\":[[\"$\",\"span\",null,{\"className\":\"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full\",\"children\":\"AI\"}],[\"$\",\"span\",null,{\"className\":\"text-sm text-muted-foreground\",\"children\":\"2026-09-15\"}],[\"$\",\"span\",null,{\"className\":\"text-sm text-muted-foreground\",\"children\":\"·\"}],[\"$\",\"span\",null,{\"className\":\"text-sm text-muted-foreground\",\"children\":\"12 分钟\"}]]}],[\"$\",\"h1\",null,{\"className\":\"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight\",\"children\":\"WebMCP 在电商网站中的落地实践\"}],[\"$\",\"p\",null,{\"className\":\"text-lg text-muted-foreground leading-relaxed\",\"children\":\"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。\"}],[\"$\",\"div\",null,{\"className\":\"flex flex-wrap gap-2 mt-4\",\"children\":[[\"$\",\"span\",\"WebMCP\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"WebMCP\"]}],[\"$\",\"span\",\"MCP\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"MCP\"]}],[\"$\",\"span\",\"电商\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"电商\"]}],[\"$\",\"span\",\"AI Agent\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"AI Agent\"]}],[\"$\",\"span\",\"前端架构\",{\"className\":\"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md\",\"children\":[\"#\",\"前端架构\"]}]]}]]}],[\"$\",\"$L14\",null,{\"content\":\"$15\"}],\"$L16\"]}]}],\"$L17\"]\n"])</script><script>self.__next_f.push([1,"18:I[76841,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\",\"/_next/static/chunks/12ikvmw31x79x.js\",\"/_next/static/chunks/08~fq5w8zrgnt.js\",\"/_next/static/chunks/0ebdi26zoura9.js\"],\"Footer\"]\n16:[\"$\",\"nav\",null,{\"className\":\"mt-12 pt-8 border-t border-border\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 sm:grid-cols-2 gap-4\",\"children\":[[\"$\",\"a\",null,{\"href\":\"/blog/svg-assets-similarity-methodology\",\"className\":\"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors\",\"children\":[[\"$\",\"span\",null,{\"className\":\"text-xs text-muted-foreground\",\"children\":\"← 上一篇\"}],[\"$\",\"p\",null,{\"className\":\"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors\",\"children\":\"SVG 资源相似度判断：定义、评分与迁移边界\"}]]}],null]}]}]\n17:[\"$\",\"$L18\",null,{}]\n"])</script><script>self.__next_f.push([1,"e:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"2\",{\"name\":\"theme-color\",\"content\":\"#0f172a\"}]]\n"])</script><script>self.__next_f.push([1,"19:I[27201,[\"/_next/static/chunks/0u4~2urk8vz72.js\",\"/_next/static/chunks/0t2xr05rlu96l.js\"],\"IconMark\"]\nb:null\n"])</script><script>self.__next_f.push([1,"10:[[\"$\",\"title\",\"0\",{\"children\":\"WebMCP 在电商网站中的落地实践 | 博客\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。\"}],[\"$\",\"meta\",\"2\",{\"name\":\"application-name\",\"content\":\"Personal Space\"}],[\"$\",\"link\",\"3\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"$undefined\"}],[\"$\",\"meta\",\"4\",{\"name\":\"generator\",\"content\":\"v0.app\"}],[\"$\",\"meta\",\"5\",{\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"}],[\"$\",\"meta\",\"6\",{\"name\":\"apple-mobile-web-app-title\",\"content\":\"Personal Space\"}],[\"$\",\"meta\",\"7\",{\"name\":\"apple-mobile-web-app-status-bar-style\",\"content\":\"default\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:title\",\"content\":\"WebMCP 在电商网站中的落地实践\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:description\",\"content\":\"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"$\",\"meta\",\"11\",{\"property\":\"article:published_time\",\"content\":\"2026-09-15\"}],[\"$\",\"meta\",\"12\",{\"property\":\"article:tag\",\"content\":\"WebMCP\"}],[\"$\",\"meta\",\"13\",{\"property\":\"article:tag\",\"content\":\"MCP\"}],[\"$\",\"meta\",\"14\",{\"property\":\"article:tag\",\"content\":\"电商\"}],[\"$\",\"meta\",\"15\",{\"property\":\"article:tag\",\"content\":\"AI Agent\"}],[\"$\",\"meta\",\"16\",{\"property\":\"article:tag\",\"content\":\"前端架构\"}],[\"$\",\"meta\",\"17\",{\"name\":\"twitter:card\",\"content\":\"summary\"}],[\"$\",\"meta\",\"18\",{\"name\":\"twitter:title\",\"content\":\"WebMCP 在电商网站中的落地实践\"}],[\"$\",\"meta\",\"19\",{\"name\":\"twitter:description\",\"content\":\"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。\"}],[\"$\",\"link\",\"20\",{\"rel\":\"icon\",\"href\":\"/icons/icon-192x192.png\",\"sizes\":\"192x192\",\"type\":\"image/png\"}],[\"$\",\"link\",\"21\",{\"rel\":\"icon\",\"href\":\"/icons/icon-512x512.png\",\"sizes\":\"512x512\",\"type\":\"image/png\"}],[\"$\",\"link\",\"22\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icons/apple-touch-icon-180x180.png\"}],[\"$\",\"$L19\",\"23\",{}]]\n"])</script></body></html>

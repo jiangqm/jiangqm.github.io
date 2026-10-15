@@ -1,0 +1,1054 @@
+1:"$Sreact.fragment"
+2:I[89554,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ThemeProvider"]
+3:I[39756,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+4:I[37457,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default"]
+5:I[36768,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/0j6wpee~y8w_e.js"],"default"]
+6:I[33334,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"PWARegister"]
+7:I[2355,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"Analytics"]
+9:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+d:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"ViewportBoundary"]
+f:I[97367,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"MetadataBoundary"]
+11:I[68027,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"default",1]
+:HL["/_next/static/chunks/0cr~6phfu878..css","style"]
+:HL["/_next/static/chunks/10lnsxb-la40~.css","style"]
+:HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","blog","webmcp-ecommerce-practice",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","webmcp-ecommerce-practice","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0cr~6phfu878..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/10lnsxb-la40~.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0u4~2urk8vz72.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0t2xr05rlu96l.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","className":"dark bg-background","suppressHydrationWarning":true,"children":["$","body",null,{"className":"manrope_a209c4c1-module__1MiKMG__variable fraunces_87dee82f-module__FBlnvW__variable geist_mono_eb3463a1-module__IK5Wbq__variable font-sans antialiased","children":["$","$L2",null,{"attribute":"class","defaultTheme":"dark","enableSystem":false,"disableTransitionOnChange":true,"children":[["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L6",null,{}],["$","$L7",null,{}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L8",[["$","script","script-0",{"src":"/_next/static/chunks/12ikvmw31x79x.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/08~fq5w8zrgnt.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0ebdi26zoura9.js","async":true,"nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],{},null,false,null]},null,false,"$@c"]},null,false,"$@c"]},null,false,null],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$a",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$11",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0cr~6phfu878..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/10lnsxb-la40~.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"DG2-h785RvjBLnYa5v4Bd"}
+12:[]
+c:"$W12"
+13:I[63780,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/12ikvmw31x79x.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/0ebdi26zoura9.js"],"Navbar"]
+14:I[2019,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/12ikvmw31x79x.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/0ebdi26zoura9.js"],"BlogPostClient"]
+15:T7527,
+## 摘要
+
+WebMCP 的核心价值，是让网页不再只是被 AI「阅读」，还可以通过一组结构化工具被 AI「调用」。
+
+在 A-Premium 汽车配件电商网站中，前端通过 `document.modelContext` 向模型注册搜索、车型识别、适配校验、商品详情、配送估算、购物车和结账订单等工具。AI 可以根据用户意图，在浏览器页面上下文中完成从找配件到进入支付页面的连续操作。
+
+本文基于分支 `feature/kermit-webMcp-0817` 的真实代码，重点介绍：
+
+- WebMCP 与传统服务端 MCP 的概念区别；
+- 浏览器页面如何注册和管理 WebMCP 工具；
+- `WebMcpTool` 工具契约如何统一名称、描述、输入 Schema 和执行函数；
+- 如何通过归一化函数屏蔽电商后端数据差异；
+- 如何区分只读工具与写操作工具；
+- 如何在创建订单和确认地址时控制风险；
+- 如何新增、测试和验证一个 WebMCP 工具。
+
+## 一、WebMCP 解决了什么问题
+
+### 1. 从「页面内容」走向「页面能力」
+
+传统网页对 AI 暴露的内容主要是：
+
+- 商品标题；
+- 商品描述；
+- 价格；
+- 页面链接；
+- 页面中的文本和图片。
+
+AI 可以读取这些信息，但如果要真正完成业务操作，通常还需要依赖额外的服务端 API、浏览器自动化或人工点击。
+
+WebMCP 提供了另一种思路：由网页主动向模型提供可调用工具。
+
+例如，A-Premium 页面可以暴露以下能力：
+
+```text
+search_parts
+decode_vin
+check_part_fitment
+get_part_details
+estimate_delivery
+add_to_cart
+create_checkout_order
+confirm_checkout_address
+```
+
+这些工具不是简单的前端按钮，而是带有明确输入和输出契约的业务能力。模型可以根据用户意图决定：
+
+1. 调用哪个工具；
+2. 传入哪些参数；
+3. 如何使用上一步的返回值；
+4. 什么时候停止调用；
+5. 什么时候必须让用户确认。
+
+例如，用户说：
+
+> 帮我找适配 2020 Honda Civic 的刹车片。
+
+AI 不需要模拟点击搜索框，而是可以调用：
+
+```json
+{
+  "keyword": "brake pads",
+  "vehicle": {
+    "year": "2020",
+    "make": "Honda",
+    "model": "Civic"
+  }
+}
+```
+
+### 2. WebMCP 在电商场景中的价值
+
+汽车配件电商有几个天然复杂点：
+
+- 同一个商品可能有多个 SKU；
+- 商品是否适配车型不能只看关键词；
+- VIN、车型、发动机和配置之间存在层级关系；
+- 配送费用和配送时间依赖目的地；
+- 创建订单前必须保证商品和 SKU 一致；
+- 收货地址需要经过校验；
+- 支付属于高风险操作，不应由普通 AI 工具直接处理。
+
+WebMCP 可以把这些业务边界包装成工具，让模型按照业务顺序调用，而不是直接拼装底层请求。
+
+因此，WebMCP 的重点不是「让 AI 调一个 API」，而是：
+
+> 将页面当前可执行、可验证、可控风险的业务能力，以结构化工具的方式交给模型。
+
+## 二、WebMCP 与传统服务端 MCP 的区别
+
+这里需要区分两个层面：
+
+- WebMCP 作为一种通用概念；
+- 当前项目对 WebMCP 的具体实现。
+
+当前仓库没有引入官方 MCP SDK，也没有实现一个独立的服务端 MCP Server。项目使用的是自定义的 `WebMcpTool` 和 `WebMcpModelContext` 类型，依赖浏览器页面中的 `document.modelContext`。
+
+### 1. 传统服务端 MCP
+
+传统服务端 MCP 通常具有以下特点：
+
+- 工具注册在独立服务或后端进程中；
+- 模型通过协议或网络连接调用工具；
+- 工具生命周期与某个具体网页页面相对独立；
+- 服务端可以直接访问数据库、内部 API 或第三方服务；
+- 工具通常面向更广泛的应用场景。
+
+### 2. 当前项目中的 WebMCP
+
+当前项目的实现具有以下特点：
+
+- 工具注册发生在浏览器页面中；
+- 注册入口是可选的 `document.modelContext`；
+- 工具依赖当前页面的状态、浏览器环境和前端 Store；
+- 工具可以直接调用现有前端业务函数；
+- 写操作可以直接改变购物车或触发页面跳转；
+- 工具注册与页面组件生命周期绑定；
+- 页面不存在 `document.modelContext` 时，不注册任何 WebMCP 工具。
+
+| 对比项 | 传统服务端 MCP | 当前项目的 WebMCP |
+| --- | --- | --- |
+| 工具运行位置 | 独立服务端进程 | 浏览器页面 |
+| 注册入口 | MCP Server | `document.modelContext` |
+| 工具上下文 | 服务端运行环境 | 当前页面、浏览器和前端 Store |
+| 数据访问 | 服务端 API、数据库 | 现有前端请求函数和页面状态 |
+| 页面交互 | 通常不直接控制页面 | 可以通过 `window.location.assign` 进入结账页 |
+| 生命周期 | 服务进程级别 | React App 生命周期 |
+| 当前仓库类型 | 通用 MCP 服务未实现 | 自定义 `WebMcpTool` 类型 |
+
+需要特别注意：
+
+> `WebMcpTool` 是当前项目定义的 TypeScript 类型，不应描述为官方 MCP SDK 类型。
+
+## 三、当前项目的 WebMCP 架构
+
+当前实现大致分为 5 层。
+
+### 1. 页面入口层：`src/pages/_app.tsx`
+
+`MyApp` 中通过 `useEffect` 检查：
+
+```ts
+document.modelContext
+```
+
+只有浏览器提供了该对象时，页面才会动态加载 WebMCP 注册模块。
+
+这样做有两个好处：
+
+- 服务端渲染时不会访问不存在的 `document`；
+- 不支持 WebMCP 的浏览器不会影响页面正常运行。
+
+### 2. 类型契约层：`src/features/webmcp/types.ts`
+
+该文件定义了项目自己的工具类型：
+
+```ts
+export type WebMcpTool = {
+  name: string
+  title?: string
+  description: string
+  inputSchema: Record<string, unknown>
+  execute: (input: unknown) => string | Promise<string>
+  annotations?: {
+    readOnlyHint?: boolean
+    untrustedContentHint?: boolean
+  }
+}
+```
+
+同时定义了页面上下文：
+
+```ts
+export type WebMcpModelContext = {
+  registerTool: (tool: WebMcpTool, options?: { signal?: AbortSignal }) => Promise<void>
+}
+```
+
+### 3. 注册适配层：`src/features/webmcp/register.ts`
+
+`registerWebMcpTools` 负责：
+
+1. 创建 `AbortController`；
+2. 遍历 `webMcpTools`；
+3. 调用 `modelContext.registerTool`；
+4. 将同一个 `AbortSignal` 传给所有注册操作；
+5. 任意注册失败时终止其他注册；
+6. 返回 `AbortController`，交给调用方管理生命周期。
+
+### 4. 工具实现层：`src/features/webmcp/tools.ts`
+
+该文件负责定义 8 个工具，并连接现有业务能力，例如：
+
+- `getPublicSearchFilter`
+- `checkUniversalMatch`
+- `getProductDetailV2`
+- `verifyZipcode`
+- `getEstimateSingle`
+- `onAddToCart`
+- `createBynowOrder`
+- `checkAddress`
+- `updateOrderV6`
+
+每个工具都遵循同样的结构：
+
+```ts
+const tool: WebMcpTool = {
+  name,
+  title,
+  description,
+  inputSchema,
+  annotations,
+  execute,
+}
+```
+
+### 5. 归一化和返回值层：`src/features/webmcp/utils.ts`
+
+该文件主要解决两个问题：
+
+- 统一后端返回的数据结构；
+- 统一 AI 能够理解的成功和失败格式。
+
+典型函数包括：
+
+- `normalizeVehicle`
+- `normalizeVin`
+- `buildVehicleSearchParams`
+- `normalizeAmount`
+- `normalizeSearchItem`
+- `normalizeProductDetail`
+- `normalizeShippingEstimate`
+- `toolSuccess`
+- `toolFailure`
+
+## 四、WebMCP 注册与购物流程
+
+### 1. 工具注册流程
+
+```mermaid
+flowchart TD
+    A["浏览器加载 Next.js 页面"] --> B{"document.modelContext 是否存在？"}
+    B -->|"否"| C["跳过 WebMCP 注册"]
+    B -->|"是"| D["MyApp 中的 useEffect 执行"]
+    D --> E["动态 import registerWebMcpTools"]
+    E --> F["创建 AbortController"]
+    F --> G["遍历 webMcpTools"]
+    G --> H["modelContext.registerTool(tool, { signal })"]
+    H --> I["8 个 WebMCP 工具注册完成"]
+    D -. "组件销毁" .-> J["controller.abort()"]
+    H -. "任意注册失败" .-> K["中止全部注册并抛出异常"]
+    K --> L["MyApp 捕获异常并输出 warning"]
+```
+
+### 2. 电商工具调用流程
+
+```mermaid
+flowchart TD
+    A["用户提出配件需求"] --> B["search_parts"]
+    B --> C{"是否需要 VIN？"}
+    C -->|"需要"| D["decode_vin"]
+    C -->|"已有车型"| E["使用车型信息"]
+    D --> E
+    E --> F["check_part_fitment"]
+    F --> G{"适配状态是否为 FIT？"}
+    G -->|"否"| H["停止当前商品流程"]
+    G -->|"是"| I["get_part_details"]
+    I --> J["estimate_delivery"]
+    J --> K{"用户选择后续操作"}
+    K -->|"加入购物车"| L["add_to_cart"]
+    K -->|"立即结账"| M["create_checkout_order"]
+    M --> N["进入收货地址步骤"]
+    N --> O["confirm_checkout_address"]
+    O --> P{"是否需要选择配送方案？"}
+    P -->|"是"| Q["进入 shippingMethod"]
+    P -->|"否"| R["进入 paymentMethod"]
+    R --> S["由真实结账页面完成支付"]
+```
+
+当前代码支持的是「工具驱动的页面流程」，并不代表模型可以绕过页面直接操作支付系统。
+
+## 五、工具是如何被模型理解和调用的
+
+### 1. `WebMcpTool` 的统一契约
+
+当前项目通过 `WebMcpTool` 统一描述工具，而不是为每个工具设计一套完全不同的注册方式。
+
+一个工具至少包含：
+
+| 字段 | 作用 |
+| --- | --- |
+| `name` | 模型调用时使用的稳定工具名称 |
+| `title` | 面向用户或宿主界面的可读标题 |
+| `description` | 告诉模型工具用途、返回值和限制 |
+| `inputSchema` | 描述输入参数结构 |
+| `execute` | 真实执行逻辑 |
+| `annotations` | 标注工具行为特征 |
+
+例如：
+
+```ts
+export const getPartDetailsTool: WebMcpTool = {
+  name: 'get_part_details',
+  title: 'Get part details',
+  description: 'Get concise product details for an A-Premium part by SEO URL.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      seoUrl: {
+        type: 'string',
+        description: 'Product SEO URL from search results or the current product page',
+      },
+    },
+    required: ['seoUrl'],
+  },
+  annotations: readOnlyAnnotations,
+  execute: input =>
+    safeExecute(async () => {
+      // 具体实现
+    }),
+}
+```
+
+### 2. Schema 描述与运行时校验是两回事
+
+`inputSchema` 主要用于描述工具参数结构，但当前项目的 `execute` 函数仍然会再次做运行时校验。
+
+例如：
+
+```ts
+const source = asInput(input)
+const seoUrl = requiredString(source, 'seoUrl')
+if (!seoUrl) {
+  return toolFailure('INVALID_INPUT', 'seoUrl 不能为空')
+}
+```
+
+这意味着：
+
+- Schema 负责帮助模型理解参数；
+- `execute` 负责在真实执行前保护业务逻辑；
+- 不能只依赖模型是否正确生成了 Schema 参数。
+
+## 六、当前实现的 8 个 WebMCP 工具
+
+### 1. 工具职责概览
+
+| 工具 | 核心职责 |
+| --- | --- |
+| `search_parts` | 按关键词、分类和车型搜索汽车配件 |
+| `decode_vin` | 将 VIN 解析为车型信息 |
+| `check_part_fitment` | 校验指定 SKU 是否适配车型 |
+| `get_part_details` | 获取商品详情、价格、库存和配送信息 |
+| `estimate_delivery` | 校验 ZIP / postal code 并估算配送方案 |
+| `add_to_cart` | 将指定 SKU 加入当前购物车 |
+| `create_checkout_order` | 创建 buy-now 结账订单草稿 |
+| `confirm_checkout_address` | 校验并更新收货地址，推进结账步骤 |
+
+### 2. 工具参数和状态影响
+
+| 工具名称 | 读 / 写 | 主要输入参数 | 返回内容 | 是否改变页面、购物车或订单状态 | 关键限制 |
+| --- | --- | --- | --- | --- | --- |
+| `search_parts` | 读操作 | `keyword`、`categorySeoUrl`、可选 `vehicle`、`page`、`size`、`sort` | 查询信息、车型、总数、归一化商品列表 | 否 | `keyword` 和 `categorySeoUrl` 至少提供一个；`page` 限制在 1～100，`size` 限制在 1～20 |
+| `decode_vin` | 读操作 | `vin` | 归一化 VIN 和车型信息 | 不改变当前车型 Store | VIN 必须是 17 位，不能包含 `I`、`O`、`Q`；解析不到完整车型时失败 |
+| `check_part_fitment` | 读操作 | `itemId`、`skuId`、可选 `vehicle` | 车型和 `fitment.status`、`fitment.note` | 否 | 必须有车型和 `attributeValueId` |
+| `get_part_details` | 读操作 | `seoUrl` | 商品 ID、SKU、SEO 信息、价格、库存、保修、评价和物流列表 | 否 | `seoUrl` 不能为空；商品不存在返回 `NOT_FOUND` |
+| `estimate_delivery` | 读操作 | `itemId`、可选 `skuId`、`zipcode` | ZIP 位置、`canSale`、配送方案、价格和时间 | 否 | `itemId` 和 `zipcode` 必填；ZIP 无效时失败 |
+| `add_to_cart` | 写操作 | `itemId`、`skuId`、可选 `seoId`、`attributeValueId`、`quantity` | 已加入商品、购物车 UUID、商品数量和购物车列表 | 改变购物车状态 | `quantity` 限制在 1～20；当前工具本身不通过 `seoUrl` 做商品一致性校验 |
+| `create_checkout_order` | 写操作 | `itemId`、`skuId`、`seoUrl`、可选 `quantity`、`attributeValueId` | `orderId`、订单状态、结账 URL 和商品信息 | 创建订单草稿并跳转地址步骤 | 商品详情中的 ID 和 SKU 必须与输入匹配；不处理支付信息 |
+| `confirm_checkout_address` | 写操作 | `orderId`、`addressConfirmed`、`address`、可选 `useStandardizedAddress` | 地址摘要、订单商品、下一结账步骤和 URL | 更新订单地址并跳转运输或支付步骤 | `addressConfirmed` 必须严格为 `true`；地址必须满足必填字段并经过校验 |
+
+## 七、工具注册的生命周期管理
+
+### 1. 只在浏览器环境中运行
+
+`src/pages/_app.tsx` 中的注册逻辑首先检查：
+
+```ts
+if (typeof document === 'undefined' || !document.modelContext) return
+```
+
+这说明当前实现具有两个明确边界：
+
+- 服务端渲染阶段不访问 `document`；
+- 浏览器没有 `modelContext` 时不启用 WebMCP。
+
+项目没有实现轮询或延迟等待机制。如果页面初始化时 `document.modelContext` 不存在，当前 `useEffect` 会直接结束。
+
+### 2. 使用动态导入降低页面耦合
+
+注册模块通过动态导入加载：
+
+```ts
+const { registerWebMcpTools } = await import('@/features/webmcp/register')
+```
+
+这样做使 WebMCP 注册逻辑不会在服务端渲染阶段直接执行，也避免在不支持 WebMCP 的环境中提前加载相关模块。
+
+### 3. 使用 `AbortController` 取消注册
+
+`register.ts` 中创建一个控制器：
+
+```ts
+const controller = new AbortController()
+```
+
+然后将同一个 signal 传递给所有工具注册：
+
+```ts
+await Promise.all(
+  webMcpTools.map(tool =>
+    modelContext.registerTool(tool, {
+      signal: controller.signal,
+    }),
+  ),
+)
+```
+
+如果任意工具注册失败：
+
+```ts
+catch (error) {
+  controller.abort()
+  throw error
+}
+```
+
+这可以避免出现「一部分工具注册成功、另一部分工具失败」但页面仍然继续使用不完整工具集合的情况。
+
+### 4. 处理组件销毁和异步竞态
+
+`_app.tsx` 同时使用了 `disposed` 标记：
+
+```ts
+let disposed = false
+let controller: AbortController | undefined
+```
+
+注册完成后再次判断：
+
+```ts
+if (disposed) controller.abort()
+```
+
+组件销毁时：
+
+```ts
+return () => {
+  disposed = true
+  controller?.abort()
+}
+```
+
+这解决了动态导入和工具注册期间组件已经销毁的问题。
+
+## 八、只读工具与写操作工具
+
+当前项目定义了两组 annotation：
+
+```ts
+const readOnlyAnnotations = {
+  readOnlyHint: true,
+  untrustedContentHint: true,
+}
+const writeAnnotations = {
+  readOnlyHint: false,
+  untrustedContentHint: true,
+}
+```
+
+### 1. `readOnlyHint`
+
+当前代码使用 `readOnlyHint` 区分工具是否会改变业务状态：
+
+- `true`：搜索、查询、校验、估算；
+- `false`：加入购物车、创建订单、更新地址。
+
+这是模型和宿主判断工具行为的重要提示。
+
+### 2. `untrustedContentHint`
+
+当前项目将所有工具都标记为：
+
+```ts
+untrustedContentHint: true
+```
+
+说明工具返回的数据应该被视为来自外部业务系统的内容，模型不应把它当成绝对可信的系统指令。
+
+需要注意：
+
+> 当前代码中的 annotation 是行为提示，不代替 `execute` 内部的业务校验，也不等同于权限系统。
+
+真正的安全控制仍然来自：
+
+- 必填参数检查；
+- 商品详情重新查询；
+- `itemId` 和 `skuId` 一致性校验；
+- 地址校验；
+- 明确确认字段；
+- 页面负责处理支付。
+
+## 九、归一化函数：让 AI 看到稳定的数据结构
+
+电商后端数据通常存在多种字段形态。当前项目没有把原始响应直接返回给 AI，而是在 `utils.ts` 中做归一化。
+
+### 1. 车型归一化
+
+`normalizeVehicle` 可以处理嵌套对象和扁平字段。
+
+例如，它可以识别：
+
+```json
+{
+  "Year": { "id": "2020", "text": "2020" },
+  "Make": { "id": "honda", "text": "Honda" },
+  "Model": { "id": "civic", "text": "Civic" }
+}
+```
+
+也可以处理类似：
+
+```json
+{
+  "yearId": "2020",
+  "yearName": "2020",
+  "makeId": "honda",
+  "makeName": "Honda"
+}
+```
+
+归一化后统一得到：
+
+```ts
+{
+  year,
+  yearName,
+  make,
+  makeName,
+  model,
+  modelName,
+  trim,
+  trimName,
+  engine,
+  engineName,
+  attributeValueId,
+  allAttributeValue,
+}
+```
+
+其中：
+
+- `attributeValueId` 优先使用发动机、配置、车型、品牌或年份中更细粒度的 ID；
+- `allAttributeValue` 默认由年份、品牌和型号组成，例如 `2020-Honda-Civic`。
+
+### 2. VIN 归一化和校验
+
+`normalizeVin` 会：
+
+- 转换为大写；
+- 删除非字母数字字符；
+- 删除 `I`、`O`、`Q`；
+- 截取前 17 位。
+
+但 `isValidVin` 会对原始输入进行严格检查：
+
+```ts
+if (raw.includes('I') || raw.includes('O') || raw.includes('Q')) {
+  return false
+}
+return /^[A-HJ-NPR-Z0-9]{17}$/.test(raw)
+```
+
+因此，工具执行时即使 `normalizeVin` 能够清理字符串，只要原始 VIN 包含 `I`、`O`、`Q`，仍然会返回 `INVALID_VIN`。
+
+### 3. 金额归一化
+
+`normalizeAmount` 支持多种输入形式：
+
+```ts
+1299
+"12.99"
+{
+  cent: 1299,
+  precision: 2,
+  currency: "USD"
+}
+```
+
+对于带 `cent` 的金额，会计算：
+
+```ts
+value = cent / 10 ** precision
+```
+
+最终统一为：
+
+```ts
+{
+  cent?: number
+  precision: number
+  currency: string
+  value: number
+}
+```
+
+这样，模型不需要判断某个后端字段究竟是金额字符串、浮点金额还是最小货币单位。
+
+### 4. 商品和配送归一化
+
+以下函数分别统一了不同场景的数据：
+
+- `normalizeSearchItem`：搜索结果；
+- `normalizeProductDetail`：商品详情；
+- `normalizeCheckoutShippingItem`：结账商品和配送模板；
+- `normalizeShippingEstimate`：配送估算结果。
+
+例如，商品搜索项最终会稳定返回：
+
+```ts
+{
+  id,
+  skuId,
+  seoId,
+  seoUrl,
+  title,
+  brand,
+  partNumber,
+  price,
+  originalPrice,
+  currency,
+  availableTotal,
+  fitment,
+  vehicleUniversal,
+  imageUrl,
+}
+```
+
+这也是为什么 AI 可以安全地在不同工具之间传递：
+
+- `itemId`；
+- `skuId`；
+- `seoUrl`；
+- `attributeValueId`。
+
+## 十、统一的成功和失败格式
+
+当前项目没有让每个工具自行设计返回结构，而是统一使用：
+
+```ts
+export function toolSuccess(data: unknown): string {
+  return JSON.stringify({ ok: true, data })
+}
+```
+
+和：
+
+```ts
+export function toolFailure(code: string, message: string, details?: unknown): string {
+  return JSON.stringify({
+    ok: false,
+    error: {
+      code,
+      message,
+      ...(details === undefined ? {} : { details }),
+    },
+  })
+}
+```
+
+成功返回示例：
+
+```json
+{
+  "ok": true,
+  "data": {
+    "itemId": "item-123",
+    "skuId": "sku-456",
+    "canSale": true
+  }
+}
+```
+
+失败返回示例：
+
+```json
+{
+  "ok": false,
+  "error": {
+    "code": "INVALID_ZIPCODE",
+    "message": "ZIP/postal code 无效或暂不支持配送"
+  }
+}
+```
+
+`WebMcpTool` 当前定义的执行函数返回：
+
+```ts
+string | Promise<string>
+```
+
+因此工具统一使用 `JSON.stringify`，将结构化数据编码成字符串返回。
+
+## 十一、如何新增一个 WebMCP 工具
+
+新增工具通常需要完成 3 件事：
+
+1. 定义一个符合 `WebMcpTool` 的对象；
+2. 在 `execute` 中做输入校验、请求和结果归一化；
+3. 将工具加入 `webMcpTools` 数组。
+
+下面是基于当前 `tools.ts` 风格的示意代码。
+
+> 示意代码：以下代码假设直接添加到 `src/features/webmcp/tools.ts`，因此可以复用该文件内已有的 `asInput`、`requiredString`、`safeExecute`、`readOnlyAnnotations`、`toolSuccess` 和 `toolFailure`。
+
+```ts
+export const getPartInventoryTool: WebMcpTool = {
+  name: 'get_part_inventory',
+  title: 'Get part inventory',
+  description: 'Get the available inventory for an A-Premium part by SEO URL.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      seoUrl: {
+        type: 'string',
+        description: 'Product SEO URL from search results or product details',
+      },
+    },
+    required: ['seoUrl'],
+  },
+  annotations: readOnlyAnnotations,
+  execute: input =>
+    safeExecute(async () => {
+      const source = asInput(input)
+      const seoUrl = requiredString(source, 'seoUrl')
+      if (!seoUrl) {
+        return toolFailure('INVALID_INPUT', 'seoUrl 不能为空')
+      }
+      const detail = await getProductDetailV2({
+        seoUrl,
+        shopId: getShopIdByClient(),
+      })
+      if (!detail) {
+        return toolFailure('NOT_FOUND', '未找到对应商品')
+      }
+      const normalized = normalizeProductDetail(detail)
+      return toolSuccess({
+        itemId: normalized.id,
+        skuId: normalized.skuId,
+        availableTotal: normalized.availableTotal,
+      })
+    }),
+}
+```
+
+然后加入工具列表：
+
+```ts
+export const webMcpTools: WebMcpTool[] = [
+  searchPartsTool,
+  decodeVinTool,
+  checkPartFitmentTool,
+  getPartDetailsTool,
+  estimateDeliveryTool,
+  addToCartTool,
+  createCheckoutOrderTool,
+  confirmCheckoutAddressTool,
+  getPartInventoryTool,
+]
+```
+
+新增工具时建议遵循以下原则：
+
+- `name` 保持稳定，不要频繁修改；
+- `description` 明确说明能力边界和副作用；
+- `inputSchema.required` 与实际校验保持一致；
+- `execute` 中继续做运行时校验；
+- 查询类工具使用 `readOnlyAnnotations`；
+- 会改变购物车或订单状态的工具使用 `writeAnnotations`；
+- 外部请求统一放在 `safeExecute` 中；
+- 成功使用 `toolSuccess`；
+- 失败使用 `toolFailure` 和可识别错误码；
+- 尽量返回归一化后的字段；
+- 如果工具会导航或改变状态，需要在描述中明确说明。
+
+## 十二、当前实现的限制与后续演进方向
+
+### 当前限制
+
+#### 1. 工具依赖浏览器页面上下文
+
+当前 WebMCP 工具依赖：
+
+- `document.modelContext`；
+- `window.location`；
+- `useSearchStore`；
+- `useShopCartStore`；
+- 浏览器中的 Cookie 和本地存储。
+
+因此这些工具不是完全独立的服务端能力。
+
+#### 2. 只在 `document.modelContext` 存在时注册
+
+当前代码没有实现：
+
+- `modelContext` 延迟出现后的重试；
+- 浏览器能力探测 UI；
+- 工具注册状态展示；
+- 工具注册失败后的自动恢复。
+
+#### 3. 工具返回值依赖 JSON 字符串
+
+当前 `WebMcpTool.execute` 的契约是：
+
+```ts
+string | Promise<string>
+```
+
+因此所有结果都需要通过 JSON 字符串编码。
+
+#### 4. 订单流程只推进到结账页面
+
+当前实现支持：
+
+- 创建 buy-now 订单草稿；
+- 更新收货地址；
+- 进入配送方式步骤；
+- 进入支付步骤。
+
+当前实现不支持：
+
+- 自动填写银行卡；
+- 自动提交支付；
+- 自动处理支付验证；
+- 自动确认支付成功。
+
+#### 5. 购物车工具的一致性校验相对有限
+
+`create_checkout_order` 会重新获取商品详情并校验 `itemId`、`skuId`。
+
+而 `add_to_cart` 主要依赖传入的 `itemId`、`skuId` 调用 `onAddToCart`，没有通过 `seoUrl` 再做同等程度的商品一致性校验。
+
+### 后续可以演进的方向
+
+可以进一步增加：
+
+- `get_order_status`：查询订单状态；
+- `track_order`：查询物流轨迹；
+- `select_shipping_method`：选择具体配送方案；
+- `get_cart_summary`：读取当前购物车；
+- `remove_from_cart`：删除购物车商品；
+- `update_cart_quantity`：修改数量；
+- `get_return_policy`：查询退换货政策；
+- `create_return_request`：创建退换货申请；
+- 工具注册状态监控；
+- 工具调用日志和审计；
+- 更严格的输入 Schema 校验；
+- 商品、SKU、车型和订单上下文的跨工具状态管理。
+
+## 十三、FAQ
+
+### WebMCP 工具和普通前端函数有什么区别？
+
+普通前端函数主要由页面代码或用户点击事件调用。
+
+WebMCP 工具除了包含执行逻辑，还需要提供：
+
+- 稳定的工具名称；
+- 面向模型的描述；
+- 输入 Schema；
+- 行为 annotation；
+- 统一的结构化返回格式。
+
+因此，WebMCP 工具可以被模型发现和调用，而普通前端函数通常只对项目内部代码可见。
+
+### 为什么工具返回 JSON 字符串？
+
+因为当前项目的 `WebMcpTool` 类型约定：
+
+```ts
+execute: (input: unknown) => string | Promise<string>
+```
+
+项目通过 `toolSuccess` 和 `toolFailure` 把结果统一编码成 JSON 字符串，使模型可以稳定识别：
+
+```text
+ok
+data
+error.code
+error.message
+```
+
+### 为什么要区分读操作和写操作？
+
+搜索、详情、适配和配送估算不会改变业务状态。
+
+加入购物车、创建订单和更新地址会改变用户数据或订单状态。
+
+通过：
+
+```ts
+readOnlyHint: true
+```
+
+和：
+
+```ts
+readOnlyHint: false
+```
+
+可以让模型和宿主更清楚地识别工具副作用，也便于后续增加人工确认、权限控制或审计能力。
+
+### 为什么不能让 AI 直接完成支付？
+
+支付涉及银行卡、支付 Token、二次验证和风控信息。
+
+当前项目的 WebMCP 工具不接收或处理这些数据，只负责把用户带到真实结账页面。支付表单和支付提交仍然由网站结账流程处理，可以减少敏感信息进入模型上下文的风险。
+
+### 如何避免 AI 传错商品或地址参数？
+
+当前实现采用多层保护：
+
+- 搜索和详情结果统一返回 `itemId`、`skuId`、`seoUrl`；
+- 创建订单前重新通过 `seoUrl` 查询商品详情；
+- 对比详情中的商品 ID 和 SKU；
+- 地址字段进入后端校验；
+- `addressConfirmed` 必须严格为 `true`；
+- 错误结果携带明确的错误码；
+- 外部请求异常统一转换为 `REQUEST_FAILED`。
+
+模型仍然不应凭记忆生成商品 ID、SKU 或订单 ID，而应该始终使用上一步工具返回的值。
+
+## 举个例子
+
+搜索商品、查详情和适配状态：
+
+![搜索商品和适配状态](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/1594d4ad-5bc8-4ca2-93f0-37b8dd92c933.png)
+
+加购并下单：
+
+![加购并下单](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/XNkOM5K6w1XKgOY7/img/6bd2d570-c4fb-4d07-b7ac-7161e37d6c78.png)
+
+## 补充限制一：WebMCP 仍处于实验阶段
+
+当前 WebMCP 仍属于 Chrome 的实验性能力。进行本地开发或测试时，需要手动开启 Chrome 实验开关；官方文档当前给出的开关是：
+
+```text
+chrome://flags/#enable-webmcp-testing
+```
+
+开启步骤如下：
+
+1. 打开 Chrome，在地址栏输入：
+
+```text
+chrome://flags/#enable-webmcp-testing
+```
+
+2. 将 `WebMCP for testing` 设置为 `Enabled`。
+3. 点击页面底部的 `Relaunch`，重启 Chrome。
+4. 重新打开 A-Premium 页面，并检查页面是否能够获得：
+
+```ts
+document.modelContext
+```
+
+Chrome 官方说明中，WebMCP 的本地开发版本通过 `enable-webmcp-testing` 开关启用；具体名称和可用版本可能随 Chrome 实验版本变化，实际使用时应以当前 Chrome 页面显示为准。更多信息可参考 [Chrome WebMCP 官方文档](https://developer.chrome.com/docs/ai/webmcp)。
+
+当前项目中的注册逻辑依赖 `document.modelContext`：
+
+```ts
+if (typeof document === 'undefined' || !document.modelContext) return
+```
+
+因此，如果实验功能未开启，页面不会注册 WebMCP 工具，但普通电商页面仍可以正常使用。
+
+## 补充限制二：AI 不会自动识别站内是否提供 WebMCP 工具
+
+GPT 这类 AI 不会仅仅因为打开了一个网页，就自动扫描页面并判断站内是否存在 WebMCP 工具。
+
+在当前项目中，工具能否被 AI 使用，至少依赖以下链路：
+
+1. Chrome 开启 WebMCP 实验能力；
+2. 浏览器或宿主提供 `document.modelContext`；
+3. A-Premium 页面执行 `registerWebMcpTools`；
+4. 页面将 `webMcpTools` 中的工具注册到 `modelContext`；
+5. AI 宿主读取并暴露这些工具；
+6. 模型根据用户意图决定是否调用工具。
+
+也就是说，下面这些工具不会因为写在前端代码中，就自动对所有 AI 可见：
+
+```text
+search_parts
+decode_vin
+check_part_fitment
+get_part_details
+estimate_delivery
+add_to_cart
+create_checkout_order
+confirm_checkout_address
+```
+
+当前项目只负责在 `document.modelContext` 存在时注册工具，并没有实现：
+
+- 自动检测 AI 是否支持 WebMCP；
+- 自动唤起 AI；
+- 向用户展示工具注册状态；
+- 在没有 AI 宿主时主动发现工具；
+- 工具注册失败后的自动重试。
+
+因此，WebMCP 更准确的理解是：
+
+> WebMCP 为网页向 AI 暴露结构化能力提供了机制，但工具发现仍依赖浏览器、AI 宿主和模型之间的完整接入链路。
+
+在实际产品中，可以通过以下方式降低用户理解成本：
+
+- 页面提示当前支持 AI 助手；
+- 开发文档列出可用工具；
+- 测试环境展示 `document.modelContext` 是否存在；
+- 在 AI 宿主中展示当前页面已注册的工具；
+- WebMCP 不可用时提示用户开启 Chrome 实验功能。
+
+Chrome 官方也将 WebMCP 定位为面向浏览器 Agent 的网页工具能力，而不是普通 AI 自动扫描网页后即可使用的接口。更多信息可参考 [WebMCP 与 MCP 的关系说明](https://developer.chrome.com/docs/ai/webmcp/compare-mcp)。
+8:[["$","$L13",null,{}],["$","main",null,{"className":"min-h-screen bg-background pt-24 pb-16 px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-6xl mx-auto","children":[["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-4","children":[["$","span",null,{"className":"px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full","children":"AI"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"2026-09-15"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"·"}],["$","span",null,{"className":"text-sm text-muted-foreground","children":"12 分钟"}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4 leading-tight","children":"WebMCP 在电商网站中的落地实践"}],["$","p",null,{"className":"text-lg text-muted-foreground leading-relaxed","children":"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"}],["$","div",null,{"className":"flex flex-wrap gap-2 mt-4","children":[["$","span","WebMCP",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","WebMCP"]}],["$","span","MCP",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","MCP"]}],["$","span","电商",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","电商"]}],["$","span","AI Agent",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","AI Agent"]}],["$","span","前端架构",{"className":"px-2.5 py-0.5 text-xs bg-secondary text-muted-foreground rounded-md","children":["#","前端架构"]}]]}]]}],["$","$L14",null,{"content":"$15"}],"$L16"]}]}],"$L17"]
+18:I[76841,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js","/_next/static/chunks/12ikvmw31x79x.js","/_next/static/chunks/08~fq5w8zrgnt.js","/_next/static/chunks/0ebdi26zoura9.js"],"Footer"]
+16:["$","nav",null,{"className":"mt-12 pt-8 border-t border-border","children":["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-2 gap-4","children":[["$","a",null,{"href":"/blog/svg-assets-similarity-methodology","className":"group p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors","children":[["$","span",null,{"className":"text-xs text-muted-foreground","children":"← 上一篇"}],["$","p",null,{"className":"text-sm font-medium text-foreground mt-1 group-hover:text-primary transition-colors","children":"SVG 资源相似度判断：定义、评分与迁移边界"}]]}],null]}]}]
+17:["$","$L18",null,{}]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0f172a"}]]
+19:I[27201,["/_next/static/chunks/0u4~2urk8vz72.js","/_next/static/chunks/0t2xr05rlu96l.js"],"IconMark"]
+b:null
+10:[["$","title","0",{"children":"WebMCP 在电商网站中的落地实践 | 博客"}],["$","meta","1",{"name":"description","content":"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"}],["$","meta","2",{"name":"application-name","content":"Personal Space"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"generator","content":"v0.app"}],["$","meta","5",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","6",{"name":"apple-mobile-web-app-title","content":"Personal Space"}],["$","meta","7",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","8",{"property":"og:title","content":"WebMCP 在电商网站中的落地实践"}],["$","meta","9",{"property":"og:description","content":"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"}],["$","meta","10",{"property":"og:type","content":"article"}],["$","meta","11",{"property":"article:published_time","content":"2026-09-15"}],["$","meta","12",{"property":"article:tag","content":"WebMCP"}],["$","meta","13",{"property":"article:tag","content":"MCP"}],["$","meta","14",{"property":"article:tag","content":"电商"}],["$","meta","15",{"property":"article:tag","content":"AI Agent"}],["$","meta","16",{"property":"article:tag","content":"前端架构"}],["$","meta","17",{"name":"twitter:card","content":"summary"}],["$","meta","18",{"name":"twitter:title","content":"WebMCP 在电商网站中的落地实践"}],["$","meta","19",{"name":"twitter:description","content":"结合 A-Premium 汽车配件电商场景，梳理 WebMCP 如何在浏览器页面中注册搜索、适配校验、购物车和结账等 AI 可调用工具。"}],["$","link","20",{"rel":"icon","href":"/icons/icon-192x192.png","sizes":"192x192","type":"image/png"}],["$","link","21",{"rel":"icon","href":"/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}],["$","link","22",{"rel":"apple-touch-icon","href":"/apple-touch-icons/apple-touch-icon-180x180.png"}],["$","$L19","23",{}]]
